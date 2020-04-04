@@ -4,21 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COVID-19 | Myanmar</title>
+    <title>COVID-19 | Myanmar Tracker</title>
     <meta name="description" content="Track the spread of Coronavirus (COVID-19) in Myanmar">
     <meta name="keywords" content="coronavirus,corona,covid,covid19,covid-19,covidmyanmar,myanmar,burma,virus">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.covid19burma.org">
     <meta property="og:title" content="COVID-19 | Myanmar">
     <meta property="og:description" content="Track the spread of Coronavirus (COVID-19) in Myanmar">
-    <link rel="stylesheet" href="./css/bulma.css?v=c298c7f8233d">
-    <link rel="stylesheet" href="./css/app.css?v=c298c7f8234d">
+    <link rel="stylesheet" href="./css/bulma.css?v=c298c6f8233d">
+    <link rel="stylesheet" href="./css/app.css?v=c298c7f8232d">
     <script src="./js/jquery.js"></script>
+    <link rel='shortcut icon' type='image/x-icon' href='./favicon.ico' />
 </head>
     <body>
         <nav class="navbar is-black is-fixed-top" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
-                <a class="navbar-item" href="/">
+                <a class="navbar-item" href="">
+                    <img src="./img/virus.png" class="mr-10" alt="Virus Logo">
                     Covid-19 | Myanmar
                 </a>
                 <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -71,7 +73,7 @@
             <div class="columns mt-70">
                 <div class="column">
                     <div id="quote" class="help-container">
-                        <p style="color:#c9c9f5">လက်ကို ဆပ်ပြာနှင့် ရေဖြင့် မကြာခဏဆေးကြောပါ</p>
+                        <p style="color:#c9c9f5">🧼လက်ကို ဆပ်ပြာနှင့် ရေဖြင့် မကြာခဏဆေးကြောပါ။</p>
                     </div>
                 </div>
             </div>
@@ -130,6 +132,6 @@
 
     <script src="./js/app.js?v=c298c7f8233d"></script>
     <script src="./js/counterup.js?v=c298c7f8233d" type="module"></script>
-    <script src="./js/main.js?v=c298c7f8233d" type="module"></script>
+    <script src="./js/main.js?v=c298c7f8223d" type="module"></script>
     <script src="./js/quota.js"></script>
 </html>
