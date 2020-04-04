@@ -12,7 +12,7 @@
     <meta property="og:title" content="COVID-19 | Myanmar">
     <meta property="og:description" content="Track the spread of Coronavirus (COVID-19) in Myanmar">
     <link rel="stylesheet" href="./css/bulma.css?v=c298c7f8233d">
-    <link rel="stylesheet" href="./css/app.css?v=c298c7f8233d">
+    <link rel="stylesheet" href="./css/app.css?v=c298c7f8234d">
     <script src="./js/jquery.js"></script>
 </head>
     <body>
@@ -99,14 +99,13 @@
                     <div class="modal-background"></div>
                     <div class="modal-card">
                         <header class="modal-card-head">
-                            <p class="modal-card-title" style="margin-bottom: 0px;">Initiative by</p>
+                            <p class="modal-card-title" style="margin-bottom: 0px;">Developed by</p>
                             <button class="delete close_author" aria-label="close"></button>
                         </header>
                         <section class="modal-card-body">
                             <div class="">
-                                <img src="./img/kanhaiya.png" alt="" class="circular_image" style="">
-                                <a href="mailto:kanaiyaaryal@gmail.com" style="color:white">Kanhaiya Aryal (Kyaw
-                                    Thura)</a>
+                                <!-- <img src="./img/kanhaiya.png" alt="" class="circular_image" style=""> -->
+                                <a href="mailto:verdant.pte.ltd@gmail.com" style="color:white">Verdant Team</a>
                             </div>
                         </section>
                     </div>
