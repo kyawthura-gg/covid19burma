@@ -7,15 +7,15 @@
                 <div class="total-box">
                     <div>
                         <label class="case-font" id="confirmed">0</label>
-                        <p>CONFIRMED</p>
+                        <p>CONFIRMED 🤕</p>
                     </div>
                     <div>
                         <label class="death-font" id="deaths">0</label>
-                        <p>DEATHS</p>
+                        <p>DEATHS 💔</p>
                     </div>
                     <div>
                         <label class="recover-font" id="recovered">0</label>
-                        <p>RECOVERED</p>
+                        <p>RECOVERED 🤩</p>
                     </div>
 
                 </div>
