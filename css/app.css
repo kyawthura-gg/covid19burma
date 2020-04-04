@@ -1,0 +1,248 @@
+html {
+    background-color: black;
+    scrollbar-color: gray black;
+}
+
+svg {
+    width: 330px;
+}
+
+path {
+    stroke: #fbe4e5;
+    pointer-events: all;
+}
+
+path:hover {
+    /* fill: #6973ff; */
+    fill: red;
+}
+
+.enabled {
+    /* fill: #21669E; */
+    cursor: pointer;
+}
+
+.description {
+    text-align: left;
+    pointer-events: none;
+    position: absolute;
+    font-size: 18px;
+    text-align: center;
+    background: black;
+    padding: 10px 15px;
+    z-index: 5;
+    height: auto;
+    line-height: 30px;
+    margin: 0 auto;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 0 1px gray;
+    display: none;
+    padding-right: 30px;
+}
+
+.active {
+    display: block;
+}
+
+.mm-map {
+    padding-left: 10px;
+    width: 10em;
+    /* position: absolute; */
+    /* left: 40%; */
+}
+
+.title-font {
+    font-size: 30px;
+}
+
+.case-font {
+    font-size: 35px;
+    color: red;
+    font-weight: bold;
+}
+
+.recover-font {
+    font-size: 35px;
+    color: green;
+    font-weight: bold;
+}
+
+.death-font {
+    font-size: 35px;
+    color: #d4c3c1;
+    font-weight: bold;
+}
+
+.confirm-font {
+    font-size: 16px;
+}
+
+.total-box {
+    padding: 18px;
+    background-color: #141414;
+    color: white;
+    border-color: #fff;
+    border: solid 1px #fff;
+    height: auto;
+    border-radius: 20px;
+}
+.bottom-box {
+    width: 100px;
+    padding: 5px;
+    background-color: #141414;
+    color: white;
+    border-color: #fff;
+    border: solid 1px #fff;
+    height: auto;
+    border-radius: 10px;
+    text-align: center;
+    /* font-size: 20px; */
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.description .case-font,
+.description .death-font,
+.mt-10 {
+    margin-top: 15px;
+}
+.container {
+    margin-top: 100px;
+}
+.content {
+    /* margin-top: 50px; */
+    padding: 20px;
+    padding-top: 0px;
+}
+
+.burma-font {
+    font-size: 25px;
+}
+
+.contact-font {
+    font-size: 20px;
+}
+
+.circular_image {
+    width: 60px;
+    height: 60px;
+    border-radius: 60%;
+    overflow: hidden;
+    border: solid 3px #fff;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.circular_image img {
+    width: 100%;
+}
+.status-div {
+    text-align: left;
+    margin-top: -150px;
+    padding-left: 30px;
+}
+.status-div p {
+    margin-left: 85px;
+    color: white;
+    font-weight: bold;
+}
+.status-div div {
+    margin-bottom: 3px;
+}
+.status-label {
+    width: 70px;
+    height: 20px;
+    position: absolute;
+}
+.one_10 {
+    background-color: #f5c8b4;
+}
+.ten_30 {
+    background-color: #eb7a5d;
+}
+.thirty_99 {
+    background-color: #da4c3b;
+}
+.plus {
+    background-color: #ad2b26;
+}
+
+.modal-card-body p {
+    color: white;
+}
+.modal-card {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    margin: 0px;
+    border: solid 2px #fff;
+    border-radius: 10px;
+}
+#id_faq_modal p {
+    margin-bottom: 2px;
+    font-size: 20px;
+}
+.mt-10 {
+    margin-top: 20px;
+}
+.answer_p {
+    font-weight: bold;
+    font-size: 24px;
+}
+.modal-card-title {
+    font-size: 30px;
+}
+.navbar-brand .navbar-item {
+    font-size: 26px;
+    font-weight: 600;
+}
+.center-div {
+    position: fixed;
+    /* top: 40%; */
+    left: 50%;
+    -webkit-transform: translate(-50%, 0%);
+    transform: translate(-50%, 0%);
+}
+.center-div p {
+    color: white;
+    font-size: 20px;
+    font-weight: bolder;
+}
+.center-div a {
+    font-size: 19px;
+    font-weight: bold;
+}
+.help-container {
+    margin-bottom: 30px;
+}
+.help-container p {
+    font-size: 25px;
+    font-weight: 600;
+}
+#quote {
+    text-align: center;
+}
+.mt-70 {
+    margin-top: 70px;
+}
+
+@media only screen and (max-width: 600px) {
+    .initiative {
+        display: block;
+    }
+    .center-div {
+        position: absolute;
+        /* top: 40%; */
+        left: 0%;
+        -webkit-transform: translate(0%, 0%);
+        transform: translate(0%, 0%);
+        padding: 20px;
+    }
+    .bottom-box {
+        width: 100%;
+    }
+}
