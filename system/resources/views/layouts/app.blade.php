@@ -31,10 +31,10 @@
             <div id="navbarBasicExample" class="is-black navbar-menu">
                 <div class="navbar-start">
 
-                    <a class="navbar-item" href="/home">
+                    <a class="navbar-item" href="home">
                         Home
                     </a>
-                    <a class="navbar-item" href="/help">
+                    <a class="navbar-item" href="help">
                         Helpful Links
                     </a>
                     <div class="navbar-item has-dropdown is-hoverable">
