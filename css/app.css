@@ -197,8 +197,8 @@ path:hover {
     font-size: 30px;
 }
 .navbar-brand .navbar-item {
-    font-size: 26px;
-    font-weight: 600;
+    font-size: 23px;
+    font-weight: 500;
 }
 .center-div {
     position: fixed;
@@ -228,6 +228,9 @@ path:hover {
 }
 .mt-70 {
     margin-top: 70px;
+}
+.mr-10{
+    margin-right: 10px;
 }
 
 @media only screen and (max-width: 600px) {
