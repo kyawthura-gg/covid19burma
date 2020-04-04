@@ -33,6 +33,10 @@ window.setInterval(function() {
             text:
                 "ဖဝါး၊ ဖမိုး၊ လက်ခေါက်ချိုး၊ လက်ကြားလက်မ မကျန်ရ၊ ကုတ်၍ ခြစ်ပါ လက္ခဏာ၊ လက်ကောက်ဝတ်မှာ အဆုံးသတ်ပါ။🤲"
         }
+        //{
+           // text:
+              //  "လူစုလူဝေး ရှောင်ကြည်ပါ။❌"
+        //}
 
     ];
     var quote = quotes[Math.floor(Math.random() * quotes.length)];
