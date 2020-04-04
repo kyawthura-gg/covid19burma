@@ -132,6 +132,6 @@
 
     <script src="./js/app.js?v=c298c7f8233d"></script>
     <script src="./js/counterup.js?v=c298c7f8233d" type="module"></script>
-    <script src="./js/main.js?v=c298c7f8223d" type="module"></script>
-    <script src="./js/quota.js"></script>
+    <script src="./js/main.js?v=c298c7f8213d" type="module"></script>
+    <script src="./js/quota.js?v=c298c7f8213d"></script>
 </html>
