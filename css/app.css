@@ -57,19 +57,19 @@ path:hover {
 }
 
 .case-font {
-    font-size: 35px;
+    font-size: 26px;
     color: red;
     font-weight: bold;
 }
 
 .recover-font {
-    font-size: 35px;
+    font-size: 26px;
     color: green;
     font-weight: bold;
 }
 
 .death-font {
-    font-size: 35px;
+    font-size: 26px;
     color: #d4c3c1;
     font-weight: bold;
 }
@@ -250,3 +250,24 @@ path:hover {
         width: 100%;
     }
 }
+.box-h{
+    height: 265px;
+}
+.box-h p{
+    margin-top: -5px;
+}
+.right-line{
+    border-right: solid 1px;
+    width: 47%;
+}
+.ml-20{
+    margin-left:20px;
+}
+.box-flex{
+    display:inline;
+    float:left;
+}
+.box-flex div{
+    margin-bottom: 10px;
+}
+
