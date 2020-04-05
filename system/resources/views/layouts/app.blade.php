@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="./css/bulma.css?v=c298c6f8233d">
     <link rel="stylesheet" href="./css/app.css?v=c298c7f8232d">
     <script src="./js/jquery.js"></script>
+    <script type="text/javascript" src="./js/chart.min.js"></script>
     <link rel='shortcut icon' type='image/x-icon' href='./favicon.ico' />
 </head>
     <body>
@@ -137,4 +138,5 @@
     <script src="./js/counterup.js?v=c298c7f8233d" type="module"></script>
     <script src="./js/main.js?v=c298c7f8213d" type="module"></script>
     <script src="./js/quota.js?v=c298c7f8213d"></script>
+
 </html>
