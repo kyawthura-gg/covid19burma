@@ -4,19 +4,38 @@
 <div class="content">
         <div class="columns">
             <div class="column is-one-quarter">
-                <div class="total-box">
-                    <div>
-                        <label class="case-font" id="confirmed">0</label>
-                        <p>CONFIRMED 🤕</p>
+                <div class="total-box box-h">
+                    <div class="right-line box-flex">
+                        <label>In Myanmar</label>
+                        <div>
+                            <label class="case-font" id="confirmed">0</label>
+                            <p>CONFIRMED 🤕</p>
+                        </div>
+                        <div>
+                            <label class="death-font" id="deaths">0</label>
+                            <p>DEATHS 💔</p>
+                        </div>
+                        <div>
+                            <label class="recover-font" id="recovered">0</label>
+                            <p>RECOVERED 🤩</p>
+                        </div>
                     </div>
-                    <div>
-                        <label class="death-font" id="deaths">0</label>
-                        <p>DEATHS 💔</p>
+                    <div class="box-flex ml-20">
+                        <label>In World</label>
+                        <div>
+                            <label class="case-font" id="golobal-confirmed">0</label>
+                            <p>CONFIRMED 🤕</p>
+                        </div>
+                        <div>
+                            <label class="death-font" id="golobal-deaths">0</label>
+                            <p>DEATHS 💔</p>
+                        </div>
+                        <div>
+                            <label class="recover-font" id="golobal-recovered">0</label>
+                            <p>RECOVERED 🤩</p>
+                        </div>
                     </div>
-                    <div>
-                        <label class="recover-font" id="recovered">0</label>
-                        <p>RECOVERED 🤩</p>
-                    </div>
+                    
 
                 </div>
                 <div class="total-box" style="margin-top: 20px;">
