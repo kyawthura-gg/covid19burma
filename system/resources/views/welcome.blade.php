@@ -36,6 +36,10 @@
         </a>
 
         <a class="navbar-item">
+            About Us
+        </a>
+
+        <a class="navbar-item">
             Helpful Links
         </a>
 
