@@ -12,7 +12,7 @@
     <meta property="og:title" content="COVID-19 | Myanmar">
     <meta property="og:description" content="Track the spread of Coronavirus (COVID-19) in Myanmar">
     <link rel="stylesheet" href="./css/bulma.css?v=c298c6f8233d">
-    <link rel="stylesheet" href="./css/app.css?v=c298c7f8232d">
+    <link rel="stylesheet" href="./css/app.css?v=c298c7f832d">
     <script src="./js/jquery.js"></script>
     <script type="text/javascript" src="./js/chart.min.js"></script>
     <link rel='shortcut icon' type='image/x-icon' href='./favicon.ico' />
@@ -137,6 +137,6 @@
     <script src="./js/app.js?v=c298c7f8233d"></script>
     <script src="./js/counterup.js?v=c298c7f8233d" type="module"></script>
     <script src="./js/main.js?v=c298c7f8213d" type="module"></script>
-    <script src="./js/quota.js?v=c298c7f8213d"></script>
+    <script src="./js/quota.js?v=c298c7fa213d"></script>
 
 </html>

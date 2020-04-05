@@ -253,14 +253,6 @@
                             // beginAtZero: true
                         }
                     }],
-                    // xAxes: [{
-                    //     ticks: {
-                    //         fontColor: "white",
-                    //         fontSize: 14,
-                    //         stepSize: 1,
-                    //         beginAtZero: true
-                    //     }
-                    // }]
                 },
                 animation: {
                     duration: 2000,

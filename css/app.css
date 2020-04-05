@@ -216,12 +216,13 @@ path:hover {
     font-size: 19px;
     font-weight: bold;
 }
-.help-container {
+/*.help-container {
     margin-bottom: 30px;
-}
+}*/
 .help-container p {
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 600;
+    height: 70px;
 }
 #quote {
     text-align: center;
