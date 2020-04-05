@@ -31,6 +31,7 @@
                             <p>Emgerceny contact</p>
                     </div> -->
                     <canvas id="myChart" width="400" height="400"></canvas>
+                    <progress id="animationProgress" max="1" value="0" style="width: 100%"></progress>
                 </div>
 
             </div>
@@ -196,42 +197,83 @@
         </div>
     </div>
 <script>
+    var progress = document.getElementById('animationProgress');
     var ctx = document.getElementById('myChart');
     var myChart = new Chart(ctx, {
         type: 'horizontalBar',
-        data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-            datasets: [{
-                labels: [ 'Blue', 'Red' ],
-                data: [12, 19, 3, 5, 2, 3],
-                backgroundColor: [
-                    'red',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
+            data: {
+                labels: ['Yangon', 'Bago', 'Mandalay', 'Nay Pyi Taw', 'Chin', 'Shan'],
+                datasets: [{
+                    label: 'Confirmed Cases',
+                    fill: true,
+                    borderColor: '#eb7a5d',
+                    backgroundColor: '#eb7a5d',
+                    data: [
+                        13,
+                        4,
+                        1,
+                        1,
+                        1,
+                        1,
+                    ]
+                }, {
+                    label: 'Dead',
+                    fill: false,
+                    borderColor: '#ad2b26',
+                    backgroundColor: '#ad2b26',
+                    data: [
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                    ]
                 }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'Dead and confirmed cases by States',
+                    fontColor: "white",
+                    fontSize: 17,
+                },
+                legend: {
+                    display: true,
+                    labels: {
+                        fontColor: 'white',
+                    }
+                },
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            fontColor: "white",
+                            fontSize: 14,
+                            // stepSize: 1,
+                            // beginAtZero: true
+                        }
+                    }],
+                    // xAxes: [{
+                    //     ticks: {
+                    //         fontColor: "white",
+                    //         fontSize: 14,
+                    //         stepSize: 1,
+                    //         beginAtZero: true
+                    //     }
+                    // }]
+                },
+                animation: {
+                    duration: 2000,
+                    onProgress: function(animation) {
+                        progress.value = animation.currentStep / animation.numSteps;
+                    },
+                    onComplete: function() {
+                        window.setTimeout(function() {
+                            progress.value = 0;
+                        }, 2000);
+                    }
+                }
             }
-        }
-    });
+        });
 </script>
 @endsection
