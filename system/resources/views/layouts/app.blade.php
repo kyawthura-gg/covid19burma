@@ -36,6 +36,9 @@
                     <a class="navbar-item" href="home">
                         Home
                     </a>
+                    <a class="navbar-item" href="about">
+                        About Us
+                    </a>
                     <a class="navbar-item" href="help">
                         Helpful Links
                     </a>
