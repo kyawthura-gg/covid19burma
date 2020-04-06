@@ -23,3 +23,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/help', 'HomeController@helpLink')->name('help');
 Route::get('/report', 'HomeController@report')->name('report');
 Route::get('/about', 'HomeController@about')->name('about');
+Route::get('/cluster', 'HomeController@cluster')->name('cluster');
