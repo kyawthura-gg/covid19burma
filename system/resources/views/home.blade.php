@@ -2,6 +2,9 @@
 
 @section('content')
 <div class="content">
+    <div id="quote" class="help-container">
+                        <p style="color:#c9c9f5">🧼လက်ကို ဆပ်ပြာနှင့် ရေဖြင့် မကြာခဏဆေးကြောပါ။</p>
+                    </div>
         <div class="columns">
             <div class="column is-one-quarter">
                 <div class="total-box box-h">

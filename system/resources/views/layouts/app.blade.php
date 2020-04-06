@@ -76,9 +76,7 @@
         <main class="py-4">
             <div class="columns mt-70">
                 <div class="column">
-                    <div id="quote" class="help-container">
-                        <p style="color:#c9c9f5">🧼လက်ကို ဆပ်ပြာနှင့် ရေဖြင့် မကြာခဏဆေးကြောပါ။</p>
-                    </div>
+                    
                 </div>
             </div>
                 @yield('content')
