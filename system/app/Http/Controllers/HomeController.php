@@ -36,4 +36,8 @@ class HomeController extends Controller
     {
         return view('about');
     }
+    public function cluster()
+    {
+        return view('cluster');
+    }
 }
