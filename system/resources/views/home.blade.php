@@ -200,16 +200,24 @@
                                 <td>0</td>
                                 <td>0</td>
                             </tr>
+                            <tr>
+                                <td>Yangon</td>
+                                <td>06 April 2020</td>
+                                <td>+1</td>
+                                <td>0</td>
+                                <td>0</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 <script src="./js/quota.js?v=c298c7fa213d"></script>
 <script>
+    
+
     var progress = document.getElementById('animationProgress');
     var ctx = document.getElementById('myChart');
     var myChart = new Chart(ctx, {
@@ -222,7 +230,7 @@
                 borderColor: '#eb7a5d',
                 backgroundColor: '#eb7a5d',
                 data: [
-                    13,
+                    14,
                     4,
                     1,
                     1,

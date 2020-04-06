@@ -13,7 +13,7 @@
     <meta property="og:description" content="Track the spread of Coronavirus (COVID-19) in Myanmar">
     <meta property="og:image" content="./img/virus_black.png" />
     <link rel="stylesheet" href="./css/bulma.css?v=c298c6f8233d">
-    <link rel="stylesheet" href="./css/app.css?v=c298c7f832d">
+    <link rel="stylesheet" href="./css/app.css?v=c1198c7f832d">
     <script src="./js/jquery.js"></script>
     <script type="text/javascript" src="./js/chart.min.js"></script>
     <link rel='shortcut icon' type='image/x-icon' href='./favicon_black.ico' />
@@ -78,9 +78,6 @@
     </nav>
     <main class="py-4">
         <div class="columns mt-70">
-            <div class="column">
-
-            </div>
         </div>
         @yield('content')
     </main>
@@ -96,7 +93,7 @@
                     The data may be out of date.</p>
                 <p>The data is updated basing on the official Facebook account of Myanmar Ministry of Health
                     and Sports.</p>
-                <p>The application is free to use, but not to operate. Help me by clicking the link below
+                <p>The application is free to use, but not to operate. Help us by clicking the link below
                     and donating. Thank you!</p>
                 <a href="https://www.paypal.me/kanhaiyaaryal">https://www.paypal.me/kanhaiyaaryal</a>
             </section>
@@ -128,15 +125,15 @@
                 <p>Are you offical?</p>
                 <p class="answer_p">No</p>
                 <p class="mt-10">Who are you?</p>
-                <p class="answer_p">I am a volunteer who curate and verify the data coming from several
+                <p class="answer_p">We are volunteer who curate and verify the data coming from several
                     sources.</p>
             </section>
         </div>
     </div>
 </body>
 
-<script src="./js/app.js?v=c298c7f1233d"></script>
+<script src="./js/app.js?v=c998c7f1233d"></script>
 <script src="./js/counterup.js?v=c298c7f8233d" type="module"></script>
-<script src="./js/main.js?v=c298c7f8213d" type="module"></script>
+<script src="./js/main.js?v=cb98c7f8213d" type="module"></script>
 
 </html>
