@@ -40,4 +40,8 @@ class HomeController extends Controller
     {
         return view('cluster');
     }
+    public function contactus()
+    {
+        return view('contactus');
+    }
 }

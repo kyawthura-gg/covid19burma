@@ -14,7 +14,10 @@ am4core.ready(function() {
     networkSeries.fontSize = 12;
     networkSeries.linkWithStrength = 0;
     var nodeTemplate = networkSeries.nodes.template;
-    nodeTemplate.tooltipText = "{name}";
+    nodeTemplate.tooltipText = `[bold] {name}[/]
+    ---------------
+    Age: {Age}
+    Gender: {Gender}  `;
     nodeTemplate.fillOpacity = 1;
     nodeTemplate.label.hideOversized = true;
     nodeTemplate.label.truncate = true;
@@ -39,77 +42,118 @@ am4core.ready(function() {
     networkSeries.data = [{
         "name": "CASE 1",
         "value": 45,
+        "Gender": "Male",
+        "Age": "36"
     }, {
         "name": "CASE 2",
         "value": 45,
+        "Gender": "Male",
+        "Age": "26"
     }, {
         "name": "CASE 3",
         "value": 70,
+        "Gender": "Male",
+        "Age": "26",
         "children": [{
             "name": "CASE 6",
-            "value": 45
+            "value": 45,
+            "Gender": "Male",
+            "Age": "29"
         }]
     }, {
         "name": "CASE 4",
         "value": 45,
+        "Gender": "Male",
+        "Age": "33"
     }, {
         "name": "CASE 5",
         "value": 70,
+        "Gender": "Male",
+        "Age": "69",
         "children": [{
             "name": "CASE 10",
-            "value": 45
+            "value": 45,
+            "Gender": "Male",
+            "Age": "45"
         }]
     }, {
         "name": "CASE 7",
         "value": 45,
+        "Gender": "Female",
+        "Age": "58",
     }, {
         "name": "CASE 8",
         "value": 70,
+        "Gender": "Female",
+        "Age": "60",
         "linkWith": ["CASE 15"],
         "children": [{
             "name": "CASE 11",
-            "value": 45
+            "value": 45,
+            "Gender": "Female",
+            "Age": "66",
         }, {
             "name": "CASE 12",
-            "value": 45
+            "value": 45,
+            "Gender": "Male",
+            "Age": "69",
         }, {
             "name": "CASE 13",
-            "value": 45
+            "value": 45,
+            "Gender": "Female",
+            "Age": "61",
         }]
     }, {
         "name": "CASE 9",
         "value": 45,
-    }, {
-        "name": "CASE 10",
-        "value": 45,
+        "Gender": "Male",
+        "Age": "44",
     }, {
         "name": "CASE 14",
         "value": 45,
+        "Gender": "Male",
+        "Age": "24",
     }, {
         "name": "CASE 15",
         "value": 70,
+        "Gender": "Female",
+        "Age": "45",
         "children": [{
             "name": "CASE 17",
-            "value": 45
+            "value": 45,
+            "Gender": "Male",
+            "Age": "47",
         }, {
             "name": "CASE 18",
-            "value": 45
+            "value": 45,
+            "Gender": "Male",
+            "Age": "10",
         }, {
             "name": "CASE 19",
-            "value": 45
+            "value": 45,
+            "Gender": "Female",
+            "Age": "8",
         }, {
             "name": "CASE 20",
-            "value": 45
+            "value": 45,
+            "Gender": "Female",
+            "Age": "18",
         }]
     }, {
         "name": "CASE 16",
         "value": 45,
+        "Gender": "Female",
+        "Age": "63",
     }, {
         "name": "CASE 21",
         "value": 45,
+        "Gender": "Female",
+        "Age": "24",
         "children": [{
             "name": "CASE 22",
-            "value": 45
+            "value": 45,
+            "Gender": "Femle",
+            "Age": "51",
         }, ]
     }, ];
 });
