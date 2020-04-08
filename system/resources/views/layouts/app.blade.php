@@ -58,7 +58,7 @@
                         <a class="navbar-item" id="id_author">
                             Author
                         </a>
-                        <a class="navbar-item">
+                        <a class="navbar-item" href="contactus">
                             Report an issue
                         </a>
                     </div>
