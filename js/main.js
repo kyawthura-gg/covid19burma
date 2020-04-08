@@ -7,7 +7,7 @@ const options = {
 window.onload = function() {
     var confirm = new CountUp("confirmed", 22, options);
     confirm.start();
-    var deaths = new CountUp("deaths", 2, options);
+    var deaths = new CountUp("deaths", 3, options);
     deaths.start();
     var recovered = new CountUp("recovered", 0);
     recovered.start();

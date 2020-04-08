@@ -214,6 +214,13 @@
                                 <td>+1</td>
                                 <td>0</td>
                             </tr>
+                            <tr>
+                                <td>Yangon</td>
+                                <td>8 April 2020</td>
+                                <td>0</td>
+                                <td>+1</td>
+                                <td>0</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -250,7 +257,7 @@
                 borderColor: '#ad2b26',
                 backgroundColor: '#ad2b26',
                 data: [
-                    1,
+                    2,
                     1,
                     0,
                     0,
