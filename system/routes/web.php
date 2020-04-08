@@ -25,3 +25,4 @@ Route::get('/report', 'HomeController@report')->name('report');
 Route::get('/about', 'HomeController@about')->name('about');
 Route::get('/cluster', 'HomeController@cluster')->name('cluster');
 Route::get('/contactus', 'HomeController@contactus')->name('contactus');
+Route::get('/dashboard', 'Dashboard\DashboardController@index')->name('dashboard');
