@@ -221,6 +221,13 @@
                                 <td>+1</td>
                                 <td>0</td>
                             </tr>
+                            <tr>
+                                <td>Chin</td>
+                                <td>9 April 2020</td>
+                                <td>+1</td>
+                                <td>0</td>
+                                <td>0</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -248,7 +255,7 @@
                     4,
                     1,
                     1,
-                    1,
+                    2,
                     1,
                 ]
             }, {

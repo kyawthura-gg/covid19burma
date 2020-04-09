@@ -41,9 +41,15 @@ am4core.ready(function() {
     })
     networkSeries.data = [{
         "name": "CASE 1",
-        "value": 45,
+        "value": 70,
         "Gender": "Male",
-        "Age": "36"
+        "Age": "36",
+        "children": [{
+            "name": "CASE 23",
+            "value": 45,
+            "Gender": "Female",
+            "Age": "58"
+        }]
     }, {
         "name": "CASE 2",
         "value": 45,
