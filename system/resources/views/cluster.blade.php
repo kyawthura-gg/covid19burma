@@ -18,5 +18,5 @@ height:750px;
 <script src="./js/forceDirected.js"></script>
 <script type="text/javascript" src="./js/dark.js"></script>
 <script type="text/javascript" src="./js/animated.js"></script>
-<script type="text/javascript" src="./js/cluster.js"></script>
+<script type="text/javascript" src="./js/cluster.js?v=c298c6f8233d"></script>
 @endsection
