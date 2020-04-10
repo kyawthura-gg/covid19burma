@@ -228,6 +228,20 @@
                                 <td>0</td>
                                 <td>0</td>
                             </tr>
+                            <tr>
+                                <td>Yangon</td>
+                                <td>10 April 2020</td>
+                                <td>+3</td>
+                                <td>0</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>Mon</td>
+                                <td>10 April 2020</td>
+                                <td>+1</td>
+                                <td>0</td>
+                                <td>0</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
