@@ -5,7 +5,7 @@ const options = {
     duration: 5
 };
 window.onload = function() {
-    var confirm = new CountUp("confirmed", 23, options);
+    var confirm = new CountUp("confirmed", 27, options);
     confirm.start();
     var deaths = new CountUp("deaths", 3, options);
     deaths.start();

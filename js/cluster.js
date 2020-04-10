@@ -161,5 +161,25 @@ am4core.ready(function() {
             "Gender": "Femle",
             "Age": "51",
         }, ]
+    }, {
+        "name": "CASE 24",
+        "value": 45,
+        "Gender": "Male",
+        "Age": "32",
+    }, {
+        "name": "CASE 25",
+        "value": 45,
+        "Gender": "Male",
+        "Age": "55",
+    }, {
+        "name": "CASE 26",
+        "value": 45,
+        "Gender": "Female",
+        "Age": "56",
+    }, {
+        "name": "CASE 27",
+        "value": 45,
+        "Gender": "Female",
+        "Age": "24",
     }, ];
 });
