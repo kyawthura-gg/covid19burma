@@ -4,18 +4,18 @@ import {
 const options = {
     duration: 5
 };
-window.onload = function() {
-    var confirm = new CountUp("confirmed", 27, options);
+window.onload = function () {
+    var confirm = new CountUp("confirmed", 31, options);
     confirm.start();
     var deaths = new CountUp("deaths", 3, options);
     deaths.start();
-    var recovered = new CountUp("recovered", 0);
+    var recovered = new CountUp("recovered", 2);
     recovered.start();
     const apiUrl = "https://covidapi.info/api/v1/global";
     var gConfirmed = 0;
     var gDeaths = 0;
     var gRecovered = 0;
-    fetch(apiUrl).then(res => res.json()).then(data => data.result).then(function(covidData) {
+    fetch(apiUrl).then(res => res.json()).then(data => data.result).then(function (covidData) {
         gConfirmed = covidData.confirmed;
         gDeaths = covidData.deaths;
         gRecovered = covidData.recovered;

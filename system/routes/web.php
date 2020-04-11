@@ -27,3 +27,6 @@ Route::get('/cluster', 'HomeController@cluster')->name('cluster');
 Route::get('/contactus', 'HomeController@contactus')->name('contactus');
 Route::get('/dashboard', 'Dashboard\DashboardController@index')->name('dashboard');
 Route::get('/dashboard/blog', 'Dashboard\BlogController@index')->name('blog');
+Route::post('/contactus', 'HomeController@store')->name('contactus.store');
+
+Route::resource('dashboard/cases', 'Dashboard\CasesController');
