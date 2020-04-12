@@ -19,7 +19,7 @@ class CasesController extends Controller
      */
     public function index()
     {
-        $cases = Cases::orderBy('date_confirm', 'asc')->paginate(10);
+        $cases = Cases::orderBy('date_confirm', 'desc')->paginate(10);
 
         return view('dashboard.cases.index', compact('cases'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
@@ -45,8 +45,10 @@ class CasesController extends Controller
     {
         $request->validate([
             'state' => 'required',
-            'city' => 'required',
             'date_confirm' => 'required',
+            'confirm_case' => 'required',
+            'deaths' => 'required',
+            'recovered' => 'required',
         ]);
 
         Cases::create($request->all());
