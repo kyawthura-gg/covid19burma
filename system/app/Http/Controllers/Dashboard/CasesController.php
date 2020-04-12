@@ -92,14 +92,16 @@ class CasesController extends Controller
     {
         $request->validate([
             'state' => 'required',
-            'city' => 'required',
             'date_confirm' => 'required',
+            'confirm_case' => 'required',
+            'deaths' => 'required',
+            'recovered' => 'required',
         ]);
         $cases = Cases::find($id);
         $cases->update($request->all());
 
         return redirect()->route('cases.index')
-            ->with('success', 'Product updated successfully');
+            ->with('success', 'Case updated successfully');
     }
 
     /**
