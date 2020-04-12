@@ -19,7 +19,7 @@ class CasesController extends Controller
      */
     public function index()
     {
-        $cases = Cases::latest()->paginate(5);
+        $cases = Cases::orderBy('date_confirm', 'asc')->paginate(10);
 
         return view('dashboard.cases.index', compact('cases'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
