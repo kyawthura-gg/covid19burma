@@ -8,9 +8,10 @@
     <link rel="stylesheet" href="{{ asset('fontawesome/css/all.min.css') }}" />
     <link rel='shortcut icon' type='image/x-icon' href="{{ asset('favicon.ico') }}" />
     <link rel="stylesheet" href="{{ asset('css/dashboard.css?v=c2za198c6f8233d') }}" />
-    <!-- <link href="{{ asset('css/datepicker/flatpicker.css?v=c3a198c6f8233d')}}" /> -->
-    <!-- <link href="{{ asset('css/datepicker/darktheme.css?v=c1a198c6f8233d')}}" /> -->
     <script src="{{ asset('js/jquery.js?v=c1a198c6f8233d')}}"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/dark.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </head>
 
 <body translate="no">
