@@ -2,6 +2,9 @@
 
 @section('content')
 <div class="dash-container">
+    <h1>Coming soon</h1>
+</div>
+<!-- <div class="dash-container">
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
@@ -109,5 +112,5 @@
         </div>
 
     </form>
-</div>
+</div> -->
 @endsection
