@@ -5,7 +5,7 @@
     <div class="level">
         <div class="level-left">
             <div class="level-item">
-                <div class="title">Add Cases</div>
+                <div class="title">Add Case</div>
             </div>
         </div>
         <div class="level-right">
@@ -122,9 +122,6 @@
         </div>
     </form>
 </div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-<link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/dark.css">
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script>
     $(".selector").flatpickr();
 </script>

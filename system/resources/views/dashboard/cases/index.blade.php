@@ -43,8 +43,6 @@
             <td>
                 <form action="{{ route('cases.destroy',$case->id) }}" method="POST">
 
-                    <a class="button is-info is-small" href="{{ route('cases.show',$case->id) }}"><i class="fas fa-info-circle fa-lg"></i></a>
-
                     <a class="button is-primary is-small" href="{{ route('cases.edit',$case->id) }}"><i class="far fa-edit fa-lg"></i></a>
 
                     @csrf

@@ -4,8 +4,8 @@ import {
 const options = {
     duration: 5
 };
-window.onload = function () {
-    var confirm = new CountUp("confirmed", 31, options);
+window.onload = function() {
+    var confirm = new CountUp("confirmed", 39, options);
     confirm.start();
     var deaths = new CountUp("deaths", 3, options);
     deaths.start();
@@ -15,7 +15,7 @@ window.onload = function () {
     var gConfirmed = 0;
     var gDeaths = 0;
     var gRecovered = 0;
-    fetch(apiUrl).then(res => res.json()).then(data => data.result).then(function (covidData) {
+    fetch(apiUrl).then(res => res.json()).then(data => data.result).then(function(covidData) {
         gConfirmed = covidData.confirmed;
         gDeaths = covidData.deaths;
         gRecovered = covidData.recovered;

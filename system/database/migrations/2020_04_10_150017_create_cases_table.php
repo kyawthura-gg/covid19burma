@@ -15,9 +15,8 @@ class CreateCasesTable extends Migration
     {
         Schema::create('cases', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('case_number');
             $table->string('state');
-            $table->string('city');
+            $table->string('city')->nullable();
             $table->date('date_confirm');
             $table->tinyInteger('confirm_case')->default(0);
             $table->tinyInteger('deaths')->default(0);

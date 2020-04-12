@@ -19,7 +19,7 @@ class CasesController extends Controller
      */
     public function index()
     {
-        $cases = Cases::latest()->paginate(5);
+        $cases = Cases::orderBy('date_confirm', 'desc')->paginate(10);
 
         return view('dashboard.cases.index', compact('cases'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
@@ -45,8 +45,10 @@ class CasesController extends Controller
     {
         $request->validate([
             'state' => 'required',
-            'city' => 'required',
             'date_confirm' => 'required',
+            'confirm_case' => 'required',
+            'deaths' => 'required',
+            'recovered' => 'required',
         ]);
 
         Cases::create($request->all());
@@ -90,14 +92,16 @@ class CasesController extends Controller
     {
         $request->validate([
             'state' => 'required',
-            'city' => 'required',
             'date_confirm' => 'required',
+            'confirm_case' => 'required',
+            'deaths' => 'required',
+            'recovered' => 'required',
         ]);
         $cases = Cases::find($id);
         $cases->update($request->all());
 
         return redirect()->route('cases.index')
-            ->with('success', 'Product updated successfully');
+            ->with('success', 'Case updated successfully');
     }
 
     /**

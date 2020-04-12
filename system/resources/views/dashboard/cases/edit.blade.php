@@ -2,13 +2,15 @@
 
 @section('content')
 <div class="dash-container">
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>Edit Product</h2>
+    <div class="level">
+        <div class="level-left">
+            <div class="level-item">
+                <div class="title">Edit Case</div>
             </div>
-            <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('cases.index') }}"> Back</a>
+        </div>
+        <div class="level-right">
+            <div class="level-item">
+                <a class="button is-info " href="{{ route('cases.index') }}"> <i class="fas fa-arrow-circle-left"></i> &nbsp;Back</a>
             </div>
         </div>
     </div>
@@ -30,84 +32,99 @@
 
         <div class="field is-horizontal">
             <div class="field-label is-normal">
-                <label class="label">State</label>
+                <label class="label">State:</label>
             </div>
             <div class="field-body">
                 <div class="field">
                     <div class="select">
                         <select name="state">
-                            <option>Select dropdown</option>
-                            <option value="yangon">Yangon</option>
+                            <option value="Yangon" {{ $cases->state == 'Yangon' ? 'selected' : '' }}>Yangon</option>
+                            <option value="Mandalay" {{ $cases->state == 'Mandalay' ? 'selected' : '' }}>Mandalay</option>
+                            <option value="Magway">Magway</option>
+                            <option value="Sagaing">Sagaing</option>
+                            <option value="Tanintharyi">Tanintharyi</option>
+                            <option value="Bago">Bago</option>
+                            <option value="Naypyitaw">Naypyitaw</option>
+                            <option value="Ayeyarwady">Ayeyarwady</option>
+                            <option value="Kachin">Kachin</option>
+                            <option value="Kayah">Kayah</option>
+                            <option value="Kayin">Kayin</option>
+                            <option value="Chin">Chin</option>
+                            <option value="Mon">Mon</option>
+                            <option value="Rakhine">Rakhine</option>
+                            <option value="Shan">Shan</option>
                         </select>
                     </div>
                 </div>
             </div>
         </div>
-
         <div class="field is-horizontal">
             <div class="field-label is-normal">
-                <label class="label">City / District</label>
+                <label class="label">City / District:</label>
             </div>
             <div class="field-body">
                 <div class="field">
                     <p class="control">
-                        <input class="input" name="city" placeholder="City or District">
+                        <input class="input" value="{{ $cases->city }}" name="city" placeholder="City or District">
                     </p>
                 </div>
             </div>
         </div>
         <div class="field is-horizontal">
             <div class="field-label is-normal">
-                <label class="label">Date</label>
+                <label class="label">Date:</label>
             </div>
             <div class="field-body">
                 <div class="field">
                     <p class="control">
-                        <input class="input" name="date_confirm" placeholder="Case Date">
+                        <input class="input edit-selector" value="{{ $cases->date_confirm }}" name="date_confirm" placeholder="Case Date">
                     </p>
                 </div>
             </div>
         </div>
         <div class="field is-horizontal">
             <div class="field-label is-normal">
-                <label class="label">New Case</label>
+                <label class="label">Number of Case:</label>
             </div>
             <div class="field-body">
                 <div class="field">
                     <p class="control">
-                        <input class="input" name="confirm_case" placeholder="0">
+                        <input class="input" name="confirm_case" value="{{ $cases->confirm_case }}">
                     </p>
                 </div>
             </div>
         </div>
         <div class="field is-horizontal">
             <div class="field-label is-normal">
-                <label class="label">New Death</label>
+                <label class="label">Number of Death:</label>
             </div>
             <div class="field-body">
                 <div class="field">
                     <p class="control">
-                        <input class="input" name="deaths" placeholder="0">
+                        <input class="input" name="deaths" value="{{ $cases->deaths }}">
                     </p>
                 </div>
             </div>
         </div>
         <div class="field is-horizontal">
             <div class="field-label is-normal">
-                <label class="label">New Recovered</label>
+                <label class="label">Number of Recovered:</label>
             </div>
             <div class="field-body">
                 <div class="field">
                     <p class="control">
-                        <input class="input" name="recovered" placeholder="0">
+                        <input class="input" name="recovered" value="{{ $cases->recovered }}">
                     </p>
                 </div>
             </div>
         </div>
         <div class="field is-horizontal">
-            <button type="submit" class="button">Add</button>
+            <button type="submit" class="button">Update</button>
         </div>
 
     </form>
 </div>
+<script>
+    $(".edit-selector").flatpickr();
+</script>
 @endsection
