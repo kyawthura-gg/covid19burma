@@ -325,8 +325,50 @@ path:hover {
 .box-flex div {
     margin-bottom: 10px;
 }
-.coming-s{
+
+.coming-s {
     font-size: 30px;
     color: white;
     text-align: center;
+}
+
+#tab-content .sub-tab {
+    display: none;
+}
+
+#tab-content div.is-active {
+    display: block;
+}
+
+.magin-box div {
+    margin-bottom: 10px;
+}
+
+.tabs a {
+    color: white;
+}
+
+.tabs a:hover {
+    color: black;
+}
+
+.tabs ul {
+    margin-left: 0px;
+}
+
+.none {
+    display: none;
+}
+
+.table-container ul {
+    list-style: none;
+    justify-content: space-evenly;
+}
+
+.pagination li {
+    color: white;
+}
+
+.table-container nav {
+    overflow: hidden;
 }

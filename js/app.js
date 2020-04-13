@@ -1,17 +1,17 @@
-$(document).ready(function() {
+$(document).ready(function () {
     $description = $(".description");
     $case = $(".case");
-    $("path").hover(function() {
+    $("path").hover(function () {
         $(this).attr("class", "enabled heyo");
         $description.addClass("active");
         $title = $(this).attr("title");
         $case = $(this).attr("case");
         $dead = $(this).attr("dead");
         $description.html('<div class="title-font">' + $title + '</div><div class="case-font">' + $case + '</div><div class="confirm-font">CONFIRMED</div><div class="death-font">' + $dead + '</div><div class="confirm-font">DEATHS</div>');
-    }, function() {
+    }, function () {
         $description.removeClass("active");
     });
-    $(document).on("mousemove", function(e) {
+    $(document).on("mousemove", function (e) {
         $description.css({
             left: e.pageX + 20,
             top: e.pageY - 70
@@ -24,15 +24,15 @@ $(document).ready(function() {
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close_disclaimer")[0];
     // When the user clicks the button, open the modal
-    btn.onclick = function() {
+    btn.onclick = function () {
         modal.style.display = "block";
     };
     // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
+    span.onclick = function () {
         modal.style.display = "none";
     };
     // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
+    window.onclick = function (event) {
         if (event.target == modal) {
             modal.style.display = "none";
         }
@@ -40,13 +40,13 @@ $(document).ready(function() {
     var modal_author = document.getElementById("id_author_modal");
     var btn_author = document.getElementById("id_author");
     var span_author = document.getElementsByClassName("close_author")[0];
-    btn_author.onclick = function() {
+    btn_author.onclick = function () {
         modal_author.style.display = "block";
     };
-    span_author.onclick = function() {
+    span_author.onclick = function () {
         modal_author.style.display = "none";
     };
-    window.onclick = function(event) {
+    window.onclick = function (event) {
         if (event.target == modal_author) {
             modal_author.style.display = "none";
         }
@@ -54,13 +54,13 @@ $(document).ready(function() {
     var modal_faq = document.getElementById("id_faq_modal");
     var btn_faq = document.getElementById("id_faq");
     var span_faq = document.getElementsByClassName("close_faq")[0];
-    btn_faq.onclick = function() {
+    btn_faq.onclick = function () {
         modal_faq.style.display = "block";
     };
-    span_faq.onclick = function() {
+    span_faq.onclick = function () {
         modal_faq.style.display = "none";
     };
-    window.onclick = function(event) {
+    window.onclick = function (event) {
         if (event.target == modal_faq) {
             modal_faq.style.display = "none";
         }
@@ -70,8 +70,8 @@ $(document).ready(function() {
     // Check if there are any navbar burgers
     if ($navbarBurgers.length > 0) {
         // Add a click event on each of them
-        $navbarBurgers.forEach(function($el) {
-            $el.addEventListener('click', function() {
+        $navbarBurgers.forEach(function ($el) {
+            $el.addEventListener('click', function () {
                 // Get the target from the "data-target" attribute
                 var target = $el.dataset.target;
                 var $target = document.getElementById(target);
@@ -85,7 +85,7 @@ $(document).ready(function() {
     function mobile_expandable_menu() {
         if ($(window).width() < 768) {
             $('.navbar-link').next('.navbar-dropdown').hide();
-            $('.navbar-link').on('click', function() {
+            $('.navbar-link').on('click', function () {
                 $(this).next('.navbar-dropdown').slideToggle();
             });
         } else {
@@ -94,7 +94,7 @@ $(document).ready(function() {
         }
     }
     var screen_resize_timout;
-    $(window).on("resize", function(e) {
+    $(window).on("resize", function (e) {
         clearTimeout(screen_resize_timout);
         screen_resize_timout = setTimeout(mobile_expandable_menu, 500);
     });
@@ -107,4 +107,15 @@ $(document).ready(function() {
         link.href = './favicon.ico';
         document.getElementsByTagName('head')[0].appendChild(link);
     }
+
+
+    $('#tabs li').on('click', function () {
+        var tab = $(this).data('tab');
+
+        $('#tabs li').removeClass('is-active');
+        $(this).addClass('is-active');
+
+        $('#tab-content div').removeClass('is-active');
+        $('div[data-content="' + tab + '"]').addClass('is-active');
+    });
 });
