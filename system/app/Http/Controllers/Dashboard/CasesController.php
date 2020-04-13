@@ -5,6 +5,7 @@ namespace App\Http\Controllers\dashboard;
 use App\Cases;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CasesController extends Controller
 {
@@ -20,9 +21,12 @@ class CasesController extends Controller
     public function index()
     {
         $cases = Cases::orderBy('date_confirm', 'desc')->paginate(10);
-
-        return view('dashboard.cases.index', compact('cases'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        $total_confirm = DB::table('cases')->sum('confirm_case');
+        $deaths = DB::table('cases')->sum('deaths');
+        $recovered = DB::table('cases')->sum('recovered');
+        $active = $total_confirm - ($deaths + $recovered);
+        return view('dashboard.cases.index', compact('cases', 'total_confirm', 'deaths', 'recovered', 'active'))
+            ->with('i', (request()->input('page', 1) - 1) * 10);
     }
 
     /**
