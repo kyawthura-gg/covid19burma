@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
+use App\Cases;
+
 class HomeController extends Controller
 {
     /**
@@ -21,7 +24,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $cases = Cases::orderBy('date_confirm', 'desc')->paginate(15);
+        $total_confirm = DB::table('cases')->sum('confirm_case');
+        $deaths = DB::table('cases')->sum('deaths');
+        $recovered = DB::table('cases')->sum('recovered');
+        $active = $total_confirm - ($deaths + $recovered);
+        return view('index', compact('cases', 'total_confirm', 'deaths', 'recovered', 'active'))
+            ->with('i', (request()->input('page', 1) - 1) * 15);
     }
 
     public function helpLink()
