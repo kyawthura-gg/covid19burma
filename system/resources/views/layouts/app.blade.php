@@ -12,11 +12,12 @@
     <meta property="og:title" content="COVID-19 | Myanmar">
     <meta property="og:description" content="Track the spread of Coronavirus (COVID-19) in Myanmar">
     <meta property="og:image" content="./img/virus_black.png" />
-    <link rel="stylesheet" href="./css/bulma.css?v=c298c6f8233d">
-    <link rel="stylesheet" href="./css/app.css?v=c1198c7f832d">
-    <script src="./js/jquery.js"></script>
-    <script type="text/javascript" src="./js/chart.min.js"></script>
+    <link rel="stylesheet" href="{{ asset('fontawesome/css/all.min.css') }}" />
     <link rel='shortcut icon' type='image/x-icon' href='./favicon_black.ico' />
+    <link rel="stylesheet" href="./css/bulma.css?v=c298c6f8233d">
+    <link rel="stylesheet" href="./css/app.css?v=cc7f832d">
+    <script src="./js/jquery.js"></script>
+    <script type="text/javascript" src="{{ asset('js/chart.min.js')}}"></script>
 </head>
 
 <body>
@@ -26,8 +27,7 @@
                 <img src="./img/virus.png" class="mr-10" alt="Virus Logo">
                 Covid-19 | Myanmar
             </a>
-            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
-                data-target="navbarBasicExample">
+            <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
@@ -37,7 +37,7 @@
         <div id="navbarBasicExample" class="is-black navbar-menu">
             <div class="navbar-start">
 
-                <a class="navbar-item" href="home">
+                <a class="navbar-item" href="{{route('index')}}">
                     Home
                 </a>
                 <a class="navbar-item" href="cluster">
@@ -135,8 +135,8 @@
     </div>
 </body>
 
-<script src="./js/app.js?v=c998c7f1233d"></script>
+<script src="./js/app.js?v=c9q98c7zf1233d"></script>
 <script src="./js/counterup.js?v=c298c7f8233d" type="module"></script>
-<script src="./js/main.js?v=cd4908c7f8213d" type="module"></script>
+<script src="./js/main.js?v=cdae4z9108c7f8213d" type="module"></script>
 
 </html>
