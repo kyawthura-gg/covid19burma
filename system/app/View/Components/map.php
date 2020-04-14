@@ -6,14 +6,15 @@ use Illuminate\View\Component;
 
 class map extends Component
 {
+    public $state;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($state)
     {
-        //
+        $this->state = $state;
     }
 
     /**
