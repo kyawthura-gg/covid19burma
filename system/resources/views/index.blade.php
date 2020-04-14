@@ -66,6 +66,7 @@
                             <label class="recover-font" id="golobal-active">0</label>
                             <p>Active 😰</p>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -75,7 +76,7 @@
             </div>
         </div>
         <div class="column is-one-quarter">
-            <x-map />
+            <x-map :state="$state" />
             <div class="description" style="text-align: left;">
             </div>
             <div class="status-div">
@@ -110,9 +111,6 @@
                                 <th>
                                     State
                                 </th>
-                                <!-- <th>
-                                    City
-                                </th> -->
                                 <th>
                                     Date
                                 </th>
@@ -132,7 +130,6 @@
                             <tr>
                                 <td>{{ ++$i }}</td>
                                 <td>{{ $case->state }}</td>
-                                <!-- <td>{{ $case->city }}</td> -->
                                 <td>{{ $case->date_confirm }}</td>
                                 <td>{{ $case->confirm_case  }}</td>
                                 <td>{{ $case->deaths }}</td>
@@ -141,7 +138,6 @@
                             @endforeach
                         </tbody>
                     </table>
-                    
                     {!! $cases->links() !!}
                 </div>
             </div>
