@@ -161,6 +161,10 @@ a {
 
 }
 
+.s-sidebar__nav li .active {
+    background-color: #42667e;
+}
+
 @media (min-width: 1024px) {
     .s-layout__content {
         margin-left: 15em;

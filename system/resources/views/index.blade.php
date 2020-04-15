@@ -70,7 +70,7 @@
                     </div>
                 </div>
             </div>
-            <div class="total-box" style="margin-top: 20px;">
+            <div class="total-box" style="margin-top: 20px; display:none;">
                 <canvas id="myChart" width="400" height="400"></canvas>
                 <progress id="animationProgress" max="1" value="0" style="width: 100%"></progress>
             </div>

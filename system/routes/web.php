@@ -30,3 +30,4 @@ Route::get('/dashboard/blog', 'Dashboard\BlogController@index')->name('blog');
 Route::post('/contactus', 'HomeController@store')->name('contactus.store');
 
 Route::resource('dashboard/cases', 'Dashboard\CasesController');
+Route::resource('dashboard/patient', 'Dashboard\PatientController');
