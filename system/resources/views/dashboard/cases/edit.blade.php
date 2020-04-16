@@ -38,21 +38,9 @@
                 <div class="field">
                     <div class="select">
                         <select name="state">
-                            <option value="Yangon" {{ $cases->state == 'Yangon' ? 'selected' : '' }}>Yangon</option>
-                            <option value="Mandalay" {{ $cases->state == 'Mandalay' ? 'selected' : '' }}>Mandalay</option>
-                            <option value="Magway">Magway</option>
-                            <option value="Sagaing">Sagaing</option>
-                            <option value="Tanintharyi">Tanintharyi</option>
-                            <option value="Bago">Bago</option>
-                            <option value="Naypyitaw">Naypyitaw</option>
-                            <option value="Ayeyarwady">Ayeyarwady</option>
-                            <option value="Kachin">Kachin</option>
-                            <option value="Kayah">Kayah</option>
-                            <option value="Kayin">Kayin</option>
-                            <option value="Chin">Chin</option>
-                            <option value="Mon">Mon</option>
-                            <option value="Rakhine">Rakhine</option>
-                            <option value="Shan">Shan</option>
+                            @foreach($states as $state)
+                            <option value="{{ $state->name }}" {{ $state->name == $cases->state ? 'selected' : '' }}>{{ $state->name }}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
