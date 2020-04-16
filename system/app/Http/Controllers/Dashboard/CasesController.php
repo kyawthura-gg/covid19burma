@@ -4,6 +4,7 @@ namespace App\Http\Controllers\dashboard;
 
 use App\Cases;
 use App\Http\Controllers\Controller;
+use App\States;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -36,7 +37,8 @@ class CasesController extends Controller
      */
     public function create()
     {
-        return view('dashboard.cases.create');
+        $states = States::all();
+        return view('dashboard.cases.create', compact('states'));
     }
 
     /**
@@ -81,8 +83,9 @@ class CasesController extends Controller
      */
     public function edit($id)
     {
+        $states = States::all();
         $cases = Cases::find($id);
-        return view('dashboard.cases.edit', compact('cases'));
+        return view('dashboard.cases.edit', compact('cases', 'states'));
     }
 
     /**
