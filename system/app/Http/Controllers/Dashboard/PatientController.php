@@ -45,7 +45,7 @@ class PatientController extends Controller
         $request->validate([
             'date_confirm' => 'required',
             'case_number' => 'required',
-            'age' => 'required',
+            'status' => 'required',
             'gender' => 'required',
             'travel_history' => 'required',
             'state' => 'required',
@@ -93,7 +93,7 @@ class PatientController extends Controller
         $request->validate([
             'date_confirm' => 'required',
             'case_number' => 'required',
-            'age' => 'required',
+            'status' => 'required',
             'gender' => 'required',
             'travel_history' => 'required',
             'state' => 'required',

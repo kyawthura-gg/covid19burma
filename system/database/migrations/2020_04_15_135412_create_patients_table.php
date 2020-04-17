@@ -16,7 +16,7 @@ class CreatePatientsTable extends Migration
         Schema::create('patients', function (Blueprint $table) {
             $table->id();
             $table->integer('case_number');
-            $table->integer('age');
+            $table->integer('age')->nullable();
             $table->string('gender');
             $table->string('travel_history');
             $table->string('state');
@@ -24,6 +24,7 @@ class CreatePatientsTable extends Migration
             $table->string('current_hospital')->nullable();
             $table->date('date_confirm');
             $table->string('description')->nullable();
+            $table->string('status');
             $table->timestamps();
         });
     }
