@@ -5,6 +5,7 @@ namespace App\Http\Controllers\dashboard;
 use App\Patients;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PatientController extends Controller
 {
@@ -31,7 +32,8 @@ class PatientController extends Controller
      */
     public function create()
     {
-        return view('dashboard.patients.create');
+        $states = DB::table('states')->get();
+        return view('dashboard.patients.create', compact('states'));
     }
 
     /**
@@ -77,8 +79,9 @@ class PatientController extends Controller
      */
     public function edit($id)
     {
+        $states = DB::table('states')->get();
         $patients = Patients::find($id);
-        return view('dashboard.patients.edit', compact('patients'));
+        return view('dashboard.patients.edit', compact('patients', 'states'));
     }
 
     /**

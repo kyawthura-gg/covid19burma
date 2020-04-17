@@ -119,7 +119,7 @@
                     <div class="select">
                         <select name="state">
                             @foreach($states as $state)
-                            <option value="{{ $state->name }}" {{ $state->name == $cases->state ? 'selected' : '' }}>{{ $state->name }}</option>
+                            <option value="{{ $state->name }}" {{ $state->name == $patients->state ? 'selected' : '' }}>{{ $state->name }}</option>
                             @endforeach
                         </select>
                     </div>
