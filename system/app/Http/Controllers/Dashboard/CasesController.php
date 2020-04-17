@@ -37,7 +37,7 @@ class CasesController extends Controller
      */
     public function create()
     {
-        $states = States::all();
+        $states = DB::table('states')->get();
         return view('dashboard.cases.create', compact('states'));
     }
 
@@ -83,7 +83,7 @@ class CasesController extends Controller
      */
     public function edit($id)
     {
-        $states = States::all();
+        $states = DB::table('states')->get();
         $cases = Cases::find($id);
         return view('dashboard.cases.edit', compact('cases', 'states'));
     }

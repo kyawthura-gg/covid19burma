@@ -56,6 +56,22 @@
         </div>
         <div class="field is-horizontal">
             <div class="field-label is-normal">
+                <label class="label">Status:</label>
+            </div>
+            <div class="field-body">
+                <div class="field">
+                    <div class="select">
+                        <select name="status">
+                            <option value="Case" {{ $patients->status == 'Case' ? 'selected' : '' }}>Case</option>
+                            <option value="Death" {{ $patients->staus == 'Death' ? 'selected' : '' }}>Death</option>
+                            <option value="Recovered" {{ $patients->status == 'Recovered' ? 'selected' : '' }}>Recovered</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="field is-horizontal">
+            <div class="field-label is-normal">
                 <label class="label">Age</label>
             </div>
             <div class="field-body">
@@ -102,21 +118,9 @@
                 <div class="field">
                     <div class="select">
                         <select name="state">
-                            <option value="Yangon">Yangon</option>
-                            <option value="Mandalay">Mandalay</option>
-                            <option value="Magway">Magway</option>
-                            <option value="Sagaing">Sagaing</option>
-                            <option value="Tanintharyi">Tanintharyi</option>
-                            <option value="Bago">Bago</option>
-                            <option value="Naypyitaw">Naypyitaw</option>
-                            <option value="Ayeyarwady">Ayeyarwady</option>
-                            <option value="Kachin">Kachin</option>
-                            <option value="Kayah">Kayah</option>
-                            <option value="Kayin">Kayin</option>
-                            <option value="Chin">Chin</option>
-                            <option value="Mon">Mon</option>
-                            <option value="Rakhine">Rakhine</option>
-                            <option value="Shan">Shan</option>
+                            @foreach($states as $state)
+                            <option value="{{ $state->name }}" {{ $state->name == $patients->state ? 'selected' : '' }}>{{ $state->name }}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>

@@ -23,8 +23,9 @@
         <div class="column is-8">
             <table class="table table-bordered">
                 <tr>
-                    <th>Date</th>
+                    <th>Confirm Date</th>
                     <th>Case Number</th>
+                    <th>Status</th>
                     <th>Age</th>
                     <th>Gender</th>
                     <th>Travel History</th>
@@ -38,6 +39,7 @@
                 <tr>
                     <td>{{ $patient->date_confirm }}</td>
                     <td>{{ $patient->case_number }}</td>
+                    <td>{{ $patient->status }}</td>
                     <td>{{ $patient->age }}</td>
                     <td>{{ $patient->gender }}</td>
                     <td>{{ $patient->travel_history }}</td>
