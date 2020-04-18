@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use App\Cases;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -30,9 +31,28 @@ class HomeController extends Controller
         $recovered = DB::table('cases')->sum('recovered');
         $active = $total_confirm - ($deaths + $recovered);
 
+        $today_confirm = Cases::whereDate('date_confirm', Carbon::today())
+            ->sum('confirm_case');
+        $today_deaths = Cases::whereDate('created_at', Carbon::today())
+            ->sum('deaths');
+        $today_recovered = Cases::whereDate('created_at', Carbon::today())
+            ->sum('recovered');
+
         $state = $this->stateStatus();
-        return view('index', compact('cases', 'total_confirm', 'deaths', 'recovered', 'active', 'state'))
-            ->with('i', (request()->input('page', 1) - 1) * 15);
+        return view('index', compact(
+            'cases',
+            'total_confirm',
+            'deaths',
+            'recovered',
+            'active',
+            'state',
+            'today_confirm',
+            'today_deaths',
+            'today_recovered',
+        ))->with('i', (request()->input('page', 1) - 1) * 15);
+    }
+    public function todayCase()
+    {
     }
     public function caseStatus($state)
     {
@@ -101,5 +121,9 @@ class HomeController extends Controller
     public function contactus()
     {
         return view('contactus');
+    }
+    public function cases()
+    {
+        return view('case');
     }
 }
