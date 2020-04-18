@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="{{ asset('fontawesome/css/all.min.css') }}" />
     <link rel='shortcut icon' type='image/x-icon' href='./favicon_black.ico' />
     <link rel="stylesheet" href="./css/bulma.css?v=c298c6f8233d">
-    <link rel="stylesheet" href="./css/app.css?v=cc7f832d">
+    <link rel="stylesheet" href="./css/app.css?v=cc7fs832dszd">
     <script src="./js/jquery.js"></script>
     <script type="text/javascript" src="{{ asset('js/chart.min.js')}}"></script>
 </head>
@@ -40,11 +40,14 @@
                 <a class="navbar-item" href="{{route('index')}}">
                     Home
                 </a>
-                <a class="navbar-item" href="cluster">
+                <a class="navbar-item" href="cluster" style="display: none">
                     Cluster
                 </a>
                 <a class="navbar-item" href="about">
                     About Us
+                </a>
+                <a class="navbar-item" href="cases">
+                    Case
                 </a>
                 <a class="navbar-item" href="help">
                     Helpful Links
@@ -135,7 +138,7 @@
     </div>
 </body>
 
-<script src="./js/app.js?v=c9q98c7zf1233d"></script>
+<script src="./js/app.js?v=c9q98ca7zf1233d"></script>
 <script src="./js/counterup.js?v=c298c7f8233d" type="module"></script>
 <script src="./js/main.js?v=cdae4z9108c7f8213d" type="module"></script>
 
