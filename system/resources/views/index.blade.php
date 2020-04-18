@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="content">
-    <div id="quote" class="help-container">
+    <div id="quote" class="help-container" style="display: none">
         <p style="color:#c9c9f5">🧼လက်ကို ဆပ်ပြာနှင့် ရေဖြင့် မကြာခဏဆေးကြောပါ။</p>
     </div>
     <div class="columns">
@@ -24,28 +24,47 @@
                 </ul>
             </div>
             <div id="tab-content">
-                <div class="sub-tab is-active" data-content="1">
-                    <div class="total-box magin-box">
-                        <div>
-                            <label class="case-font" id="confirmed">0</label>
-                            <span class="none" id="mm-confrim">{{$total_confirm}}</span>
-                            <p>CONFIRMED 🤕</p>
+                <div class="total-box sub-tab is-active" data-content="1">
+                    <div class="columns pb-15">
+                        <div class="right-line column">
+                            <p class="box-title">Total</p>
+                            <div>
+                                <label class="case-font" id="confirmed">0</label>
+                                <span class="none" id="mm-confrim">{{$total_confirm}}</span>
+                                <p>CONFIRMED 🤕</p>
+                            </div>
+                            <div>
+                                <label class="death-font" id="deaths">0</label>
+                                <span class="none" id="mm-deaths">{{$deaths}}</span>
+                                <p>DEATHS 💔</p>
+                            </div>
+                            <div>
+                                <label class="recover-font" id="recovered">0</label>
+                                <span class="none" id="mm-recovered">{{$recovered}}</span>
+                                <p>RECOVERED 🤩</p>
+                            </div>
+
                         </div>
-                        <div>
-                            <label class="death-font" id="deaths">0</label>
-                            <span class="none" id="mm-deaths">{{$deaths}}</span>
-                            <p>DEATHS 💔</p>
+                        <div class="column ml-20">
+                            <p class="box-title">Today</p>
+                            <div>
+                                <span class="case-font">+</span><label class="case-font" id="confirmed">{{$today_confirm}}</label>
+                                <p>CONFIRMED 🤕</p>
+                            </div>
+                            <div>
+                                <span class="death-font">+</span><label class="death-font" id="deaths">{{$today_deaths}}</label>
+                                <p>DEATHS 💔</p>
+                            </div>
+                            <div>
+                                <span class="recover-font">+</span><label class="recover-font" id="recovered">{{$today_recovered}}</label>
+                                <p>RECOVERED 🤩</p>
+                            </div>
                         </div>
-                        <div>
-                            <label class="recover-font" id="recovered">0</label>
-                            <span class="none" id="mm-recovered">{{$recovered}}</span>
-                            <p>RECOVERED 🤩</p>
-                        </div>
-                        <div>
-                            <label class="recover-font" id="active">0</label>
-                            <span class="none" id="mm-active">{{$active}}</span>
-                            <p>Active 😰</p>
-                        </div>
+                    </div>
+                    <div class="columns is-vcentered is-centered">
+                        <label class="recover-font is-size-4" id="active">0</label>
+                        <span class="none" id="mm-active">{{$active}}</span>
+                        &nbsp;&nbsp;&nbsp;<p class="box-title">Active 😰</p>
                     </div>
                 </div>
                 <div class="sub-tab" data-content="2">

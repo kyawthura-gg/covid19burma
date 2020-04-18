@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    // Map hover
     $description = $(".description");
     $case = $(".case");
     $("path").hover(function () {
@@ -7,7 +8,8 @@ $(document).ready(function () {
         $title = $(this).attr("title");
         $case = $(this).attr("case");
         $dead = $(this).attr("dead");
-        $description.html('<div class="title-font">' + $title + '</div><div class="case-font">' + $case + '</div><div class="confirm-font">CONFIRMED</div><div class="death-font">' + $dead + '</div><div class="confirm-font">DEATHS</div>');
+        $recovered = $(this).attr("recovered");
+        $description.html('<p class="is-size-4 has-text-centered">' + $title + '</p><div><p class="has-text-danger">' + $case + '&nbsp;&nbsp;CONFIRMED</p></div><div><p class="has-text-grey-lighter">' + $dead + '&nbsp;&nbsp;DEATHS</p></div><div><p class="has-text-primary">' + $recovered + '&nbsp;&nbsp;RECOVERED</p></div>');
     }, function () {
         $description.removeClass("active");
     });
