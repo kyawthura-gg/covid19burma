@@ -13,12 +13,10 @@ path {
 }
 
 path:hover {
-    /* fill: #6973ff; */
-    fill: red;
+    fill: #ff5500;
 }
 
 .enabled {
-    /* fill: #21669E; */
     cursor: pointer;
 }
 
@@ -258,6 +256,10 @@ path:hover {
     margin-right: 10px;
 }
 
+.pb-15 {
+    padding-bottom: 15px;
+}
+
 @media only screen and (max-width: 600px) {
     .help-container p {
         height: 120px;
@@ -298,6 +300,10 @@ path:hover {
         right: 1.125em;
         top: 50%;
     }
+
+    .sub-tab .columns {
+        display: flex;
+    }
 }
 
 .box-h {
@@ -310,7 +316,6 @@ path:hover {
 
 .right-line {
     border-right: solid 1px;
-    width: 47%;
 }
 
 .ml-20 {
@@ -371,4 +376,11 @@ path:hover {
 
 .table-container nav {
     overflow: hidden;
+}
+
+.box-title {
+    text-transform: uppercase !important;
+    text-align: center !important;
+    font-weight: bold;
+    font-size: 1.25em !important;
 }
