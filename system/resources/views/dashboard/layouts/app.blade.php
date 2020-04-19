@@ -40,6 +40,11 @@
                         </a>
                     </li>
                     <li>
+                        <a class="s-sidebar__nav-link {{ request()->is('dashboard/blogs*') ? 'active' : '' }}" href="{{route('blogs.index')}}">
+                            <i class="fas fa-procedures"></i><em>Blogs</em>
+                        </a>
+                    </li>
+                    <li>
                         <a class="s-sidebar__nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                             <i class="fas fa-sign-out-alt"></i><em>{{ __('Logout') }}</em>
