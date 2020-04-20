@@ -2,14 +2,19 @@
 
 @section('content')
 <div class="container">
-	<div id="chartdiv"></div>
+  <article class="message is-warning">
+    <div class="message-body">
+      <strong>Cluster</strong> haven't been updated since 06 April 2020
+    </div>
+  </article>
+  <div id="chartdiv"></div>
 </div>
 <!-- Styles -->
 <style>
-#chartdiv {
-  width: 100%;
-height:750px;
-}
+  #chartdiv {
+    width: 100%;
+    height: 750px;
+  }
 </style>
 
 <!-- Resources -->
