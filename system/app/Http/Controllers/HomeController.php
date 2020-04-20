@@ -25,7 +25,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $cases = Cases::orderBy('date_confirm', 'desc')->paginate(15);
+        $cases = DB::table('cases')
+            ->select(DB::raw('SUM(confirm_case) as confirm_case, SUM(deaths) as deaths,SUM(recovered) as recovered,state'))
+            ->groupBy('state')
+            ->orderBy('confirm_case', 'DESC')
+            ->get();
+
+        // $cases = Cases::orderBy('date_confirm', 'desc')->paginate(15);
         $total_confirm = DB::table('cases')->sum('confirm_case');
         $deaths = DB::table('cases')->sum('deaths');
         $recovered = DB::table('cases')->sum('recovered');
@@ -125,5 +131,23 @@ class HomeController extends Controller
     public function cases()
     {
         return view('case');
+    }
+    public function reportByState()
+    {
+        $result = DB::table('cases')
+            ->select(DB::raw('SUM(confirm_case) as confirm_case, SUM(deaths) as deaths,SUM(recovered) as recovered,state'))
+            ->groupBy('state')
+            ->orderBy('confirm_case', 'DESC')
+            ->get();
+        return response()->json($result);
+    }
+    public function reportByDate()
+    {
+        $date_cases = DB::table('cases')
+            ->select(DB::raw('SUM(confirm_case) as confirm_case, SUM(deaths) as deaths,SUM(recovered) as recovered,date_confirm'))
+            ->groupBy('date_confirm')
+            ->orderBy('confirm_case', 'ASC')
+            ->get();
+        return response()->json($date_cases);
     }
 }
