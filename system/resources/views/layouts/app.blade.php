@@ -16,8 +16,8 @@
     <link rel='shortcut icon' type='image/x-icon' href='./favicon_black.ico' />
     <link rel="stylesheet" href="./css/bulma.css?v=c298c6f8233d">
     <link rel="stylesheet" href="./css/app.css?v=cc7fs832dszd">
-    <script src="./js/jquery.js"></script>
-    <script type="text/javascript" src="{{ asset('js/chart.min.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('js/jquery.js?v=c298c6f8233d')}}"></script>
+    <script type="text/javascript" src="{{ asset('js/chart.min.js?v=c298c6f8233d')}}"></script>
 </head>
 
 <body>
@@ -40,15 +40,15 @@
                 <a class="navbar-item" href="{{route('index')}}">
                     Home
                 </a>
-                <a class="navbar-item" href="cluster" style="display: none">
+                <a class="navbar-item" href="cluster">
                     Cluster
                 </a>
                 <a class="navbar-item" href="about">
                     About Us
                 </a>
-                <a class="navbar-item" href="cases">
+                <!-- <a class="navbar-item" href="cases">
                     Case
-                </a>
+                </a> -->
                 <a class="navbar-item" href="help">
                     Helpful Links
                 </a>
