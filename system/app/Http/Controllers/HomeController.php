@@ -150,4 +150,14 @@ class HomeController extends Controller
             ->get();
         return response()->json($date_cases);
     }
+    public function casesReport()
+    {
+        $cases = DB::table('patients')
+            ->select(DB::raw('Count(*) as confirm_case,date_confirm'))
+            ->where('status', '=', 'Case')
+            ->groupBy('date_confirm')
+            ->orderBy('confirm_case', 'ASC')
+            ->get();
+        return response()->json($cases);
+    }
 }
