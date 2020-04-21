@@ -35,7 +35,7 @@
             <div class="field-body">
                 <div class="field">
                     <p class="control">
-                        <input class="input selector" name="date_confirm" placeholder="Case Date">
+                        <input class="input selector" name="date_confirm" placeholder="">
                     </p>
                 </div>
             </div>
@@ -47,7 +47,7 @@
             <div class="field-body">
                 <div class="field">
                     <p class="control">
-                        <input class="input" name="case_number" placeholder="12">
+                        <input class="input" name="case_number" placeholder="">
                     </p>
                 </div>
             </div>
@@ -75,7 +75,7 @@
             <div class="field-body">
                 <div class="field">
                     <p class="control">
-                        <input class="input" name="age" placeholder="40">
+                        <input class="input" name="age" placeholder="">
                     </p>
                 </div>
             </div>
@@ -103,7 +103,7 @@
             <div class="field-body">
                 <div class="field">
                     <p class="control">
-                        <input class="input" name="travel_history" placeholder="Thailand">
+                        <input class="input" name="travel_history" placeholder="">
                     </p>
                 </div>
             </div>
@@ -131,19 +131,19 @@
             <div class="field-body">
                 <div class="field">
                     <p class="control">
-                        <input class="input" name="city" placeholder="City or District">
+                        <input class="input" name="city" placeholder="">
                     </p>
                 </div>
             </div>
         </div>
         <div class="field is-horizontal">
             <div class="field-label is-normal">
-                <label class="label">Hispital</label>
+                <label class="label">Hospital</label>
             </div>
             <div class="field-body">
                 <div class="field">
                     <p class="control">
-                        <input class="input" name="current_hospital" placeholder="Waybagi">
+                        <input class="input" name="current_hospital" placeholder="">
                     </p>
                 </div>
             </div>
@@ -155,7 +155,7 @@
             <div class="field-body">
                 <div class="field">
                     <p class="control">
-                        <input class="input" name="description" placeholder="Enter patient description..">
+                        <input class="input" name="description" placeholder="">
                     </p>
                 </div>
             </div>
