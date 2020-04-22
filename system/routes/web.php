@@ -36,3 +36,4 @@ Route::resource('dashboard/blogs', 'Dashboard\BlogController');
 
 Route::get('reportByState', 'HomeController@reportByState')->name('reportByState');
 Route::get('reportByDate', 'HomeController@reportByDate');
+Route::get('casesReport', 'HomeController@casesReport');
