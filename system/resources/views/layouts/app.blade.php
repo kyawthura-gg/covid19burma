@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{  app()->getLocale() }}">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset=" UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>COVID-19 | Myanmar Tracker</title>
     <meta name="description" content="Track the spread of Coronavirus (COVID-19) in Myanmar">
@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="{{ asset('fontawesome/css/all.min.css') }}" />
     <link rel='shortcut icon' type='image/x-icon' href='./favicon_black.ico' />
     <link rel="stylesheet" href="./css/bulma.css?v=c298c6f8233d">
-    <link rel="stylesheet" href="./css/app.css?v=cc7fs832dszd">
+    <link rel="stylesheet" href="./css/app.css?v=cc7fs83s2dszd">
     <script type="text/javascript" src="{{ asset('js/jquery.js?v=c298c6f8233d')}}"></script>
     <script type="text/javascript" src="{{ asset('js/chart.min.js?v=c298c6f8233d')}}"></script>
 </head>
@@ -23,9 +23,9 @@
 <body>
     <nav class="navbar is-black is-fixed-top" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-            <a class="navbar-item" href="">
+            <a class="navbar-item" href="{{route('index')}}">
                 <img src="./img/virus.png" class="mr-10" alt="Virus Logo">
-                Covid-19 | Myanmar
+                Covid-19 | {{__('home.myanmar')}}
             </a>
             <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                 <span aria-hidden="true"></span>
@@ -75,10 +75,38 @@
                     </div>
                 </div>
                 <div class="navbar-item">
+
                     <div class="bottom-box" id="id_faq">
                         FAQs
                     </div>
                 </div>
+                @if ( Config::get('app.locale') == 'en')
+
+                <div class="navbar-item">
+                    <a class="bottom-box button" href="locale/mm">
+                        <span class="icon">
+                            <img src="{{ asset('img/flag/mm.png')}}" alt="">
+                        </span>
+                        <span>
+                            ဗမာ
+                        </span>
+                    </a>
+                </div>
+
+                @elseif ( Config::get('app.locale') == 'mm' )
+
+                <div class="navbar-item">
+                    <a class="bottom-box button" href="locale/en">
+                        <span class="icon">
+                            <img src="{{ asset('img/flag/en.png')}}" alt="">
+                        </span>
+                        <span>
+                            English
+                        </span>
+                    </a>
+                </div>
+
+                @endif
             </div>
         </div>
     </nav>
@@ -138,7 +166,7 @@
     </div>
 </body>
 
-<script src="./js/app.js?v=c9q98ca7zf1233d"></script>
+<script src="./js/app.js?v=c9q98ca7zf1233ad"></script>
 <script src="./js/counterup.js?v=c298c7f8233d" type="module"></script>
 <script src="./js/main.js?v=cdae4z9108c7f8213d" type="module"></script>
 
