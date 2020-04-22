@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use App\Cases;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\App;
 
 class HomeController extends Controller
 {

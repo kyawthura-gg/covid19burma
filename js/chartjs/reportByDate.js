@@ -54,7 +54,7 @@ $(document).ready(function () {
                 options: {
                     title: {
                         display: true,
-                        text: 'Daily Cases',
+                        text: dailyTitle,
                         fontColor: "white",
                         fontSize: 17,
                     },
