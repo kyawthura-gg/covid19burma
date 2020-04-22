@@ -18,33 +18,21 @@ $(document).ready(function () {
                 data: {
                     labels: Labels,
                     datasets: [{
-                            label: 'Confirmed Cases',
-                            fill: true,
-                            borderColor: 'hsl(348, 100%, 61%)',
-                            backgroundColor: 'hsl(348, 100%, 61%)',
-                            data: Confirm
-                        },
-                        {
-                            label: 'Deaths',
-                            fill: true,
-                            borderColor: 'hsl(0, 0%, 86%)',
-                            backgroundColor: 'hsl(0, 0%, 86%)',
-                            data: Deaths
-                        }
-                    ]
+                        fill: true,
+                        borderColor: 'hsl(348, 100%, 61%)',
+                        backgroundColor: 'hsl(348, 100%, 61%)',
+                        data: Confirm
+                    }, ]
                 },
                 options: {
                     title: {
                         display: true,
-                        text: 'Confirmed cases by states',
+                        text: byStateTitle,
                         fontColor: "white",
                         fontSize: 17,
                     },
                     legend: {
-                        display: true,
-                        labels: {
-                            fontColor: 'white',
-                        }
+                        display: false,
                     },
                     scales: {
                         xAxes: [{
@@ -56,8 +44,6 @@ $(document).ready(function () {
                             ticks: {
                                 fontColor: "white",
                                 fontSize: 14,
-                                // stepSize: 1,
-                                // beginAtZero: true
                             },
                             gridLines: {
                                 display: false,
@@ -80,73 +66,3 @@ $(document).ready(function () {
         });
     });
 });
-
-
-
-// var barChartData = {
-//     labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-//     datasets: [{
-//         label: 'Dataset 1',
-//         backgroundColor: window.chartColors.red,
-//         data: [
-//             randomScalingFactor(),
-//             randomScalingFactor(),
-//             randomScalingFactor(),
-//             randomScalingFactor(),
-//             randomScalingFactor(),
-//             randomScalingFactor(),
-//             randomScalingFactor()
-//         ]
-//     }, {
-//         label: 'Dataset 2',
-//         backgroundColor: window.chartColors.blue,
-//         data: [
-//             randomScalingFactor(),
-//             randomScalingFactor(),
-//             randomScalingFactor(),
-//             randomScalingFactor(),
-//             randomScalingFactor(),
-//             randomScalingFactor(),
-//             randomScalingFactor()
-//         ]
-//     }, {
-//         label: 'Dataset 3',
-//         backgroundColor: window.chartColors.green,
-//         data: [
-//             randomScalingFactor(),
-//             randomScalingFactor(),
-//             randomScalingFactor(),
-//             randomScalingFactor(),
-//             randomScalingFactor(),
-//             randomScalingFactor(),
-//             randomScalingFactor()
-//         ]
-//     }]
-
-// };
-// window.onload = function() {
-//     var ctx = document.getElementById('canvas').getContext('2d');
-//     window.myBar = new Chart(ctx, {
-//         type: 'bar',
-//         data: barChartData,
-//         options: {
-//             title: {
-//                 display: true,
-//                 text: 'Chart.js Bar Chart - Stacked'
-//             },
-//             tooltips: {
-//                 mode: 'index',
-//                 intersect: false
-//             },
-//             responsive: true,
-//             scales: {
-//                 xAxes: [{
-//                     stacked: true,
-//                 }],
-//                 yAxes: [{
-//                     stacked: true
-//                 }]
-//             }
-//         }
-//     });
-// };
