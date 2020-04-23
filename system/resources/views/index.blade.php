@@ -79,11 +79,11 @@
             </div>
         </div>
         <div class="column is-5">
-            <div class="total-box" style="padding:10px">
+            <!-- <div class="total-box" style="padding:10px">
                 <canvas id="myChart" width="400" height="480"></canvas>
                 <progress id="animationProgress" max="1" value="0" style="display: none"></progress>
-            </div>
-            <!-- <div class="total-box">
+            </div> -->
+            <div class="total-box">
                 <div class="table-container">
                     <table class="table-background-color">
                         <thead>
@@ -114,7 +114,7 @@
                         </tbody>
                     </table>
                 </div>
-            </div> -->
+            </div>
         </div>
     </div>
 </div>
@@ -125,6 +125,6 @@
     var dailyTitle = "{{trans('home.dailycases')}}";
     var urlDate = "{{url('reportByDate')}}";
 </script>
-<script type="text/javascript" src="{{ asset('js/chartjs/reportByState.js?v=c29a8c6f8233d')}}"></script>
-<script type="text/javascript" src="{{ asset('js/chartjs/reportByDate.js?v=c298c6fa8233d')}}"></script>
+<script type="text/javascript" src="{{ asset('js/chartjs/reportByState.js?v=c29a8ac6f8233d')}}"></script>
+<script type="text/javascript" src="{{ asset('js/chartjs/reportByDate.js?v=c298c6afa8233d')}}"></script>
 @endsection
