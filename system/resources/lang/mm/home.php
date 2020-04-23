@@ -16,11 +16,11 @@ return [
     'myanmar' => 'မြန်မာ',
     'total' => 'စုစုပေါင်း',
     'today' => 'ယနေ့',
-    'confirmed' => 'တွေ့ရှိ',
+    'confirmed' => 'ပိုးတွေ့ရှိ',
     'deaths' => 'သေဆုံး',
-    'recovered' => 'ပြန်သက်သာ',
+    'recovered' => 'ပြန်လည်ကောင်မွန်',
     'active' => 'ကျန်ရှိ',
-    'confirmbystate' => 'ပြည်နည်အလိုက် တွေ့ရှိမှု',
+    'confirmbystate' => 'ပြည်နယ်အလိုက် တွေ့ရှိမှု',
     'dailycases' => 'နေ့စဥ်အလိုက် တွေ့ရှိမှု'
 
 ];
