@@ -18,7 +18,7 @@ return [
     'today' => 'ယနေ့',
     'confirmed' => 'ပိုးတွေ့ရှိ',
     'deaths' => 'သေဆုံး',
-    'recovered' => 'ပြန်လည်ကောင်မွန်',
+    'recovered' => 'ပြန်သက်သာ',
     'active' => 'ကျန်ရှိ',
     'confirmbystate' => 'ပြည်နယ်အလိုက် တွေ့ရှိမှု',
     'dailycases' => 'နေ့စဥ်အလိုက် တွေ့ရှိမှု'
