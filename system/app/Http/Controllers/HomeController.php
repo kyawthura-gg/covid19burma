@@ -147,7 +147,7 @@ class HomeController extends Controller
         $date_cases = DB::table('cases')
             ->select(DB::raw('SUM(confirm_case) as confirm_case, SUM(deaths) as deaths,SUM(recovered) as recovered,date_confirm'))
             ->groupBy('date_confirm')
-            ->orderBy('confirm_case', 'ASC')
+            ->orderBy('date_confirm', 'ASC')
             ->get();
         return response()->json($date_cases);
     }
