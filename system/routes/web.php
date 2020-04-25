@@ -27,6 +27,7 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('index');
 Route::get('/help', 'HomeController@helpLink')->name('help');
 Route::get('/report', 'HomeController@report')->name('report');
+Route::get('/news', 'HomeController@news')->name('news');
 Route::get('/about', 'HomeController@about')->name('about');
 Route::get('/cases', 'HomeController@cases')->name('cases');
 Route::get('/cluster', 'HomeController@cluster')->name('cluster');
