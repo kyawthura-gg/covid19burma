@@ -260,6 +260,26 @@ path:hover {
     padding-bottom: 15px;
 }
 
+.custom-card {
+    border: #fff solid 2px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.custom-content {
+    padding: 20px;
+}
+
+.custom-content a {
+    color: white;
+}
+
+.custom-content .level {
+    margin-top: 10px;
+}
+
 @media only screen and (max-width: 600px) {
     .help-container p {
         height: 120px;
@@ -308,6 +328,10 @@ path:hover {
     .mm-map {
         padding-left: 20px;
         padding-bottom: 50px;
+    }
+
+    .is-mobile {
+        padding: 50px;
     }
 }
 
