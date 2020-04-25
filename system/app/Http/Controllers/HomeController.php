@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use App\Cases;
+use App\Blogs;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\App;
 
@@ -132,6 +133,11 @@ class HomeController extends Controller
     public function cases()
     {
         return view('case');
+    }
+    public function news()
+    {
+        $blogs = Blogs::orderBy('source_date', 'desc');
+        return view('news', compact('blogs'));
     }
     public function reportByState()
     {
