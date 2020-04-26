@@ -17,23 +17,23 @@ window.onload = function () {
     recovered.start();
     var active = new CountUp("active", mm_active, options);
     active.start();
-    const apiUrl = "https://covidapi.info/api/v1/global";
-    var gConfirmed = 0;
-    var gDeaths = 0;
-    var gRecovered = 0;
-    fetch(apiUrl).then(res => res.json()).then(data => data.result).then(function (covidData) {
-        gConfirmed = covidData.confirmed;
-        gDeaths = covidData.deaths;
-        gRecovered = covidData.recovered;
-        var gActive = gConfirmed - (gDeaths + gRecovered);
-        console.log(gConfirmed);
-        var confirm = new CountUp("golobal-confirmed", gConfirmed, options);
-        confirm.start();
-        var deaths = new CountUp("golobal-deaths", gDeaths, options);
-        deaths.start();
-        var recovered = new CountUp("golobal-recovered", gRecovered, options);
-        recovered.start();
-        var g_active = new CountUp("golobal-active", gActive, options);
-        g_active.start();
-    })
+    // const apiUrl = "https://covidapi.info/api/v1/global";
+    // var gConfirmed = 0;
+    // var gDeaths = 0;
+    // var gRecovered = 0;
+    // fetch(apiUrl).then(res => res.json()).then(data => data.result).then(function (covidData) {
+    //     gConfirmed = covidData.confirmed;
+    //     gDeaths = covidData.deaths;
+    //     gRecovered = covidData.recovered;
+    //     var gActive = gConfirmed - (gDeaths + gRecovered);
+    //     console.log(gConfirmed);
+    //     var confirm = new CountUp("golobal-confirmed", gConfirmed, options);
+    //     confirm.start();
+    //     var deaths = new CountUp("golobal-deaths", gDeaths, options);
+    //     deaths.start();
+    //     var recovered = new CountUp("golobal-recovered", gRecovered, options);
+    //     recovered.start();
+    //     var g_active = new CountUp("golobal-active", gActive, options);
+    //     g_active.start();
+    // })
 };
