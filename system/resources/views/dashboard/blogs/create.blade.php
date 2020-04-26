@@ -26,16 +26,16 @@
     </div>
     @endif
 
-    <form action="{{ route('blogs.store') }}" method="POST">
+    <form action="{{ route('blogs.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="field is-horizontal">
             <div class="field-label is-normal">
-                <label class="label">Title:</label>
+                <label class="label">Image</label>
             </div>
             <div class="field-body">
                 <div class="field">
                     <p class="control">
-                        <input class="input" name="title" placeholder="Blog Title">
+                        <input type="file" class="" name="source_image"></textarea>
                     </p>
                 </div>
             </div>
@@ -47,7 +47,7 @@
             <div class="field-body">
                 <div class="field">
                     <p class="control">
-                        <input class="input" name="details" placeholder="Details">
+                        <textarea class="textarea" name="details"></textarea>
                     </p>
                 </div>
             </div>
@@ -71,7 +71,7 @@
             <div class="field-body">
                 <div class="field">
                     <p class="control">
-                        <input class="input selector" name="source_date" placeholder="Source Date">
+                        <input class="input selector" name="source_date">
                     </p>
                 </div>
             </div>
@@ -83,7 +83,7 @@
             <div class="field-body">
                 <div class="field">
                     <p class="control">
-                        <input class="input" name="source_link" placeholder="Source Link">
+                        <input class="input" name="source_link" placeholder="google.com">
                     </p>
                 </div>
             </div>

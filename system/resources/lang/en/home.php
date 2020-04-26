@@ -20,5 +20,6 @@ return [
     'recovered' => 'RECOVERED',
     'active' => 'ACTIVE',
     'confirmbystate' => 'Confirmed cases by states',
-    'dailycases' => 'Daily Cases'
+    'dailycases' => 'Daily Cases',
+    'state' => 'State',
 ];

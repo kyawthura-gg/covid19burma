@@ -32,19 +32,19 @@ $(document).ready(function () {
                 data: {
                     labels: DateLabels,
                     datasets: [{
-                            label: 'Confirmed Cases',
+                            label: confirmed,
                             fill: true,
                             backgroundColor: 'hsl(348, 100%, 61%)',
                             data: DateConfirm
                         },
                         {
-                            label: 'Deaths',
+                            label: deaths,
                             fill: true,
                             backgroundColor: 'hsl(0, 0%, 86%)',
                             data: DateDeaths
                         },
                         {
-                            label: 'Recovered',
+                            label: recovered,
                             fill: true,
                             backgroundColor: 'hsl(171, 100%, 41%)',
                             data: DateRecovered

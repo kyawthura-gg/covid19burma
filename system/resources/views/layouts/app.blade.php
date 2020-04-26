@@ -25,7 +25,7 @@
         <div class="navbar-brand">
             <a class="navbar-item" href="{{route('index')}}">
                 <img src="./img/virus.png" class="mr-10" alt="Virus Logo">
-                Covid-19 | {{__('home.myanmar')}}
+                Covid-19 | {{__('menu.myanmar')}}
             </a>
             <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                 <span aria-hidden="true"></span>
@@ -38,31 +38,25 @@
             <div class="navbar-start">
 
                 <a class="navbar-item" href="{{route('index')}}">
-                    Home
+                    {{__('menu.home')}}
                 </a>
-                <a class="navbar-item" href="cluster">
-                    Cluster
+                <a class="navbar-item" href="{{route('cluster')}}">
+                    {{__('menu.cluster')}}
                 </a>
-                <a class="navbar-item" href="about">
-                    About Us
+                <a class="navbar-item" href="{{route('news')}}">
+                    {{__('menu.news')}}
                 </a>
-                <!-- <a class="navbar-item" href="cases">
-                    Case
-                </a> -->
-                <a class="navbar-item" href="help">
-                    Helpful Links
-                </a>
+
                 <div class="navbar-item has-dropdown is-hoverable">
                     <a class="navbar-link">
-                        More
+                        {{__('menu.more')}}
                     </a>
-
                     <div class="navbar-dropdown">
-                        <a class="navbar-item" id="id_author">
-                            Author
-                        </a>
-                        <a class="navbar-item" href="contactus">
+                        <a class="navbar-item" href="{{route('contactus')}}">
                             Report an issue
+                        </a>
+                        <a class="navbar-item" href="{{route('about')}}">
+                            {{__('menu.aboutus')}}
                         </a>
                     </div>
                 </div>
@@ -75,7 +69,6 @@
                     </div>
                 </div>
                 <div class="navbar-item">
-
                     <div class="bottom-box" id="id_faq">
                         FAQs
                     </div>
@@ -88,7 +81,7 @@
                             <img src="{{ asset('img/flag/mm.png')}}" alt="">
                         </span>
                         <span>
-                            ဗမာ
+                            မြန်မာ
                         </span>
                     </a>
                 </div>
@@ -133,21 +126,6 @@
             </section>
         </div>
     </div>
-    <div class="modal" id="id_author_modal">
-        <div class="modal-background"></div>
-        <div class="modal-card">
-            <header class="modal-card-head">
-                <p class="modal-card-title" style="margin-bottom: 0px;">Developed by</p>
-                <button class="delete close_author" aria-label="close"></button>
-            </header>
-            <section class="modal-card-body">
-                <div class="">
-                    <!-- <img src="./img/kanhaiya.png" alt="" class="circular_image" style=""> -->
-                    <a href="mailto:verdant.pte.ltd@gmail.com" style="color:white">Verdant Team</a>
-                </div>
-            </section>
-        </div>
-    </div>
     <div class="modal" id="id_faq_modal">
         <div class="modal-background"></div>
         <div class="modal-card">
@@ -166,8 +144,8 @@
     </div>
 </body>
 
-<script src="./js/app.js?v=c9q98ca7zf1233ad"></script>
+<script src="./js/app.js?v=c9qa98ca7zf1233ad"></script>
 <script src="./js/counterup.js?v=c298c7f8233d" type="module"></script>
-<script src="./js/main.js?v=cdae4z9108c7f8213d" type="module"></script>
+<script src="./js/main.js?v=cdae4az9108c7f8213d" type="module"></script>
 
 </html>

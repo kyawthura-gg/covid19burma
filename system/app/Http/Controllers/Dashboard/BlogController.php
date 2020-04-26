@@ -43,17 +43,27 @@ class BlogController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required',
+            'source_image' => 'required|max:2048',
             'details' => 'required',
             'source' => 'required',
             'source_link' => 'required',
             'source_date' => 'required',
         ]);
 
-        Blogs::create($request->all());
+        $image = $request->file('source_image');
 
-        return redirect()->route('blogs.index')
-            ->with('success', 'Blogs created successfully.');
+        $new_name = rand() . '.' . $image->getClientOriginalExtension();
+        $image->move(('uploads/news'), $new_name);
+        $form_data = array(
+            'source_image'       =>   $new_name,
+            'details'        =>   $request->details,
+            'source'        =>   $request->source,
+            'source_link'        =>   $request->source_link,
+            'source_date'        =>   $request->source_date,
+        );
+        Blogs::create($form_data);
+
+        return redirect()->route('blogs/index')->with('success', 'Blog Added successfully.');
     }
 
     /**
