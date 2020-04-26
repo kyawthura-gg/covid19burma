@@ -24,7 +24,7 @@
             <table class="table table-bordered">
                 <tr>
                     <th>No</th>
-                    <th>Title</th>
+                    <th>Image</th>
                     <th>Detials</th>
                     <th>Source</th>
                     <th>Date</th>
@@ -33,7 +33,11 @@
                 @foreach ($blogs as $blog)
                 <tr>
                     <td>{{ ++$i }}</td>
-                    <td>{{ $blog->title}}</td>
+                    <td>
+                        <figure class="image is-48x48">
+                            <img src="{{ URL::to('/') }}/uploads/news/{{ $blog->source_image}}" alt="" class="image">
+                        </figure>
+                    </td>
                     <td>{{ $blog->details}}</td>
                     <td>{{ $blog->source}}</td>
                     <td>{{ $blog->source_date}}</td>
