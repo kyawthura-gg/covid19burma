@@ -39,20 +39,6 @@ $(document).ready(function () {
             modal.style.display = "none";
         }
     };
-    var modal_author = document.getElementById("id_author_modal");
-    var btn_author = document.getElementById("id_author");
-    var span_author = document.getElementsByClassName("close_author")[0];
-    btn_author.onclick = function () {
-        modal_author.style.display = "block";
-    };
-    span_author.onclick = function () {
-        modal_author.style.display = "none";
-    };
-    window.onclick = function (event) {
-        if (event.target == modal_author) {
-            modal_author.style.display = "none";
-        }
-    };
     var modal_faq = document.getElementById("id_faq_modal");
     var btn_faq = document.getElementById("id_faq");
     var span_faq = document.getElementsByClassName("close_faq")[0];
