@@ -136,7 +136,10 @@ class HomeController extends Controller
     }
     public function news()
     {
-        $blogs = Blogs::orderBy('source_date', 'desc');
+        $blogs = DB::table('blogs')
+            ->select(DB::raw("*,DATE_FORMAT(source_date, '%d %b %Y') as source_date"))
+            ->orderBy('source_date', 'DESC')
+            ->get();
         return view('news', compact('blogs'));
     }
     public function reportByState()
