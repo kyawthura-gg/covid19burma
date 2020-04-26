@@ -89,16 +89,16 @@
                         <thead>
                             <tr>
                                 <th>
-                                    State
+                                    {{__('home.state')}}
                                 </th>
                                 <th>
-                                    Cases
+                                    {{__('home.confirmed')}}
                                 </th>
                                 <th>
-                                    Deaths
+                                    {{__('home.deaths')}}
                                 </th>
                                 <th>
-                                    Recovered
+                                    {{__('home.recovered')}}
                                 </th>
                             </tr>
                         </thead>
@@ -124,7 +124,10 @@
     var byStateTitle = "{{trans('home.confirmbystate')}}";
     var dailyTitle = "{{trans('home.dailycases')}}";
     var urlDate = "{{url('reportByDate')}}";
+    var confirmed = "{{trans('home.confirmed')}}";
+    var deaths = "{{trans('home.deaths')}}";
+    var recovered = "{{trans('home.recovered')}}";
 </script>
 <script type="text/javascript" src="{{ asset('js/chartjs/reportByState.js?v=c29a8ac6f8233d')}}"></script>
-<script type="text/javascript" src="{{ asset('js/chartjs/reportByDate.js?v=c298c6afa8233d')}}"></script>
+<script type="text/javascript" src="{{ asset('js/chartjs/reportByDate.js?v=c298cs6safa8233d')}}"></script>
 @endsection
