@@ -28,6 +28,7 @@
                     <th>Detials</th>
                     <th>Source</th>
                     <th>Date</th>
+                    <th>Source Link</th>
                     <th width="280px">Action</th>
                 </tr>
                 @foreach ($blogs as $blog)
@@ -41,6 +42,7 @@
                     <td>{{ $blog->details}}</td>
                     <td>{{ $blog->source}}</td>
                     <td>{{ $blog->source_date}}</td>
+                    <td>{{ $blog->source_link}}</td>
                     <td>
                         <form action="{{ route('blogs.destroy',$blog->id) }}" method="POST">
                             <a class="button is-primary is-small" href="{{ route('blogs.edit',$blog->id) }}"><i class="far fa-edit fa-lg"></i></a>
