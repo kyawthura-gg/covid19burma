@@ -52,10 +52,10 @@ class BlogController extends Controller
 
         $image = $request->file('source_image');
 
-        $new_name = rand() . '.' . $image->getClientOriginalExtension();
-        $image->move(('uploads/news'), $new_name);
+        $image_name = rand() . '.' . $image->getClientOriginalExtension();
+        $image->move(('uploads/news'), $image_name);
         $form_data = array(
-            'source_image'       =>   $new_name,
+            'source_image'       =>   $image_name,
             'details'        =>   $request->details,
             'source'        =>   $request->source,
             'source_link'        =>   $request->source_link,
@@ -63,7 +63,8 @@ class BlogController extends Controller
         );
         Blogs::create($form_data);
 
-        return redirect()->route('blogs/index')->with('success', 'Blog Added successfully.');
+        return redirect()->route('blogs.index')
+            ->with('success', 'Blog Added successfully.');
     }
 
     /**
@@ -85,7 +86,8 @@ class BlogController extends Controller
      */
     public function edit($id)
     {
-        //
+        $blogs = Blogs::findOrFail($id);
+        return view('dashboard.blogs.edit', compact('blogs'));
     }
 
     /**
@@ -97,7 +99,39 @@ class BlogController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $image_name = $request->hidden_image;
+        $image = $request->file('source_image');
+        if ($image != '') {
+            $request->validate([
+                'source_image' => 'required|max:2048',
+                'details' => 'required',
+                'source' => 'required',
+                'source_link' => 'required',
+                'source_date' => 'required',
+            ]);
+
+            $image_name = rand() . '.' . $image->getClientOriginalExtension();
+            $image->move(('uploads/news'), $image_name);
+        } else {
+            $request->validate([
+                'details' => 'required',
+                'source' => 'required',
+                'source_link' => 'required',
+                'source_date' => 'required',
+            ]);
+        }
+
+        $form_data = array(
+            'source_image'       =>   $image_name,
+            'details'        =>   $request->details,
+            'source'        =>   $request->source,
+            'source_link'        =>   $request->source_link,
+            'source_date'        =>   $request->source_date,
+        );
+
+        Blogs::whereId($id)->update($form_data);
+        return redirect()->route('blogs.index')
+            ->with('success', 'Blog updated successfully.');
     }
 
     /**
@@ -108,6 +142,9 @@ class BlogController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Blogs::findOrFail($id);
+        $data->delete();
+        return redirect()->route('blogs.index')
+            ->with('success', 'Blog deleted successfully.');
     }
 }

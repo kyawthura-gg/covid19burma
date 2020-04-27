@@ -10,7 +10,7 @@
         </div>
         <div class="level-right">
             <div class="level-item">
-                <a class="button is-info " href="{{ route('cases.index') }}"> <i class="fas fa-arrow-circle-left"></i> &nbsp;Back</a>
+                <a class="button is-info " href="{{ route('blogs.index') }}"> <i class="fas fa-arrow-circle-left"></i> &nbsp;Back</a>
             </div>
         </div>
     </div>
@@ -26,82 +26,70 @@
     </div>
     @endif
 
-    <form action="{{ route('cases.update',$cases->id) }}" method="POST">
+    <form action="{{ route('blogs.update',$blogs->id) }}" method="POST">
         @csrf
         @method('PUT')
 
         <div class="field is-horizontal">
             <div class="field-label is-normal">
-                <label class="label">State:</label>
-            </div>
-            <div class="field-body">
-                <div class="field">
-                    <div class="select">
-                        <select name="state">
-                            @foreach($states as $state)
-                            <option value="{{ $state->name }}" {{ $state->name == $cases->state ? 'selected' : '' }}>{{ $state->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="field is-horizontal">
-            <div class="field-label is-normal">
-                <label class="label">City / District:</label>
+                <label class="label">Image</label>
             </div>
             <div class="field-body">
                 <div class="field">
                     <p class="control">
-                        <input class="input" value="{{ $cases->city }}" name="city" placeholder="City or District">
+                        <input type="file" class="" value="{{ $blogs->source_image }}" name="source_image" />
+                        <figure class="image is-48x48">
+                            <img src="{{ URL::to('/') }}/uploads/news/{{ $blogs->source_image}}" alt="" class="image">
+                        </figure>
+                        <input type="hidden" name="hidden_image" value="{{ $blogs->source_image }}" />
                     </p>
                 </div>
             </div>
         </div>
         <div class="field is-horizontal">
             <div class="field-label is-normal">
-                <label class="label">Date:</label>
+                <label class="label">Details:</label>
             </div>
             <div class="field-body">
                 <div class="field">
                     <p class="control">
-                        <input class="input edit-selector" value="{{ $cases->date_confirm }}" name="date_confirm" placeholder="Case Date">
+                        <textarea class="textarea" name="details">{{ $blogs->details }}</textarea>
                     </p>
                 </div>
             </div>
         </div>
         <div class="field is-horizontal">
             <div class="field-label is-normal">
-                <label class="label">Number of Case:</label>
+                <label class="label">Source:</label>
             </div>
             <div class="field-body">
                 <div class="field">
                     <p class="control">
-                        <input class="input" name="confirm_case" value="{{ $cases->confirm_case }}">
+                        <input class="input" name="source" placeholder="7 Days" value="{{ $blogs->source }}">
                     </p>
                 </div>
             </div>
         </div>
         <div class="field is-horizontal">
             <div class="field-label is-normal">
-                <label class="label">Number of Death:</label>
+                <label class="label">Source Date:</label>
             </div>
             <div class="field-body">
                 <div class="field">
                     <p class="control">
-                        <input class="input" name="deaths" value="{{ $cases->deaths }}">
+                        <input class="input selector" name="source_date" value="{{ $blogs->source_date }}">
                     </p>
                 </div>
             </div>
         </div>
         <div class="field is-horizontal">
             <div class="field-label is-normal">
-                <label class="label">Number of Recovered:</label>
+                <label class="label">Source Link:</label>
             </div>
             <div class="field-body">
                 <div class="field">
                     <p class="control">
-                        <input class="input" name="recovered" value="{{ $cases->recovered }}">
+                        <input class="input" name="source_link" placeholder="google.com" value="{{ $blogs->source_link }}">
                     </p>
                 </div>
             </div>
@@ -109,7 +97,6 @@
         <div class="field is-horizontal">
             <button type="submit" class="button">Update</button>
         </div>
-
     </form>
 </div>
 <script>
