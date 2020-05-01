@@ -146,6 +146,6 @@
 
 <script src="./js/app.js?v=c9qa98ca7zf1233ad"></script>
 <script src="./js/counterup.js?v=c298c7f8233d" type="module"></script>
-<script src="./js/main.js?v=cdae4az9108c7f8213d" type="module"></script>
+<script src="./js/main.js?v=cdae4az9108c7fa8213d" type="module"></script>
 
 </html>
