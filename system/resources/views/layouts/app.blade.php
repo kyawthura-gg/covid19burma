@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="./css/bulma.css?v=c298c6f8233d">
     <link rel="stylesheet" href="./css/app.css?v=cc7fs83s2dszd">
     <script type="text/javascript" src="{{ asset('js/jquery.js?v=c298c6f8233d')}}"></script>
-    <script type="text/javascript" src="{{ asset('js/chart.min.js?v=c298c6f8233d')}}"></script>
+    <script type="text/javascript" src="{{ asset('js/chart.min.js?v=c298c6f823a3d')}}"></script>
 </head>
 
 <body>
