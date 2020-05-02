@@ -1,91 +1,92 @@
 @extends('layouts.app')
 
 @section('content')
-<style>
-    circle {
-        stroke-width: 1.5px;
-    }
 
-    line {
-        stroke: #999;
-    }
-</style>
-<script src="{{ asset('js/d3.js')}}"></script>
-<div class="container">
-    <div class="columns">
-    </div>
+<div class="chart">
 </div>
-<script>
-    var width = 960,
-        height = 500,
-        radius = 6;
 
-    var fill = d3.scale.category20();
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script>
+
+<script type="text/javascript">
+    var width = 500,
+        height = 500;
+
+    var color = d3.scale.category20();
 
     var force = d3.layout.force()
-        .gravity(.05)
-        .charge(-240)
-        .linkDistance(50)
+        .charge(-120)
+        .linkDistance(80)
         .size([width, height]);
 
-    var svg = d3.select("body").append("svg")
-        .attr("viewBox", [-width / 2, -height / 2, width, height]);
+    var svg = d3.select(".chart").append("svg")
+        .attr("width", width)
+        .attr("height", height);
 
-    d3.json("js/graph.json", function(error, graph) {
-        if (error) throw error;
+    var mis = document.getElementById('mis').innerHTML;
+    graph = JSON.parse(mis);
 
-        var link = svg.selectAll("line")
-            .data(graph.links)
-            .enter().append("line")
-            .attr("stroke-width", d => Math.sqrt(d.value));
+    force.nodes(graph.nodes)
+        .links(graph.links)
+        .start();
 
-        // const link = svg.append("g")
-        //     .attr("stroke", "#999")
-        //     .attr("stroke-opacity", 0.6)
-        //     .selectAll("line")
-        //     .data(graph.links)
-        //     .join("line")
-        //     .attr("stroke-width", d => Math.sqrt(d.value));
+    var link = svg.selectAll(".link")
+        .data(graph.links)
+        .enter().append("line")
+        .attr("class", "link")
+        .style("stroke-width", function(d) {
+            return Math.sqrt(d.value);
+        });
 
-        var node = svg.selectAll("circle")
-            .data(graph.nodes)
-            .enter().append("circle")
-            .attr("r", radius - .75)
-            .style("fill", function(d) {
-                return fill(d.group);
+    var node = svg.selectAll(".node")
+        .data(graph.nodes)
+        .enter().append("g")
+        .attr("class", "node")
+        .call(force.drag);
+
+    node.append("circle")
+        .attr("r", function(d, i) {
+            return i % 2 == 0 ? 10 : 8
+        })
+        .style("fill", function(d) {
+            return color(d.group);
+        })
+
+    node.append("text")
+        .attr("text-anchor", "middle")
+        .attr("dy", ".35em")
+        .text(function(d) {
+            return d.group
+        });
+
+    force.on("tick", function() {
+        link.attr("x1", function(d) {
+                return d.source.x;
             })
-            .style("stroke", function(d) {
-                return d3.rgb(fill(d.group)).darker();
+            .attr("y1", function(d) {
+                return d.source.y;
             })
-            .call(force.drag);
+            .attr("x2", function(d) {
+                return d.target.x;
+            })
+            .attr("y2", function(d) {
+                return d.target.y;
+            });
 
-        force
-            .nodes(graph.nodes)
-            .links(graph.links)
-            .on("tick", tick)
-            .start();
+        d3.selectAll("circle").attr("cx", function(d) {
+                return d.x;
+            })
+            .attr("cy", function(d) {
+                return d.y;
+            });
 
-        function tick() {
-            node.attr("cx", function(d) {
-                    return d.x = Math.max(radius, Math.min(width - radius, d.x));
-                })
-                .attr("cy", function(d) {
-                    return d.y = Math.max(radius, Math.min(height - radius, d.y));
-                });
+        d3.selectAll("text").attr("x", function(d) {
+                return d.x;
+            })
+            .attr("y", function(d) {
+                return d.y;
+            });
 
-            link.attr("x1", function(d) {
-                    return d.source.x;
-                })
-                .attr("y1", function(d) {
-                    return d.source.y;
-                })
-                .attr("x2", function(d) {
-                    return d.target.x;
-                })
-                .attr("y2", function(d) {
-                    return d.target.y;
-                });
-        }
     });
 </script>
+
 @endsection
