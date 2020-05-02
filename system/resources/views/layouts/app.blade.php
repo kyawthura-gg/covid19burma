@@ -16,8 +16,8 @@
     <link rel='shortcut icon' type='image/x-icon' href='./favicon_black.ico' />
     <link rel="stylesheet" href="./css/bulma.css?v=c298c6f8233d">
     <link rel="stylesheet" href="./css/app.css?v=cc7fs83s2dszd">
-    <script type="text/javascript" src="{{ asset('js/jquery.js?v=c298c6f8233d')}}"></script>
-    <script type="text/javascript" src="{{ asset('js/chart.min.js?v=c298c6f8233d')}}"></script>
+    <script type="text/javascript" src="{{ asset('js/jquery.js?v=c298c6f82a33d')}}"></script>
+    <script type="text/javascript" src="{{ asset('js/chart.min.js?v=c298c6f823a3d')}}"></script>
 </head>
 
 <body>
@@ -144,8 +144,8 @@
     </div>
 </body>
 
-<script src="./js/app.js?v=c9qa98ca7zf1233ad"></script>
-<script src="./js/counterup.js?v=c298c7f8233d" type="module"></script>
-<script src="./js/main.js?v=cdae4az9108c7f8213d" type="module"></script>
+<script src="./js/app.js?v=c9qa98ca7azf1233ad"></script>
+<script src="./js/counterup.js?v=c298c7f82a33d" type="module"></script>
+<script src="./js/main.js?v=cdae4az9108c7fa8213d" type="module"></script>
 
 </html>
