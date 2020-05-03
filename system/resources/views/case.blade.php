@@ -1,1273 +1,1003 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+    svg {
+        /* background: white; */
 
+        cursor: default;
+    }
+
+    .link {
+        fill: white;
+        stroke: white;
+        stroke-width: 1px;
+    }
+
+    .chart svg {
+        width: 1000px
+    }
+
+    g text {
+        fill: #e3e1e1;
+    }
+</style>
 <div class="chart">
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script>
+<script src="{{ asset('js/d3.js') }}"></script>
 <script type="application/json" id="mis">
     {
         "nodes": [{
-            "name": "Myriel",
-            "group": 1
-        }, {
-            "name": "Napoleon",
-            "group": 1
-        }, {
-            "name": "Mlle.Baptistine",
-            "group": 1
-        }, {
-            "name": "Mme.Magloire",
-            "group": 1
-        }, {
-            "name": "CountessdeLo",
-            "group": 1
-        }, {
-            "name": "Geborand",
-            "group": 1
-        }, {
-            "name": "Champtercier",
-            "group": 1
-        }, {
-            "name": "Cravatte",
-            "group": 1
-        }, {
-            "name": "Count",
-            "group": 1
-        }, {
-            "name": "OldMan",
-            "group": 1
-        }, {
-            "name": "Labarre",
-            "group": 2
-        }, {
-            "name": "Valjean",
-            "group": 2
-        }, {
-            "name": "Marguerite",
-            "group": 3
-        }, {
-            "name": "Mme.deR",
-            "group": 2
-        }, {
-            "name": "Isabeau",
-            "group": 2
-        }, {
-            "name": "Gervais",
-            "group": 2
-        }, {
-            "name": "Tholomyes",
-            "group": 3
-        }, {
-            "name": "Listolier",
-            "group": 3
-        }, {
-            "name": "Fameuil",
-            "group": 3
-        }, {
-            "name": "Blacheville",
-            "group": 3
-        }, {
-            "name": "Favourite",
-            "group": 3
-        }, {
-            "name": "Dahlia",
-            "group": 3
-        }, {
-            "name": "Zephine",
-            "group": 3
-        }, {
-            "name": "Fantine",
-            "group": 3
-        }, {
-            "name": "Mme.Thenardier",
-            "group": 4
-        }, {
-            "name": "Thenardier",
-            "group": 4
-        }, {
-            "name": "Cosette",
-            "group": 5
-        }, {
-            "name": "Javert",
-            "group": 4
-        }, {
-            "name": "Fauchelevent",
-            "group": 0
-        }, {
-            "name": "Bamatabois",
-            "group": 2
-        }, {
-            "name": "Perpetue",
-            "group": 3
-        }, {
-            "name": "Simplice",
-            "group": 2
-        }, {
-            "name": "Scaufflaire",
-            "group": 2
-        }, {
-            "name": "Woman1",
-            "group": 2
-        }, {
-            "name": "Judge",
-            "group": 2
-        }, {
-            "name": "Champmathieu",
-            "group": 2
-        }, {
-            "name": "Brevet",
-            "group": 2
-        }, {
-            "name": "Chenildieu",
-            "group": 2
-        }, {
-            "name": "Cochepaille",
-            "group": 2
-        }, {
-            "name": "Pontmercy",
-            "group": 4
-        }, {
-            "name": "Boulatruelle",
-            "group": 6
-        }, {
-            "name": "Eponine",
-            "group": 4
-        }, {
-            "name": "Anzelma",
-            "group": 4
-        }, {
-            "name": "Woman2",
-            "group": 5
-        }, {
-            "name": "MotherInnocent",
-            "group": 0
-        }, {
-            "name": "Gribier",
-            "group": 0
-        }, {
-            "name": "Jondrette",
-            "group": 7
-        }, {
-            "name": "Mme.Burgon",
-            "group": 7
-        }, {
-            "name": "Gavroche",
-            "group": 8
-        }, {
-            "name": "Gillenormand",
-            "group": 5
-        }, {
-            "name": "Magnon",
-            "group": 5
-        }, {
-            "name": "Mlle.Gillenormand",
-            "group": 5
-        }, {
-            "name": "Mme.Pontmercy",
-            "group": 5
-        }, {
-            "name": "Mlle.Vaubois",
-            "group": 5
-        }, {
-            "name": "Lt.Gillenormand",
-            "group": 5
-        }, {
-            "name": "Marius",
-            "group": 8
-        }, {
-            "name": "BaronessT",
-            "group": 5
-        }, {
-            "name": "Mabeuf",
-            "group": 8
-        }, {
-            "name": "Enjolras",
-            "group": 8
-        }, {
-            "name": "Combeferre",
-            "group": 8
-        }, {
-            "name": "Prouvaire",
-            "group": 8
-        }, {
-            "name": "Feuilly",
-            "group": 8
-        }, {
-            "name": "Courfeyrac",
-            "group": 8
-        }, {
-            "name": "Bahorel",
-            "group": 8
-        }, {
-            "name": "Bossuet",
-            "group": 8
-        }, {
-            "name": "Joly",
-            "group": 8
-        }, {
-            "name": "Grantaire",
-            "group": 8
-        }, {
-            "name": "MotherPlutarch",
-            "group": 9
-        }, {
-            "name": "Gueulemer",
-            "group": 4
-        }, {
-            "name": "Babet",
-            "group": 4
-        }, {
-            "name": "Claquesous",
-            "group": 4
-        }, {
-            "name": "Montparnasse",
-            "group": 4
-        }, {
-            "name": "Toussaint",
-            "group": 5
-        }, {
-            "name": "Child1",
-            "group": 10
-        }, {
-            "name": "Child2",
-            "group": 10
-        }, {
-            "name": "Brujon",
-            "group": 4
-        }, {
-            "name": "Mme.Hucheloup",
-            "group": 8
-        }],
+                "case": 1,
+                "gender": "none",
+                "age": "36",
+                "value": 15
+            }, {
+                "case": 1,
+                "gender": "Male",
+                "age": "36",
+                "value": 15
+            }, {
+                "case": 2,
+                "gender": "Male",
+                "age": "26",
+                "value": 15
+            },
+            {
+                "case": 3,
+                "gender": "Male",
+                "age": "26",
+                "value": 15
+            },
+            {
+                "case": 4,
+                "gender": "Male",
+                "age": "33",
+                "value": 15
+            },
+            {
+                "case": 5,
+                "gender": "Male",
+                "age": "69",
+                "value": 15
+            },
+            {
+                "case": 6,
+                "gender": "Male",
+                "age": "29",
+                "value": 15
+            },
+            {
+                "case": 7,
+                "gender": "Female",
+                "age": "58",
+                "value": 15
+            },
+            {
+                "case": 8,
+                "gender": "Female",
+                "age": "60",
+                "value": 15
+            },
+            {
+                "case": 9,
+                "gender": "Male",
+                "age": "44",
+                "value": 15
+            },
+            {
+                "case": 10,
+                "gender": "Male",
+                "age": "45",
+                "value": 15
+            },
+            {
+                "case": 11,
+                "gender": "Female",
+                "age": "66",
+                "value": 15
+            },
+            {
+                "case": 12,
+                "gender": "Male",
+                "age": "65",
+                "value": 15
+            },
+            {
+                "case": 13,
+                "gender": "Female",
+                "age": "61",
+                "value": 15
+            },
+            {
+                "case": 14,
+                "gender": "Male",
+                "age": "24",
+                "value": 15
+            },
+            {
+                "case": 15,
+                "gender": "Female",
+                "age": "45",
+                "value": 15
+            },
+            {
+                "case": 16,
+                "gender": "Female",
+                "age": "63",
+                "value": 15
+            },
+            {
+                "case": 17,
+                "gender": "Male",
+                "age": "47",
+                "value": 15
+            },
+            {
+                "case": 18,
+                "gender": "Male",
+                "age": "10",
+                "value": 15
+            },
+            {
+                "case": 19,
+                "gender": "Female",
+                "age": "8",
+                "value": 15
+            },
+            {
+                "case": 20,
+                "gender": "Female",
+                "age": "18",
+                "value": 15
+            },
+            {
+                "case": 21,
+                "gender": "Female",
+                "age": "24",
+                "value": 15
+            },
+            {
+                "case": 22,
+                "gender": "Female",
+                "age": "51",
+                "value": 15
+            },
+            {
+                "case": 23,
+                "gender": "Female",
+                "age": "58",
+                "value": 15
+            },
+            {
+                "case": 24,
+                "gender": "Male",
+                "age": "32",
+                "value": 15
+            },
+            {
+                "case": 25,
+                "gender": "Male",
+                "age": "55",
+                "value": 15
+            },
+            {
+                "case": 26,
+                "gender": "Female",
+                "age": "56",
+                "value": 15
+            },
+            {
+                "case": 27,
+                "gender": "Female",
+                "age": "24",
+                "value": 15
+            },
+            {
+                "case": 28,
+                "gender": "Male",
+                "age": "63",
+                "value": 15
+            },
+            {
+                "case": 29,
+                "gender": "Male",
+                "age": "26",
+                "value": 15
+            },
+            {
+                "case": 30,
+                "gender": "Female",
+                "age": "58",
+                "value": 15
+            },
+            {
+                "case": 31,
+                "gender": "Female",
+                "age": "49",
+                "value": 15
+            },
+            {
+                "case": 32,
+                "gender": "Male",
+                "age": "38",
+                "value": 15
+            },
+            {
+                "case": 33,
+                "gender": "Female",
+                "age": "29",
+                "value": 15
+            },
+            {
+                "case": 34,
+                "gender": "Male",
+                "age": "20",
+                "value": 15
+            },
+            {
+                "case": 35,
+                "gender": "Male",
+                "age": "24",
+                "value": 15
+            },
+            {
+                "case": 36,
+                "gender": "Male",
+                "age": "33",
+                "value": 15
+            },
+            {
+                "case": 37,
+                "gender": "Male",
+                "age": "44",
+                "value": 15
+            },
+            {
+                "case": 38,
+                "gender": "Female",
+                "age": "78",
+                "value": 15
+            },
+            {
+                "case": 39,
+                "gender": "Male",
+                "age": "85",
+                "value": 15
+            },
+            {
+                "case": 40,
+                "gender": "Female",
+                "age": "68",
+                "value": 15
+            },
+            {
+                "case": 41,
+                "gender": "Male",
+                "age": "38",
+                "value": 15
+            },
+            {
+                "case": 42,
+                "gender": "Female",
+                "age": "43",
+                "value": 15
+            },
+            {
+                "case": 43,
+                "gender": "Female",
+                "age": "41",
+                "value": 15
+            },
+            {
+                "case": 44,
+                "gender": "Female",
+                "age": "32",
+                "value": 15
+            },
+            {
+                "case": 45,
+                "gender": "Male",
+                "age": "54",
+                "value": 15
+            },
+            {
+                "case": 46,
+                "gender": "Male",
+                "age": "44",
+                "value": 15
+            },
+            {
+                "case": 47,
+                "gender": "Female",
+                "age": "50",
+                "value": 15
+            },
+            {
+                "case": 48,
+                "gender": "Male",
+                "age": "31",
+                "value": 15
+            },
+            {
+                "case": 49,
+                "gender": "Male",
+                "age": "35",
+                "value": 15
+            },
+            {
+                "case": 50,
+                "gender": "Male",
+                "age": "41",
+                "value": 15
+            },
+            {
+                "case": 51,
+                "gender": "Male",
+                "age": "49",
+                "value": 15
+            },
+            {
+                "case": 52,
+                "gender": "Female",
+                "age": "40",
+                "value": 15
+            },
+            {
+                "case": 53,
+                "gender": "Male",
+                "age": "31",
+                "value": 15
+            },
+            {
+                "case": 54,
+                "gender": "Female",
+                "age": "7",
+                "value": 15
+            },
+            {
+                "case": 55,
+                "gender": "Male",
+                "age": "40",
+                "value": 15
+            },
+            {
+                "case": 56,
+                "gender": "Female",
+                "age": "33",
+                "value": 15
+            },
+            {
+                "case": 57,
+                "gender": "Female",
+                "age": "39",
+                "value": 15
+            },
+            {
+                "case": 58,
+                "gender": "Female",
+                "age": "46",
+                "value": 15
+            },
+            {
+                "case": 59,
+                "gender": "Female",
+                "age": "23",
+                "value": 15
+            },
+            {
+                "case": 60,
+                "gender": "Male",
+                "age": "39",
+                "value": 15
+            },
+            {
+                "case": 61,
+                "gender": "Male",
+                "age": "38",
+                "value": 15
+            },
+            {
+                "case": 62,
+                "gender": "Female",
+                "age": "30",
+                "value": 15
+            },
+            {
+                "case": 63,
+                "gender": "Male",
+                "age": "65",
+                "value": 15
+            },
+            {
+                "case": 64,
+                "gender": "Male",
+                "age": "23",
+                "value": 15
+            },
+            {
+                "case": 65,
+                "gender": "Female",
+                "age": "57",
+                "value": 15
+            },
+            {
+                "case": 66,
+                "gender": "Female",
+                "age": "75",
+                "value": 15
+            },
+            {
+                "case": 67,
+                "gender": "Female",
+                "age": "27",
+                "value": 15
+            },
+            {
+                "case": 68,
+                "gender": "Male",
+                "age": "37",
+                "value": 15
+            },
+            {
+                "case": 69,
+                "gender": "Male",
+                "age": "34",
+                "value": 15
+            },
+            {
+                "case": 70,
+                "gender": "Female",
+                "age": "31",
+                "value": 15
+            },
+            {
+                "case": 71,
+                "gender": "Female",
+                "age": "32",
+                "value": 15
+            },
+            {
+                "case": 72,
+                "gender": "Female",
+                "age": "27",
+                "value": 15
+            },
+            {
+                "case": 73,
+                "gender": "Female",
+                "age": "29",
+                "value": 15
+            },
+            {
+                "case": 74,
+                "gender": "Male",
+                "age": "63",
+                "value": 15
+            },
+            {
+                "case": 75,
+                "gender": "Female",
+                "age": "35",
+                "value": 15
+            },
+            {
+                "case": 76,
+                "gender": "Male",
+                "age": "20",
+                "value": 15
+            },
+            {
+                "case": 77,
+                "gender": "Female",
+                "age": "33",
+                "value": 15
+            },
+            {
+                "case": 78,
+                "gender": "Male",
+                "age": "67",
+                "value": 15
+            },
+            {
+                "case": 79,
+                "gender": "Male",
+                "age": "43",
+                "value": 15
+            },
+            {
+                "case": 80,
+                "gender": "Male",
+                "age": "28",
+                "value": 15
+            },
+            {
+                "case": 81,
+                "gender": "Female",
+                "age": "28",
+                "value": 15
+            },
+            {
+                "case": 82,
+                "gender": "Female",
+                "age": "38",
+                "value": 15
+            },
+            {
+                "case": 83,
+                "gender": "Male",
+                "age": "63",
+                "value": 15
+            },
+            {
+                "case": 84,
+                "gender": "Male",
+                "age": "40",
+                "value": 15
+            },
+            {
+                "case": 85,
+                "gender": "Male",
+                "age": "77",
+                "value": 15
+            },
+            {
+                "case": 86,
+                "gender": "Male",
+                "age": "78",
+                "value": 15
+            },
+            {
+                "case": 87,
+                "gender": "Male",
+                "age": "62",
+                "value": 15
+            },
+            {
+                "case": 88,
+                "gender": "Female",
+                "age": "47",
+                "value": 15
+            },
+            {
+                "case": 89,
+                "gender": "Male",
+                "age": "50",
+                "value": 15
+            },
+            {
+                "case": 90,
+                "gender": "Female",
+                "age": "57",
+                "value": 15
+            },
+            {
+                "case": 91,
+                "gender": "Male",
+                "age": "60",
+                "value": 15
+            },
+            {
+                "case": 92,
+                "gender": "Male",
+                "age": "24",
+                "value": 15
+            },
+            {
+                "case": 93,
+                "gender": "Male",
+                "age": "36",
+                "value": 15
+            },
+            {
+                "case": 94,
+                "gender": "Male",
+                "age": "39",
+                "value": 15
+            },
+            {
+                "case": 95,
+                "gender": "Male",
+                "age": "1",
+                "value": 15
+            },
+            {
+                "case": 96,
+                "gender": "Male",
+                "age": "43",
+                "value": 15
+            },
+            {
+                "case": 97,
+                "gender": "Female",
+                "age": "43",
+                "value": 15
+            },
+            {
+                "case": 98,
+                "gender": "Female",
+                "age": "20",
+                "value": 15
+            },
+            {
+                "case": 99,
+                "gender": "Male",
+                "age": "38",
+                "value": 15
+            },
+            {
+                "case": 100,
+                "gender": "Male",
+                "age": "44",
+                "value": 15
+            },
+            {
+                "case": 101,
+                "gender": "Male",
+                "age": "60",
+                "value": 15
+            },
+            {
+                "case": 102,
+                "gender": "Male",
+                "age": "42",
+                "value": 15
+            },
+            {
+                "case": 103,
+                "gender": "Male",
+                "age": "31",
+                "value": 15
+            },
+            {
+                "case": 104,
+                "gender": "Female",
+                "age": "35",
+                "value": 15
+            },
+            {
+                "case": 105,
+                "gender": "Female",
+                "age": "44",
+                "value": 15
+            },
+            {
+                "case": 106,
+                "gender": "Male",
+                "age": "26",
+                "value": 15
+            },
+            {
+                "case": 107,
+                "gender": "Female",
+                "age": "54",
+                "value": 15
+            },
+            {
+                "case": 108,
+                "gender": "Female",
+                "age": "85",
+                "value": 15
+            },
+            {
+                "case": 109,
+                "gender": "Male",
+                "age": "37",
+                "value": 15
+            },
+            {
+                "case": 110,
+                "gender": "Male",
+                "age": "63",
+                "value": 15
+            },
+            {
+                "case": 111,
+                "gender": "Female",
+                "age": "54",
+                "value": 15
+            },
+            {
+                "case": 112,
+                "gender": "Female",
+                "age": "29",
+                "value": 15
+            },
+            {
+                "case": 113,
+                "gender": "Female",
+                "age": "65",
+                "value": 15
+            },
+            {
+                "case": 114,
+                "gender": "Male",
+                "age": "52",
+                "value": 15
+            },
+            {
+                "case": 115,
+                "gender": "Male",
+                "age": "19",
+                "value": 15
+            },
+            {
+                "case": 116,
+                "gender": "Male",
+                "age": "17",
+                "value": 15
+            },
+            {
+                "case": 117,
+                "gender": "Female",
+                "age": "10",
+                "value": 15
+            },
+            {
+                "case": 118,
+                "gender": "Female",
+                "age": "31",
+                "value": 15
+            },
+            {
+                "case": 119,
+                "gender": "Female",
+                "age": "31",
+                "value": 15
+            },
+            {
+                "case": 120,
+                "gender": "Female",
+                "age": "21",
+                "value": 15
+            },
+            {
+                "case": 121,
+                "gender": "Female",
+                "age": "21",
+                "value": 15
+            },
+            {
+                "case": 122,
+                "gender": "Male",
+                "age": "28",
+                "value": 15
+            },
+            {
+                "case": 123,
+                "gender": "Female",
+                "age": "18",
+                "value": 15
+            },
+            {
+                "case": 124,
+                "gender": "Male",
+                "age": "45",
+                "value": 15
+            },
+            {
+                "case": 125,
+                "gender": "Male",
+                "age": "18",
+                "value": 15
+            },
+            {
+                "case": 126,
+                "gender": "Male",
+                "age": "47",
+                "value": 15
+            },
+            {
+                "case": 127,
+                "gender": "Female",
+                "age": "24",
+                "value": 15
+            },
+            {
+                "case": 128,
+                "gender": "Male",
+                "age": "54",
+                "value": 15
+            },
+            {
+                "case": 129,
+                "gender": "Female",
+                "age": "31",
+                "value": 15
+            },
+            {
+                "case": 130,
+                "gender": "Female",
+                "age": "65",
+                "value": 15
+            },
+            {
+                "case": 131,
+                "gender": "Female",
+                "age": "28",
+                "value": 15
+            },
+            {
+                "case": 132,
+                "gender": "Male",
+                "age": "80",
+                "value": 15
+            },
+            {
+                "case": 133,
+                "gender": "Male",
+                "age": "45",
+                "value": 15
+            },
+            {
+                "case": 134,
+                "gender": "Male",
+                "age": "35",
+                "value": 15
+            },
+            {
+                "case": 135,
+                "gender": "Female",
+                "age": "35",
+                "value": 15
+            },
+            {
+                "case": 136,
+                "gender": "Male",
+                "age": "25",
+                "value": 15
+            },
+            {
+                "case": 137,
+                "gender": "Female",
+                "age": "31",
+                "value": 15
+            },
+            {
+                "case": 138,
+                "gender": "Male",
+                "age": "53",
+                "value": 15
+            },
+            {
+                "case": 139,
+                "gender": "Female",
+                "age": "26",
+                "value": 15
+            },
+            {
+                "case": 140,
+                "gender": "Female",
+                "age": "39",
+                "value": 15
+            },
+            {
+                "case": 141,
+                "gender": "Male",
+                "age": "28",
+                "value": 15
+            },
+            {
+                "case": 142,
+                "gender": "Male",
+                "age": "35",
+                "value": 15
+            },
+            {
+                "case": 143,
+                "gender": "Female",
+                "age": "87",
+                "value": 15
+            },
+            {
+                "case": 144,
+                "gender": "Male",
+                "age": "24",
+                "value": 15
+            },
+            {
+                "case": 145,
+                "gender": "Male",
+                "age": "48",
+                "value": 15
+            },
+            {
+                "case": 146,
+                "gender": "Male",
+                "age": "32",
+                "value": 15
+            },
+            {
+                "case": 147,
+                "gender": "Male",
+                "age": "43",
+                "value": 15
+            },
+            {
+                "case": 148,
+                "gender": "Male",
+                "age": "19",
+                "value": 15
+            },
+            {
+                "case": 149,
+                "gender": "Male",
+                "age": "15",
+                "value": 15
+            },
+            {
+                "case": 150,
+                "gender": "Female",
+                "age": "18",
+                "value": 15
+            },
+            {
+                "case": 151,
+                "gender": "Female",
+                "age": "25",
+                "value": 15
+            },
+            {
+                "case": 152,
+                "gender": "Female",
+                "age": "32",
+                "value": 15
+            },
+            {
+                "case": 153,
+                "gender": "Female",
+                "age": "19",
+                "value": 15
+            },
+            {
+                "case": 154,
+                "gender": "Female",
+                "age": "20",
+                "value": 15
+            },
+            {
+                "case": 155,
+                "gender": "Male",
+                "age": "48",
+                "value": 15
+            }
+
+
+        ],
         "links": [{
-            "source": 1,
-            "target": 0,
-            "value": 1
-        }, {
-            "source": 2,
-            "target": 0,
-            "value": 8
-        }, {
             "source": 3,
-            "target": 0,
-            "value": 10
-        }, {
-            "source": 3,
-            "target": 2,
-            "value": 6
-        }, {
-            "source": 4,
-            "target": 0,
-            "value": 1
-        }, {
-            "source": 5,
-            "target": 0,
-            "value": 1
-        }, {
-            "source": 6,
-            "target": 0,
-            "value": 1
-        }, {
-            "source": 7,
-            "target": 0,
-            "value": 1
-        }, {
-            "source": 8,
-            "target": 0,
+            "target": 6,
             "value": 2
         }, {
-            "source": 9,
-            "target": 0,
-            "value": 1
-        }, {
-            "source": 11,
+            "source": 5,
             "target": 10,
-            "value": 1
+            "value": 2
         }, {
-            "source": 11,
-            "target": 3,
-            "value": 3
-        }, {
-            "source": 11,
-            "target": 2,
-            "value": 3
-        }, {
-            "source": 11,
-            "target": 0,
-            "value": 5
-        }, {
-            "source": 12,
+            "source": 8,
             "target": 11,
-            "value": 1
+            "value": 2
         }, {
-            "source": 13,
-            "target": 11,
-            "value": 1
-        }, {
-            "source": 14,
-            "target": 11,
-            "value": 1
-        }, {
-            "source": 15,
-            "target": 11,
-            "value": 1
-        }, {
-            "source": 17,
-            "target": 16,
-            "value": 4
-        }, {
-            "source": 18,
-            "target": 16,
-            "value": 4
-        }, {
-            "source": 18,
-            "target": 17,
-            "value": 4
-        }, {
-            "source": 19,
-            "target": 16,
-            "value": 4
-        }, {
-            "source": 19,
-            "target": 17,
-            "value": 4
-        }, {
-            "source": 19,
-            "target": 18,
-            "value": 4
-        }, {
-            "source": 20,
-            "target": 16,
-            "value": 3
-        }, {
-            "source": 20,
-            "target": 17,
-            "value": 3
-        }, {
-            "source": 20,
-            "target": 18,
-            "value": 3
-        }, {
-            "source": 20,
-            "target": 19,
-            "value": 4
-        }, {
-            "source": 21,
-            "target": 16,
-            "value": 3
-        }, {
-            "source": 21,
-            "target": 17,
-            "value": 3
-        }, {
-            "source": 21,
-            "target": 18,
-            "value": 3
-        }, {
-            "source": 21,
-            "target": 19,
-            "value": 3
-        }, {
-            "source": 21,
-            "target": 20,
-            "value": 5
-        }, {
-            "source": 22,
-            "target": 16,
-            "value": 3
-        }, {
-            "source": 22,
-            "target": 17,
-            "value": 3
-        }, {
-            "source": 22,
-            "target": 18,
-            "value": 3
-        }, {
-            "source": 22,
-            "target": 19,
-            "value": 3
-        }, {
-            "source": 22,
-            "target": 20,
-            "value": 4
-        }, {
-            "source": 22,
-            "target": 21,
-            "value": 4
-        }, {
-            "source": 23,
-            "target": 16,
-            "value": 3
-        }, {
-            "source": 23,
-            "target": 17,
-            "value": 3
-        }, {
-            "source": 23,
-            "target": 18,
-            "value": 3
-        }, {
-            "source": 23,
-            "target": 19,
-            "value": 3
-        }, {
-            "source": 23,
-            "target": 20,
-            "value": 4
-        }, {
-            "source": 23,
-            "target": 21,
-            "value": 4
-        }, {
-            "source": 23,
-            "target": 22,
-            "value": 4
-        }, {
-            "source": 23,
+            "source": 8,
             "target": 12,
             "value": 2
         }, {
-            "source": 23,
-            "target": 11,
-            "value": 9
-        }, {
-            "source": 24,
-            "target": 23,
+            "source": 8,
+            "target": 13,
             "value": 2
-        }, {
-            "source": 24,
-            "target": 11,
-            "value": 7
-        }, {
-            "source": 25,
-            "target": 24,
-            "value": 13
-        }, {
-            "source": 25,
-            "target": 23,
-            "value": 1
-        }, {
-            "source": 25,
-            "target": 11,
-            "value": 12
-        }, {
-            "source": 26,
-            "target": 24,
-            "value": 4
-        }, {
-            "source": 26,
-            "target": 11,
-            "value": 31
-        }, {
-            "source": 26,
-            "target": 16,
-            "value": 1
-        }, {
-            "source": 26,
-            "target": 25,
-            "value": 1
-        }, {
-            "source": 27,
-            "target": 11,
-            "value": 17
-        }, {
-            "source": 27,
-            "target": 23,
-            "value": 5
-        }, {
-            "source": 27,
-            "target": 25,
-            "value": 5
-        }, {
-            "source": 27,
-            "target": 24,
-            "value": 1
-        }, {
-            "source": 27,
-            "target": 26,
-            "value": 1
-        }, {
-            "source": 28,
-            "target": 11,
-            "value": 8
-        }, {
-            "source": 28,
-            "target": 27,
-            "value": 1
-        }, {
-            "source": 29,
-            "target": 23,
-            "value": 1
-        }, {
-            "source": 29,
-            "target": 27,
-            "value": 1
-        }, {
-            "source": 29,
-            "target": 11,
-            "value": 2
-        }, {
-            "source": 30,
-            "target": 23,
-            "value": 1
-        }, {
-            "source": 31,
-            "target": 30,
-            "value": 2
-        }, {
-            "source": 31,
-            "target": 11,
-            "value": 3
-        }, {
-            "source": 31,
-            "target": 23,
-            "value": 2
-        }, {
-            "source": 31,
-            "target": 27,
-            "value": 1
-        }, {
-            "source": 32,
-            "target": 11,
-            "value": 1
-        }, {
-            "source": 33,
-            "target": 11,
-            "value": 2
-        }, {
-            "source": 33,
-            "target": 27,
-            "value": 1
-        }, {
-            "source": 34,
-            "target": 11,
-            "value": 3
-        }, {
-            "source": 34,
-            "target": 29,
-            "value": 2
-        }, {
-            "source": 35,
-            "target": 11,
-            "value": 3
-        }, {
-            "source": 35,
-            "target": 34,
-            "value": 3
-        }, {
-            "source": 35,
-            "target": 29,
-            "value": 2
-        }, {
-            "source": 36,
-            "target": 34,
-            "value": 2
-        }, {
-            "source": 36,
-            "target": 35,
-            "value": 2
-        }, {
-            "source": 36,
-            "target": 11,
-            "value": 2
-        }, {
-            "source": 36,
-            "target": 29,
-            "value": 1
-        }, {
-            "source": 37,
-            "target": 34,
-            "value": 2
-        }, {
-            "source": 37,
-            "target": 35,
-            "value": 2
-        }, {
-            "source": 37,
-            "target": 36,
-            "value": 2
-        }, {
-            "source": 37,
-            "target": 11,
-            "value": 2
-        }, {
-            "source": 37,
-            "target": 29,
-            "value": 1
-        }, {
-            "source": 38,
-            "target": 34,
-            "value": 2
-        }, {
-            "source": 38,
-            "target": 35,
-            "value": 2
-        }, {
-            "source": 38,
-            "target": 36,
-            "value": 2
-        }, {
-            "source": 38,
-            "target": 37,
-            "value": 2
-        }, {
-            "source": 38,
-            "target": 11,
-            "value": 2
-        }, {
-            "source": 38,
-            "target": 29,
-            "value": 1
-        }, {
-            "source": 39,
-            "target": 25,
-            "value": 1
-        }, {
-            "source": 40,
-            "target": 25,
-            "value": 1
-        }, {
-            "source": 41,
-            "target": 24,
-            "value": 2
-        }, {
-            "source": 41,
-            "target": 25,
-            "value": 3
-        }, {
-            "source": 42,
-            "target": 41,
-            "value": 2
-        }, {
-            "source": 42,
-            "target": 25,
-            "value": 2
-        }, {
-            "source": 42,
-            "target": 24,
-            "value": 1
-        }, {
-            "source": 43,
-            "target": 11,
-            "value": 3
-        }, {
-            "source": 43,
-            "target": 26,
-            "value": 1
-        }, {
-            "source": 43,
-            "target": 27,
-            "value": 1
-        }, {
-            "source": 44,
-            "target": 28,
-            "value": 3
-        }, {
-            "source": 44,
-            "target": 11,
-            "value": 1
-        }, {
-            "source": 45,
-            "target": 28,
-            "value": 2
-        }, {
-            "source": 47,
-            "target": 46,
-            "value": 1
-        }, {
-            "source": 48,
-            "target": 47,
-            "value": 2
-        }, {
-            "source": 48,
-            "target": 25,
-            "value": 1
-        }, {
-            "source": 48,
-            "target": 27,
-            "value": 1
-        }, {
-            "source": 48,
-            "target": 11,
-            "value": 1
-        }, {
-            "source": 49,
-            "target": 26,
-            "value": 3
-        }, {
-            "source": 49,
-            "target": 11,
-            "value": 2
-        }, {
-            "source": 50,
-            "target": 49,
-            "value": 1
-        }, {
-            "source": 50,
-            "target": 24,
-            "value": 1
-        }, {
-            "source": 51,
-            "target": 49,
-            "value": 9
-        }, {
-            "source": 51,
-            "target": 26,
-            "value": 2
-        }, {
-            "source": 51,
-            "target": 11,
-            "value": 2
-        }, {
-            "source": 52,
-            "target": 51,
-            "value": 1
-        }, {
-            "source": 52,
-            "target": 39,
-            "value": 1
-        }, {
-            "source": 53,
-            "target": 51,
-            "value": 1
-        }, {
-            "source": 54,
-            "target": 51,
-            "value": 2
-        }, {
-            "source": 54,
-            "target": 49,
-            "value": 1
-        }, {
-            "source": 54,
-            "target": 26,
-            "value": 1
-        }, {
-            "source": 55,
-            "target": 51,
-            "value": 6
-        }, {
-            "source": 55,
-            "target": 49,
-            "value": 12
-        }, {
-            "source": 55,
-            "target": 39,
-            "value": 1
-        }, {
-            "source": 55,
-            "target": 54,
-            "value": 1
-        }, {
-            "source": 55,
-            "target": 26,
-            "value": 21
-        }, {
-            "source": 55,
-            "target": 11,
-            "value": 19
-        }, {
-            "source": 55,
-            "target": 16,
-            "value": 1
-        }, {
-            "source": 55,
-            "target": 25,
-            "value": 2
-        }, {
-            "source": 55,
-            "target": 41,
-            "value": 5
-        }, {
-            "source": 55,
-            "target": 48,
-            "value": 4
-        }, {
-            "source": 56,
-            "target": 49,
-            "value": 1
-        }, {
-            "source": 56,
-            "target": 55,
-            "value": 1
-        }, {
-            "source": 57,
-            "target": 55,
-            "value": 1
-        }, {
-            "source": 57,
-            "target": 41,
-            "value": 1
-        }, {
-            "source": 57,
-            "target": 48,
-            "value": 1
-        }, {
-            "source": 58,
-            "target": 55,
-            "value": 7
-        }, {
-            "source": 58,
-            "target": 48,
-            "value": 7
-        }, {
-            "source": 58,
-            "target": 27,
-            "value": 6
-        }, {
-            "source": 58,
-            "target": 57,
-            "value": 1
-        }, {
-            "source": 58,
-            "target": 11,
-            "value": 4
-        }, {
-            "source": 59,
-            "target": 58,
-            "value": 15
-        }, {
-            "source": 59,
-            "target": 55,
-            "value": 5
-        }, {
-            "source": 59,
-            "target": 48,
-            "value": 6
-        }, {
-            "source": 59,
-            "target": 57,
-            "value": 2
-        }, {
-            "source": 60,
-            "target": 48,
-            "value": 1
-        }, {
-            "source": 60,
-            "target": 58,
-            "value": 4
-        }, {
-            "source": 60,
-            "target": 59,
-            "value": 2
-        }, {
-            "source": 61,
-            "target": 48,
-            "value": 2
-        }, {
-            "source": 61,
-            "target": 58,
-            "value": 6
-        }, {
-            "source": 61,
-            "target": 60,
-            "value": 2
-        }, {
-            "source": 61,
-            "target": 59,
-            "value": 5
-        }, {
-            "source": 61,
-            "target": 57,
-            "value": 1
-        }, {
-            "source": 61,
-            "target": 55,
-            "value": 1
-        }, {
-            "source": 62,
-            "target": 55,
-            "value": 9
-        }, {
-            "source": 62,
-            "target": 58,
-            "value": 17
-        }, {
-            "source": 62,
-            "target": 59,
-            "value": 13
-        }, {
-            "source": 62,
-            "target": 48,
-            "value": 7
-        }, {
-            "source": 62,
-            "target": 57,
-            "value": 2
-        }, {
-            "source": 62,
-            "target": 41,
-            "value": 1
-        }, {
-            "source": 62,
-            "target": 61,
-            "value": 6
-        }, {
-            "source": 62,
-            "target": 60,
-            "value": 3
-        }, {
-            "source": 63,
-            "target": 59,
-            "value": 5
-        }, {
-            "source": 63,
-            "target": 48,
-            "value": 5
-        }, {
-            "source": 63,
-            "target": 62,
-            "value": 6
-        }, {
-            "source": 63,
-            "target": 57,
-            "value": 2
-        }, {
-            "source": 63,
-            "target": 58,
-            "value": 4
-        }, {
-            "source": 63,
-            "target": 61,
-            "value": 3
-        }, {
-            "source": 63,
-            "target": 60,
-            "value": 2
-        }, {
-            "source": 63,
-            "target": 55,
-            "value": 1
-        }, {
-            "source": 64,
-            "target": 55,
-            "value": 5
-        }, {
-            "source": 64,
-            "target": 62,
-            "value": 12
-        }, {
-            "source": 64,
-            "target": 48,
-            "value": 5
-        }, {
-            "source": 64,
-            "target": 63,
-            "value": 4
-        }, {
-            "source": 64,
-            "target": 58,
-            "value": 10
-        }, {
-            "source": 64,
-            "target": 61,
-            "value": 6
-        }, {
-            "source": 64,
-            "target": 60,
-            "value": 2
-        }, {
-            "source": 64,
-            "target": 59,
-            "value": 9
-        }, {
-            "source": 64,
-            "target": 57,
-            "value": 1
-        }, {
-            "source": 64,
-            "target": 11,
-            "value": 1
-        }, {
-            "source": 65,
-            "target": 63,
-            "value": 5
-        }, {
-            "source": 65,
-            "target": 64,
-            "value": 7
-        }, {
-            "source": 65,
-            "target": 48,
-            "value": 3
-        }, {
-            "source": 65,
-            "target": 62,
-            "value": 5
-        }, {
-            "source": 65,
-            "target": 58,
-            "value": 5
-        }, {
-            "source": 65,
-            "target": 61,
-            "value": 5
-        }, {
-            "source": 65,
-            "target": 60,
-            "value": 2
-        }, {
-            "source": 65,
-            "target": 59,
-            "value": 5
-        }, {
-            "source": 65,
-            "target": 57,
-            "value": 1
-        }, {
-            "source": 65,
-            "target": 55,
-            "value": 2
-        }, {
-            "source": 66,
-            "target": 64,
-            "value": 3
-        }, {
-            "source": 66,
-            "target": 58,
-            "value": 3
-        }, {
-            "source": 66,
-            "target": 59,
-            "value": 1
-        }, {
-            "source": 66,
-            "target": 62,
-            "value": 2
-        }, {
-            "source": 66,
-            "target": 65,
-            "value": 2
-        }, {
-            "source": 66,
-            "target": 48,
-            "value": 1
-        }, {
-            "source": 66,
-            "target": 63,
-            "value": 1
-        }, {
-            "source": 66,
-            "target": 61,
-            "value": 1
-        }, {
-            "source": 66,
-            "target": 60,
-            "value": 1
-        }, {
-            "source": 67,
-            "target": 57,
-            "value": 3
-        }, {
-            "source": 68,
-            "target": 25,
-            "value": 5
-        }, {
-            "source": 68,
-            "target": 11,
-            "value": 1
-        }, {
-            "source": 68,
-            "target": 24,
-            "value": 1
-        }, {
-            "source": 68,
-            "target": 27,
-            "value": 1
-        }, {
-            "source": 68,
-            "target": 48,
-            "value": 1
-        }, {
-            "source": 68,
-            "target": 41,
-            "value": 1
-        }, {
-            "source": 69,
-            "target": 25,
-            "value": 6
-        }, {
-            "source": 69,
-            "target": 68,
-            "value": 6
-        }, {
-            "source": 69,
-            "target": 11,
-            "value": 1
-        }, {
-            "source": 69,
-            "target": 24,
-            "value": 1
-        }, {
-            "source": 69,
-            "target": 27,
-            "value": 2
-        }, {
-            "source": 69,
-            "target": 48,
-            "value": 1
-        }, {
-            "source": 69,
-            "target": 41,
-            "value": 1
-        }, {
-            "source": 70,
-            "target": 25,
-            "value": 4
-        }, {
-            "source": 70,
-            "target": 69,
-            "value": 4
-        }, {
-            "source": 70,
-            "target": 68,
-            "value": 4
-        }, {
-            "source": 70,
-            "target": 11,
-            "value": 1
-        }, {
-            "source": 70,
-            "target": 24,
-            "value": 1
-        }, {
-            "source": 70,
-            "target": 27,
-            "value": 1
-        }, {
-            "source": 70,
-            "target": 41,
-            "value": 1
-        }, {
-            "source": 70,
-            "target": 58,
-            "value": 1
-        }, {
-            "source": 71,
-            "target": 27,
-            "value": 1
-        }, {
-            "source": 71,
-            "target": 69,
-            "value": 2
-        }, {
-            "source": 71,
-            "target": 68,
-            "value": 2
-        }, {
-            "source": 71,
-            "target": 70,
-            "value": 2
-        }, {
-            "source": 71,
-            "target": 11,
-            "value": 1
-        }, {
-            "source": 71,
-            "target": 48,
-            "value": 1
-        }, {
-            "source": 71,
-            "target": 41,
-            "value": 1
-        }, {
-            "source": 71,
-            "target": 25,
-            "value": 1
-        }, {
-            "source": 72,
-            "target": 26,
-            "value": 2
-        }, {
-            "source": 72,
-            "target": 27,
-            "value": 1
-        }, {
-            "source": 72,
-            "target": 11,
-            "value": 1
-        }, {
-            "source": 73,
-            "target": 48,
-            "value": 2
-        }, {
-            "source": 74,
-            "target": 48,
-            "value": 2
-        }, {
-            "source": 74,
-            "target": 73,
-            "value": 3
-        }, {
-            "source": 75,
-            "target": 69,
-            "value": 3
-        }, {
-            "source": 75,
-            "target": 68,
-            "value": 3
-        }, {
-            "source": 75,
-            "target": 25,
-            "value": 3
-        }, {
-            "source": 75,
-            "target": 48,
-            "value": 1
-        }, {
-            "source": 75,
-            "target": 41,
-            "value": 1
-        }, {
-            "source": 75,
-            "target": 70,
-            "value": 1
-        }, {
-            "source": 75,
-            "target": 71,
-            "value": 1
-        }, {
-            "source": 76,
-            "target": 64,
-            "value": 1
-        }, {
-            "source": 76,
-            "target": 65,
-            "value": 1
-        }, {
-            "source": 76,
-            "target": 66,
-            "value": 1
-        }, {
-            "source": 76,
-            "target": 63,
-            "value": 1
-        }, {
-            "source": 76,
-            "target": 62,
-            "value": 1
-        }, {
-            "source": 76,
-            "target": 48,
-            "value": 1
-        }, {
-            "source": 76,
-            "target": 58,
-            "value": 1
         }]
     }
 </script>
 <script type="text/javascript">
-    var width = 500,
-        height = 500;
+    // To Case 14 is link with source. 
+    var width = 1000,
+        height = 900;
 
     var color = d3.scale.category20();
 
     var force = d3.layout.force()
         .charge(-120)
-        .linkDistance(80)
+        .linkDistance(100)
         .size([width, height]);
 
     var svg = d3.select(".chart").append("svg")
@@ -1296,18 +1026,34 @@
         .call(force.drag);
 
     node.append("circle")
-        .attr("r", function(d, i) {
-            return i % 2 == 0 ? 10 : 8
+        .attr("r", function(d) {
+            return d.value;
+        })
+        .style("display", function(d) {
+            if (d.gender == "none") {
+                return "none";
+            }
         })
         .style("fill", function(d) {
-            return color(d.group);
+            if (d.gender == "Male") {
+                return "#1e8dfc";
+            } else if (d.gender == "Female") {
+                return "#fc7e1e";
+            } else if (d.gender == "unknown") {
+
+            }
         })
 
     node.append("text")
         .attr("text-anchor", "middle")
         .attr("dy", ".35em")
+        .style("display", function(d) {
+            if (d.gender == "none") {
+                return "none";
+            }
+        })
         .text(function(d) {
-            return d.group
+            return d.case
         });
 
     force.on("tick", function() {
