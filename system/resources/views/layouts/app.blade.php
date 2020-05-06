@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="{{ asset('fontawesome/css/all.min.css') }}" />
     <link rel='shortcut icon' type='image/x-icon' href='./favicon_black.ico' />
     <link rel="stylesheet" href="./css/bulma.css?v=c298c6f8233d">
-    <link rel="stylesheet" href="./css/app.css?v=cc7fs83s2dszd">
+    <link rel="stylesheet" href="./css/app.css?v=cc7fs8aasa3aas2dszd">
     <script type="text/javascript" src="{{ asset('js/jquery.js?v=c298c6f82a33d')}}"></script>
     <script type="text/javascript" src="{{ asset('js/chart.min.js?v=c298c6f823a3d')}}"></script>
 </head>
@@ -27,6 +27,53 @@
                 <img src="./img/virus.png" class="mr-10" alt="Virus Logo">
                 Covid-19 | {{__('menu.myanmar')}}
             </a>
+            <div class="is-mobile">
+                @if ( Config::get('app.locale') == 'en')
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                        <span class="icon">
+                            <img src="{{ asset('img/flag/en.png')}}" alt="">
+                        </span>
+                        <span>
+                            English
+
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item" href="locale/mm">
+                            <span class="icon">
+                                <img src="{{ asset('img/flag/mm.png')}}" alt="">
+                            </span>
+                            <span>
+                                မြန်မာ
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+                @elseif ( Config::get('app.locale') == 'mm' )
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                        <span class="icon">
+                            <img src="{{ asset('img/flag/mm.png')}}" alt="">
+                        </span>
+                        <span>
+                            မြန်မာ
+                        </span>
+                    </a>
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item" href="locale/en">
+                            <span class="icon">
+                                <img src="{{ asset('img/flag/en.png')}}" alt="">
+                            </span>
+                            <span>
+                                English
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                @endif
+            </div>
             <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
@@ -61,7 +108,33 @@
                     </div>
                 </div>
             </div>
-
+            <div class="navbar-item dropdown">
+                <div class="dropdown-trigger">
+                    <button class="button custom-button" style="border:1px solid #fff;" aria-haspopup="true" aria-controls="dropdown-menu3">
+                        <span class="icon">
+                            <img src="{{ asset('img/flag/en.png')}}" alt="">
+                        </span>
+                        <span>
+                            English
+                        </span>
+                        <span class="icon is-small">
+                            <i class="fas fa-angle-down" aria-hidden="true"></i>
+                        </span>
+                    </button>
+                </div>
+                <div class="dropdown-menu" style="min-width:120px;margin-left:10px;margin-top:-8px;" id="dropdown-menu3" role="menu">
+                    <div class="dropdown-content" style="background: #0a0a0a;border:1px solid #fff;padding-bottom: 0.3rem;padding-top: 0.3rem;">
+                        <a class="dropdown-item" href="locale/mm" style="color:white;">
+                            <span class="icon">
+                                <img src="{{ asset('img/flag/mm.png')}}" alt="">
+                            </span>
+                            <span>
+                                မြန်မာ
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
             <div class="navbar-end">
                 <div class="navbar-item">
                     <div class="bottom-box" id="id_disclaimer">
@@ -73,33 +146,35 @@
                         FAQs
                     </div>
                 </div>
-                @if ( Config::get('app.locale') == 'en')
+                <div class="is-desktop">
+                    @if ( Config::get('app.locale') == 'en')
 
-                <div class="navbar-item">
-                    <a class="bottom-box button" href="locale/mm">
-                        <span class="icon">
-                            <img src="{{ asset('img/flag/mm.png')}}" alt="">
-                        </span>
-                        <span>
-                            မြန်မာ
-                        </span>
-                    </a>
+                    <div class="navbar-item">
+                        <a class="bottom-box button" href="locale/mm">
+                            <span class="icon">
+                                <img src="{{ asset('img/flag/mm.png')}}" alt="">
+                            </span>
+                            <span>
+                                မြန်မာ
+                            </span>
+                        </a>
+                    </div>
+
+                    @elseif ( Config::get('app.locale') == 'mm' )
+
+                    <div class="navbar-item">
+                        <a class="bottom-box button" href="locale/en">
+                            <span class="icon">
+                                <img src="{{ asset('img/flag/en.png')}}" alt="">
+                            </span>
+                            <span>
+                                English
+                            </span>
+                        </a>
+                    </div>
+
+                    @endif
                 </div>
-
-                @elseif ( Config::get('app.locale') == 'mm' )
-
-                <div class="navbar-item">
-                    <a class="bottom-box button" href="locale/en">
-                        <span class="icon">
-                            <img src="{{ asset('img/flag/en.png')}}" alt="">
-                        </span>
-                        <span>
-                            English
-                        </span>
-                    </a>
-                </div>
-
-                @endif
             </div>
         </div>
     </nav>
@@ -147,5 +222,14 @@
 <script src="./js/app.js?v=c9qa98ca7azf1233ad"></script>
 <script src="./js/counterup.js?v=c298c7f82a33d" type="module"></script>
 <script src="./js/main.js?v=cdae4az9108c7fa8213d" type="module"></script>
+<script>
+    $(".dropdown .custom-button").click(function() {
+        var dropdown = $(this).parents('.dropdown');
+        dropdown.toggleClass('is-active');
+        dropdown.focusout(function() {
+            $(this).removeClass('is-active');
+        });
+    });
+</script>
 
 </html>
