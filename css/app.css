@@ -303,6 +303,24 @@ path:hover {
     }
 }
 
+.is-mobile {
+    display: none;
+}
+
+.is-desktop {
+    display: block;
+}
+
+@media screen and (max-width: 1023px) {
+    .is-mobile {
+        display: block;
+    }
+
+    .is-desktop {
+        display: none;
+    }
+}
+
 @media screen and (max-width: 767px) {
     .navbar-link:after {
         border: 1px solid #00d1b2;
@@ -412,4 +430,25 @@ path:hover {
     text-align: center !important;
     font-weight: bold;
     font-size: 1.25em !important;
+}
+
+.custom-button:hover {
+    color: #fff;
+    border-color: none;
+    border-width: 0px;
+}
+
+.custom-button {
+    background-color: #0a0a0a;
+    border-color: none;
+    border-width: 0px;
+    color: #fff;
+    cursor: pointer;
+    justify-content: center;
+    padding-bottom: calc(0.5em - 1px);
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: calc(0.5em - 1px);
+    text-align: center;
+    white-space: nowrap;
 }
