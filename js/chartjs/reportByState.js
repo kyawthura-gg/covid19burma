@@ -12,7 +12,7 @@ $(document).ready(function () {
                 Recovered.push(data.recovered);
             });
             var progress = document.getElementById('animationProgress');
-            var ctx = document.getElementById('myChart').getContext('2d');
+            var ctx = document.getElementById('myChart');
             var myChart = new Chart(ctx, {
                 type: 'horizontalBar',
                 data: {
