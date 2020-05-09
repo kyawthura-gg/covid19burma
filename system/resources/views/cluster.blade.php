@@ -24,6 +24,8 @@
   g text {
     fill: #e3e1e1;
   }
+
+  
 </style>
 <div class="container">
   <article class="message is-warning">
@@ -1038,6 +1040,7 @@
     .call(force.drag);
 
   node.append("circle")
+    .attr("id", "circleBasicTooltip")
     .attr("r", function(d) {
       return d.value;
     })
@@ -1067,6 +1070,28 @@
     .text(function(d) {
       return d.case
     });
+  var tooltip = d3.select(".chart")
+    .append("div")
+    .attr("class", "cluster-tooltip")
+
+  // Three function that change the tooltip when user hover / move / leave a cell
+  var mouseover = function(d) {
+    tooltip
+      .style("opacity", 1)
+      .html("Case: " + d.case+"<br />Age: " + d.age + "<br />Gender: " + d.gender)
+      .style("left", (d3.mouse(this)[0] - 40) + "px")
+      .style("top", (d3.mouse(this)[1] + 100) + "px")
+  }
+  // var mousemove = function(d) {
+  //   tooltip
+  //     .html("The exact value of<br>this cell is: " + d.case)
+  //     .style("left", (d3.mouse(this)[0] - 40) + "px")
+  //     .style("top", (d3.mouse(this)[1] + 100) + "px")
+  // }
+  var mouseleave = function(d) {
+    tooltip
+      .style("opacity", 0)
+  }
 
   force.on("tick", function() {
     link.attr("x1", function(d) {
@@ -1082,7 +1107,8 @@
         return d.target.y;
       });
 
-    d3.selectAll("circle").attr("cx", function(d) {
+    d3.selectAll("circle")
+      .attr("cx", function(d) {
         return d.x;
       })
       .attr("cy", function(d) {
@@ -1095,6 +1121,9 @@
       .attr("y", function(d) {
         return d.y;
       });
+    d3.selectAll("g")
+      .on("mouseover", mouseover)
+      .on("mouseleave", mouseleave);
 
   });
 </script>
