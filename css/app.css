@@ -314,6 +314,9 @@ path:hover {
 @media screen and (max-width: 1023px) {
     .is-mobile {
         display: block;
+        right: 50px;
+        top: 0px;
+        position: absolute;
     }
 
     .is-desktop {
@@ -346,10 +349,6 @@ path:hover {
     .mm-map {
         padding-left: 20px;
         padding-bottom: 50px;
-    }
-
-    .is-mobile {
-        padding: 50px;
     }
 }
 
