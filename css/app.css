@@ -212,7 +212,7 @@ path:hover {
 }
 
 .navbar-brand .navbar-item {
-    font-size: 23px;
+    font-size: 19px;
     font-weight: 500;
 }
 
@@ -314,7 +314,7 @@ path:hover {
 @media screen and (max-width: 1023px) {
     .is-mobile {
         display: block;
-        right: 50px;
+        right: 35px;
         top: 0px;
         position: absolute;
     }
@@ -349,6 +349,9 @@ path:hover {
     .mm-map {
         padding-left: 20px;
         padding-bottom: 50px;
+    }
+    .news-mobile{
+        padding: 20px;
     }
 }
 

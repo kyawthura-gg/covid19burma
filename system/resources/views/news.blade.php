@@ -5,7 +5,7 @@
     <!-- Developers -->
     <div class="columns is-multiline">
         @foreach ($blogs as $blog)
-        <div class="column is-4 is-mobile">
+        <div class="column is-4 news-mobile">
             <div class="custom-card">
                 <div class="card-image">
                     <figure class="image">
