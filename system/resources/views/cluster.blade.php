@@ -25,7 +25,20 @@
     fill: #e3e1e1;
   }
 
-  
+  .cluster-tooltip {
+    position: absolute;
+    z-index: 10;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 10px;
+    border: 1px solid white;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+    background: black;
+  }
 </style>
 <div class="container">
   <article class="message is-warning">
