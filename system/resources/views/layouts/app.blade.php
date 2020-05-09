@@ -100,17 +100,30 @@
                     {{__('menu.news')}}
                 </a>
 
-                <div class="navbar-item has-dropdown is-hoverable">
-                    <a class="navbar-link">
-                        {{__('menu.more')}}
-                    </a>
-                    <div class="navbar-dropdown">
-                        <a class="navbar-item" href="{{route('contactus')}}">
-                            Report an issue
-                        </a>
-                        <a class="navbar-item" href="{{route('about')}}">
-                            {{__('menu.aboutus')}}
-                        </a>
+                <div class="navbar-item dropdown">
+                    <div class="dropdown-trigger">
+                        <button class="button custom-button">
+                            <span>
+                                {{__('menu.more')}}
+                            </span>
+                            <span class="icon is-small">
+                                <i class="fas fa-angle-down" aria-hidden="true"></i>
+                            </span>
+                        </button>
+                    </div>
+                    <div class="dropdown-menu custom-dropmenu">
+                        <div class="dropdown-content custom-dropcontent">
+                            <a class="dropdown-item custom-dropdown" href="{{route('contactus')}}">
+                                <span>
+                                    Report an issue
+                                </span>
+                            </a>
+                            <a class="dropdown-item custom-dropdown" href="{{route('about')}}">
+                                <span>
+                                    {{__('menu.aboutus')}}
+                                </span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
