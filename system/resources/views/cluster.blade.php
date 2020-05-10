@@ -2,14 +2,14 @@
 
 @section('content')
 <style>
-  .chart {
+  /* .chart {
     width: 100%;
     height: 750px;
   }
 
   svg {
     cursor: default;
-  }
+  } */
 
   .link {
     fill: white;
@@ -17,15 +17,16 @@
     stroke-width: 1px;
   }
 
-  .chart svg {
+  /* .chart svg {
     width: 1000px
-  }
+  } */
 
   g text {
     fill: #e3e1e1;
   }
 
   .cluster-tooltip {
+    opacity: 0;
     position: absolute;
     z-index: 10;
     font-size: 18px;
@@ -41,12 +42,12 @@
   }
 </style>
 <div class="container">
-  <article class="message is-warning">
+  <article class="message is-warning" style="margin-bottom: 3px">
     <div class="message-body">
       <strong>Cluster</strong> is still under process.
     </div>
   </article>
-  <div class="chart"></div>
+  <div class="cluster chart"></div>
 </div>
 <!-- Styles -->
 
@@ -65,8 +66,14 @@
     .linkDistance(100)
     .size([width, height]);
 
+  var zoom = d3.behavior.zoom()
+    .scaleExtent([1, 10])
+    .on("zoom", zoomed);
+
   var svg = d3.select(".chart").append("svg")
     .attr("width", width)
+    .call(zoom)
+    .attr("viewBox", '10 100 1000 750')
     .attr("height", height);
 
   d3.json("js/graph.json", function(error, graph) {
@@ -160,21 +167,22 @@
   var tooltip = d3.select(".chart")
     .append("div")
     .attr("class", "cluster-tooltip")
-
   // Three function that change the tooltip when user hover / move / leave a cell
   var mouseover = function(d) {
+    width = window.innerWidth;
+    var left = d3.event.pageX;
     tooltip
       .style("opacity", 1)
       .html("Case: " + d.case+"<br />Age: " + d.age + "<br />Gender: " + d.gender)
-      .style("left", (d3.mouse(this)[0] - 40) + "px")
-      .style("top", (d3.mouse(this)[1] + 100) + "px")
+      .style("top", ((d3.event.pageY) - 50) + "px")
   }
   var mousemove = function(d) {
+    width = window.innerWidth;
+    var left = d3.event.pageX;
     tooltip
       .style("opacity", 1)
       .html("Case: " + d.case+"<br />Age: " + d.age + "<br />Gender: " + d.gender)
-      .style("left", (d3.mouse(this)[0] - 40) + "px")
-      .style("top", (d3.mouse(this)[1] + 100) + "px")
+      .style("top", ((d3.event.pageY) - 50) + "px")
   }
   var mouseleave = function(d) {
     tooltip
