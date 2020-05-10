@@ -3,7 +3,7 @@ html {
     scrollbar-color: gray black;
 }
 
-svg {
+.mm-map svg {
     width: 330px;
 }
 
@@ -311,6 +311,10 @@ path:hover {
     display: block;
 }
 
+.cluster svg {
+    height: auto;
+}
+
 @media screen and (max-width: 1023px) {
     .is-mobile {
         display: block;
@@ -350,8 +354,14 @@ path:hover {
         padding-left: 20px;
         padding-bottom: 50px;
     }
-    .news-mobile{
+
+    .news-mobile {
         padding: 20px;
+    }
+
+    .cluster svg {
+        width: 100vw;
+        height: auto;
     }
 }
 
