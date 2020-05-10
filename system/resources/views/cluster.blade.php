@@ -66,13 +66,13 @@
     .linkDistance(100)
     .size([width, height]);
 
-  var zoom = d3.behavior.zoom()
-    .scaleExtent([1, 10])
-    .on("zoom", zoomed);
+  // var zoom = d3.behavior.zoom()
+  //   .scaleExtent([1, 10])
+  //   .on("zoom", zoomed);
 
   var svg = d3.select(".chart").append("svg")
     .attr("width", width)
-    .call(zoom)
+    // .call(zoom)
     .attr("viewBox", '10 100 1000 750')
     .attr("height", height);
 
@@ -226,9 +226,9 @@
     force.size([width, height]).resume();
   }
 
-  function zoomed() {
-    svg.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
-  }
+  // function zoomed() {
+  //   svg.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+  // }
 </script>
 
 @endsection
