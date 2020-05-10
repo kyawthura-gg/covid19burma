@@ -167,6 +167,8 @@
   var tooltip = d3.select(".chart")
     .append("div")
     .attr("class", "cluster-tooltip")
+  // .style("opacity", 0)
+
   // Three function that change the tooltip when user hover / move / leave a cell
   var mouseover = function(d) {
     width = window.innerWidth;
@@ -175,6 +177,19 @@
       .style("opacity", 1)
       .html("Case: " + d.case+"<br />Age: " + d.age + "<br />Gender: " + d.gender)
       .style("top", ((d3.event.pageY) - 50) + "px")
+    if (width > 700) {
+      tooltip
+        .style("left", left + "px")
+    } else {
+      console.log(left);
+      if (left > 250) {
+        tooltip
+          .style("left", left - 100 + "px")
+      } else {
+        tooltip
+          .style("left", left + "px")
+      }
+    }
   }
   var mousemove = function(d) {
     width = window.innerWidth;
@@ -183,11 +198,25 @@
       .style("opacity", 1)
       .html("Case: " + d.case+"<br />Age: " + d.age + "<br />Gender: " + d.gender)
       .style("top", ((d3.event.pageY) - 50) + "px")
+    if (width > 700) {
+      tooltip
+        .style("left", left + "px")
+    } else {
+      console.log(left);
+      if (left > 250) {
+        tooltip
+          .style("left", left - 100 + "px")
+      } else {
+        tooltip
+          .style("left", left + "px")
+      }
+    }
   }
   var mouseleave = function(d) {
     tooltip
       .style("opacity", 0)
   }
+
   resize();
   d3.select(window).on("resize", resize);
 
