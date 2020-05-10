@@ -3,7 +3,7 @@ html {
     scrollbar-color: gray black;
 }
 
-svg {
+.mm-map svg {
     width: 330px;
 }
 
@@ -311,6 +311,10 @@ path:hover {
     display: block;
 }
 
+.cluster svg {
+    height: auto;
+}
+
 @media screen and (max-width: 1023px) {
     .is-mobile {
         display: block;
@@ -350,8 +354,14 @@ path:hover {
         padding-left: 20px;
         padding-bottom: 50px;
     }
-    .news-mobile{
+
+    .news-mobile {
         padding: 20px;
+    }
+
+    .cluster svg {
+        width: 100vw;
+        height: auto;
     }
 }
 
@@ -446,12 +456,16 @@ path:hover {
     cursor: pointer;
     justify-content: center;
     padding-bottom: calc(0.5em - 1px);
-    padding-left: 1em;
-    padding-right: 1em;
+    padding-left: 7px;
+    padding-right: 7px;
     padding-top: calc(0.5em - 1px);
     text-align: center;
     white-space: nowrap;
     border: 1px solid #fff !important;
+}
+
+.lan {
+    margin-right: 3px;
 }
 
 .custom-dropdown {
@@ -476,6 +490,11 @@ path:hover {
     width: 100%;
     margin-left: 10px;
     margin-top: -8px;
+}
+
+.cluster g:hover {
+    stroke: white;
+    stroke-width: 1px;
 }
 
 /* menu hover effect */

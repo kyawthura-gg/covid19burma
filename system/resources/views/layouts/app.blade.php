@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="{{ asset('fontawesome/css/all.min.css') }}" />
     <link rel='shortcut icon' type='image/x-icon' href='./favicon_black.ico' />
     <link rel="stylesheet" href="./css/bulma.css?v=c298c6f8233d">
-    <link rel="stylesheet" href="./css/app.css?v=cc7fs8aasaaaaaaaas3aaas2daszd">
+    <link rel="stylesheet" href="./css/app.css?v=cc7fs8aaaaasaaaaaaaaaaas3aaas2daszd">
     <script type="text/javascript" src="{{ asset('js/jquery.js?v=c298c6f82a33d')}}"></script>
     <script type="text/javascript" src="{{ asset('js/chart.min.js?v=c298c6f823a3d')}}"></script>
 </head>
@@ -32,10 +32,10 @@
                 <div class="navbar-item dropdown">
                     <div class="dropdown-trigger">
                         <button class="button custom-button">
-                            <span>
+                            <span class="lan">
                                 EN
                             </span>
-                            <span class="icon is-small">
+                            <span>
                                 <i class="fas fa-angle-down" aria-hidden="true"></i>
                             </span>
                         </button>
@@ -58,10 +58,10 @@
                 <div class="navbar-item dropdown">
                     <div class="dropdown-trigger">
                         <button class="button custom-button">
-                            <span>
+                            <span class="lan">
                                 မြန်မာ
                             </span>
-                            <span class="icon is-small">
+                            <span>
                                 <i class="fas fa-angle-down" aria-hidden="true"></i>
                             </span>
                         </button>
