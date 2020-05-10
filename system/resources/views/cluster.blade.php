@@ -188,6 +188,14 @@
     tooltip
       .style("opacity", 0)
   }
+  resize();
+  d3.select(window).on("resize", resize);
+
+  function resize() {
+    width = window.width, height = window.height;
+    svg.attr("width", width).attr("height", height);
+    force.size([width, height]).resume();
+  }
 
   function zoomed() {
     svg.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
