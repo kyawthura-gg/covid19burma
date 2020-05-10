@@ -1031,58 +1031,96 @@
     .attr("width", width)
     .attr("height", height);
 
-  var mis = document.getElementById('mis').innerHTML;
-  graph = JSON.parse(mis);
+  // var mis = document.getElementById('mis').innerHTML;
+  // graph = JSON.parse(mis);
+  d3.json("js/graph.json", function(error, graph) {
+    if (error) throw error;
+    force.nodes(graph.nodes)
+      .links(graph.links)
+      .start();
 
-  force.nodes(graph.nodes)
-    .links(graph.links)
-    .start();
+    var link = svg.selectAll(".link")
+      .data(graph.links)
+      .enter().append("line")
+      .attr("class", "link")
+      .style("stroke-width", function(d) {
+        return Math.sqrt(d.value);
+      });
 
-  var link = svg.selectAll(".link")
-    .data(graph.links)
-    .enter().append("line")
-    .attr("class", "link")
-    .style("stroke-width", function(d) {
-      return Math.sqrt(d.value);
+    var node = svg.selectAll(".node")
+      .data(graph.nodes)
+      .enter().append("g")
+      .attr("class", "node")
+      .call(force.drag);
+    node.append("circle")
+      .attr("id", "circleBasicTooltip")
+      .attr("r", function(d) {
+        return d.value;
+      })
+      .style("display", function(d) {
+        if (d.gender == "none") {
+          return "none";
+        }
+      })
+      .style("fill", function(d) {
+        if (d.gender == "Male") {
+          return "#1e8dfc";
+        } else if (d.gender == "Female") {
+          return "#fc7e1e";
+        } else if (d.gender == "unknown") {
+
+        }
+
+        node.append("text")
+          .attr("text-anchor", "middle")
+          .attr("dy", ".35em")
+          .style("display", function(d) {
+            if (d.gender == "none") {
+              return "none";
+            }
+          })
+          .text(function(d) {
+            return d.case
+          });
+      })
+    force.on("tick", function() {
+      link.attr("x1", function(d) {
+          return d.source.x;
+        })
+        .attr("y1", function(d) {
+          return d.source.y;
+        })
+        .attr("x2", function(d) {
+          return d.target.x;
+        })
+        .attr("y2", function(d) {
+          return d.target.y;
+        });
+
+      d3.selectAll("circle")
+        .attr("cx", function(d) {
+          return d.x;
+        })
+        .attr("cy", function(d) {
+          return d.y;
+        });
+
+      d3.selectAll("text").attr("x", function(d) {
+          return d.x;
+        })
+        .attr("y", function(d) {
+          return d.y;
+        });
+      d3.selectAll("g")
+        .on("mouseover", mouseover)
+        .on("mousemove", mousemove)
+        .on("mouseleave", mouseleave);
+
     });
+  });
 
-  var node = svg.selectAll(".node")
-    .data(graph.nodes)
-    .enter().append("g")
-    .attr("class", "node")
-    .call(force.drag);
 
-  node.append("circle")
-    .attr("id", "circleBasicTooltip")
-    .attr("r", function(d) {
-      return d.value;
-    })
-    .style("display", function(d) {
-      if (d.gender == "none") {
-        return "none";
-      }
-    })
-    .style("fill", function(d) {
-      if (d.gender == "Male") {
-        return "#1e8dfc";
-      } else if (d.gender == "Female") {
-        return "#fc7e1e";
-      } else if (d.gender == "unknown") {
 
-      }
-    })
-
-  node.append("text")
-    .attr("text-anchor", "middle")
-    .attr("dy", ".35em")
-    .style("display", function(d) {
-      if (d.gender == "none") {
-        return "none";
-      }
-    })
-    .text(function(d) {
-      return d.case
-    });
   var tooltip = d3.select(".chart")
     .append("div")
     .attr("class", "cluster-tooltip")
@@ -1095,50 +1133,17 @@
       .style("left", (d3.mouse(this)[0] - 40) + "px")
       .style("top", (d3.mouse(this)[1] + 100) + "px")
   }
-  // var mousemove = function(d) {
-  //   tooltip
-  //     .html("The exact value of<br>this cell is: " + d.case)
-  //     .style("left", (d3.mouse(this)[0] - 40) + "px")
-  //     .style("top", (d3.mouse(this)[1] + 100) + "px")
-  // }
+  var mousemove = function(d) {
+    tooltip
+      .style("opacity", 1)
+      .html("Case: " + d.case+"<br />Age: " + d.age + "<br />Gender: " + d.gender)
+      .style("left", (d3.mouse(this)[0] - 40) + "px")
+      .style("top", (d3.mouse(this)[1] + 100) + "px")
+  }
   var mouseleave = function(d) {
     tooltip
       .style("opacity", 0)
   }
-
-  force.on("tick", function() {
-    link.attr("x1", function(d) {
-        return d.source.x;
-      })
-      .attr("y1", function(d) {
-        return d.source.y;
-      })
-      .attr("x2", function(d) {
-        return d.target.x;
-      })
-      .attr("y2", function(d) {
-        return d.target.y;
-      });
-
-    d3.selectAll("circle")
-      .attr("cx", function(d) {
-        return d.x;
-      })
-      .attr("cy", function(d) {
-        return d.y;
-      });
-
-    d3.selectAll("text").attr("x", function(d) {
-        return d.x;
-      })
-      .attr("y", function(d) {
-        return d.y;
-      });
-    d3.selectAll("g")
-      .on("mouseover", mouseover)
-      .on("mouseleave", mouseleave);
-
-  });
 </script>
 
 @endsection
