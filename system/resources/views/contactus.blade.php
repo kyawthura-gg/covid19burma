@@ -2,7 +2,22 @@
 
 @section('content')
 <div class="container">
-    <div class="center-div">
+    @if ($message = Session::get('success'))
+    <div class="notification is-success">
+        <p>{{ $message }}</p>
+    </div>
+    @endif
+    @if ($errors->any())
+    <div class="notification is-danger">
+        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+    <div class="center-div contactus">
         <section class="mb-4">
             <div class="hero-body">
                 <div class="container has-text-centered">
@@ -14,7 +29,7 @@
                         @if (Session::has('flash_message'))
                         <div class="alert alert-success">{{Session::get('flash_message')}}</div>
                         @endif
-                        <form action="{{ route('contactus.store') }}" method="POST">
+                        <form action="{{ route('saveContact') }}" method="POST">
                             {{ csrf_field()}}
                             <div class="column is-two-third has-text-left">
                                 <div class="field">
