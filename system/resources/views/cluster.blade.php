@@ -40,6 +40,20 @@
     padding-left: 20px;
     background: black;
   }
+
+  .legend text {
+    font-size: 14px;
+    font-weight: bold;
+    fill: gray;
+  }
+
+  .legend .legend--male-color {
+    fill: #1e8dfc;
+  }
+
+  .legend .legend--female-color {
+    fill: #fc7e1e;
+  }
 </style>
 <div class="container">
   <article class="message is-warning" style="margin-bottom: 3px">
@@ -75,6 +89,34 @@
     // .call(zoom)
     .attr("viewBox", '10 100 1000 750')
     .attr("height", height);
+  legend = svg.append('g')
+    .attr('class', 'legend');
+
+  male = legend.append('g')
+    .attr('class', 'legend legend--male');
+
+  male.append('rect')
+    .attr('class', 'legend legend--color legend--male-color')
+    .attr('height', '20px')
+    .attr('width', '20px')
+
+  male.append('text')
+    .attr('class', 'legend legend--text')
+    .attr('text-anchor', 'start')
+    .text('Male');
+
+  female = legend.append('g')
+    .attr('class', 'legend legend--female');
+
+  female.append('rect')
+    .attr('class', 'legend legend--color legend--female-color')
+    .attr('height', '20px')
+    .attr('width', '20px')
+
+  female.append('text')
+    .attr('class', 'legend legend--text')
+    .attr('text-anchor', 'start')
+    .text('Female');
 
   d3.json("js/graph.json", function(error, graph) {
     if (error) throw error;
@@ -115,6 +157,7 @@
         }
 
         node.append("text")
+          .attr("class", "text-name")
           .attr("text-anchor", "middle")
           .attr("dy", ".35em")
           .style("display", function(d) {
@@ -126,6 +169,9 @@
             return d.case
           });
       })
+
+
+
     force.on("tick", function() {
       link.attr("x1", function(d) {
           return d.source.x;
@@ -148,16 +194,25 @@
           return d.y;
         });
 
-      d3.selectAll("text").attr("x", function(d) {
+      d3.selectAll("text.text-name").attr("x", function(d) {
           return d.x;
         })
         .attr("y", function(d) {
           return d.y;
         });
-      d3.selectAll("g")
+      d3.selectAll("g.node")
         .on("mouseover", mouseover)
         .on("mousemove", mousemove)
         .on("mouseleave", mouseleave);
+
+      d3.selectAll('.legend--color')
+        .attr('x', width - 100)
+        .attr('y', height - 60);
+      d3.selectAll('.legend--text')
+        .attr('x', width - 100 + 25)
+        .attr('y', height - 60 + 14);
+      d3.select('.legend--female')
+        .attr('transform', 'translate(0' + ',' + 25 + ')');
 
     });
   });
