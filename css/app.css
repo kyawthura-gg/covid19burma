@@ -516,3 +516,8 @@ path:hover {
     width: 100%;
     left: 0;
 }
+
+.contactus h1,
+.contactus label {
+    color: #fff;
+}
