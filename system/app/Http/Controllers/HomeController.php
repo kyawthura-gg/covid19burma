@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use App\Cases;
-use App\Blogs;
+use App\Mail\SendMail;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\App;
+use Illuminate\Http\Request;
+use Mail;
 
 class HomeController extends Controller
 {
@@ -58,9 +60,6 @@ class HomeController extends Controller
             'today_deaths',
             'today_recovered',
         ))->with('i', (request()->input('page', 1) - 1) * 15);
-    }
-    public function todayCase()
-    {
     }
     public function caseStatus($state)
     {
@@ -169,5 +168,22 @@ class HomeController extends Controller
             ->orderBy('confirm_case', 'ASC')
             ->get();
         return response()->json($cases);
+    }
+    public function saveContact(Request $request)
+    {
+        $this->validate($request, [
+            'name'     =>  'required',
+            'email'  =>  'required|email',
+            'message' =>  'required'
+        ]);
+
+        $data = array(
+            'email'      =>  $request->email,
+            'name'      =>  $request->name,
+            'message'   =>   $request->message
+        );
+
+        Mail::to('inquiry@covid19burma.org')->send(new SendMail($data));
+        return back()->with('success', 'Thanks for contacting us!');
     }
 }
