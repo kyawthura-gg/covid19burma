@@ -58,7 +58,7 @@
 <div class="container">
   <article class="message is-warning" style="margin-bottom: 3px">
     <div class="message-body">
-      <strong>Cluster</strong> is still under process.
+      <strong>Last Updated:</strong> 16 May 2020
     </div>
   </article>
   <div class="cluster chart"></div>
