@@ -2,9 +2,6 @@
 
 @section('content')
 <div class="content">
-    <div id="quote" class="help-container" style="display: none">
-        <p style="color:#c9c9f5">🧼လက်ကို ဆပ်ပြာနှင့် ရေဖြင့် မကြာခဏဆေးကြောပါ။</p>
-    </div>
     <div class="sub-tab columns">
         <div class="column is-3">
             <div class="total-box">
@@ -118,7 +115,6 @@
         </div>
     </div>
 </div>
-<script src="./js/quota.js?v=c298c7fa213d"></script>
 <script>
     var urlState = "{{url('reportByState')}}";
     var byStateTitle = "{{trans('home.confirmbystate')}}";

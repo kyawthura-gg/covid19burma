@@ -1082,6 +1082,18 @@
             "gender": "Female",
             "age": "21",
             "value": 15
+        },
+        {
+            "case": 181,
+            "gender": "Female",
+            "age": "52",
+            "value": 15
+        },
+        {
+            "case": 182,
+            "gender": "Male",
+            "age": "32",
+            "value": 15
         }
 
 
@@ -1733,6 +1745,10 @@
     }, {
         "source": 177,
         "target": 179,
+        "value": 2
+    }, {
+        "source": 179,
+        "target": 180,
         "value": 2
     }]
 }

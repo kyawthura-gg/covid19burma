@@ -125,6 +125,10 @@ class HomeController extends Controller
     {
         return view('cluster');
     }
+    public function graphs()
+    {
+        return view('graph');
+    }
     public function contactus()
     {
         return view('contactus');

@@ -31,6 +31,7 @@ Route::get('/news', 'HomeController@news')->name('news');
 Route::get('/about', 'HomeController@about')->name('about');
 Route::get('/cases', 'HomeController@cases')->name('cases');
 Route::get('/cluster', 'HomeController@cluster')->name('cluster');
+Route::get('/graphs', 'HomeController@graphs')->name('graphs');
 Route::get('/contactus', 'HomeController@contactus')->name('contactus');
 Route::get('/dashboard', 'Dashboard\DashboardController@index')->name('dashboard');
 Route::get('/dashboard/blog', 'Dashboard\BlogController@index')->name('blog');

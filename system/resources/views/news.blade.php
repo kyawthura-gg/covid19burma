@@ -2,6 +2,9 @@
 
 @section('content')
 <div class="container">
+    <div id="quote" class="help-container">
+        <p style="color:#c9c9f5">🧼လက်ကို ဆပ်ပြာနှင့် ရေဖြင့် မကြာခဏဆေးကြောပါ။</p>
+    </div>
     <!-- Developers -->
     <div class="columns is-multiline">
         @foreach ($blogs as $blog)
@@ -30,6 +33,7 @@
         </div>
         @endforeach
     </div>
+    <script src="./js/quota.js?v=c298c7fa213d"></script>
     <!-- End Developers -->
 </div>
 @endsection
