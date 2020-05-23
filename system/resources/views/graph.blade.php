@@ -23,4 +23,15 @@
         </div>
     </div>
 </div>
+<script>
+    var urlState = "{{url('reportByState')}}";
+    var byStateTitle = "{{trans('home.confirmbystate')}}";
+    var dailyTitle = "{{trans('home.dailycases')}}";
+    var urlDate = "{{url('reportByDate')}}";
+    var confirmed = "{{trans('home.confirmed')}}";
+    var deaths = "{{trans('home.deaths')}}";
+    var recovered = "{{trans('home.recovered')}}";
+</script>
+<script type="text/javascript" src="{{ asset('js/chartjs/reportByDate.js?v=c298cs6safa8233d')}}"></script>
+<script type="text/javascript" src="{{ asset('js/chartjs/reportByState.js?v=c298cs6safa8233d')}}"></script>
 @endsection
