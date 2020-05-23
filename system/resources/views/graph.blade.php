@@ -51,7 +51,11 @@
     var confirmed = "{{trans('home.confirmed')}}";
     var deaths = "{{trans('home.deaths')}}";
     var recovered = "{{trans('home.recovered')}}";
+    var daily = "{{trans('home.daily')}}";
 </script>
+<script type="text/javascript" src="{{ asset('js/chartjs/caseReport.js?v=c298cs6saafa8233d')}}"></script>
+<script type="text/javascript" src="{{ asset('js/chartjs/deathReport.js?v=c298cs6saafa8233d')}}"></script>
+<script type="text/javascript" src="{{ asset('js/chartjs/recoverReport.js?v=c298acs6saafa8233d')}}"></script>
 <script type="text/javascript" src="{{ asset('js/chartjs/reportByDate.js?v=c298cs6saafa8233d')}}"></script>
 <script type="text/javascript" src="{{ asset('js/chartjs/reportByState.js?v=c298csas6safa8233d')}}"></script>
 @endsection
