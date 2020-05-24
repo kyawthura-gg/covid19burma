@@ -42,9 +42,13 @@ $(document).ready(function () {
                         fontSize: 17,
                     },
                     legend: {
-                        display: true,
-                        labels: {
-                            fontColor: 'white',
+                        display: false,
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function (tooltipItem) {
+                                return tooltipItem.yLabel;
+                            }
                         }
                     },
                     scales: {
