@@ -8,4 +8,5 @@ return [
     'more' => 'နောက်ထပ်',
     'report' => 'Report Issue',
     'myanmar' => 'မြန်မာ',
+    'graphs' => 'ဇယားကွက်များ',
 ];
