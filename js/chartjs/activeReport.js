@@ -1,63 +1,72 @@
 $(document).ready(function () {
-    var Confirm = new Array();
-    var Labels = new Array();
-    var Deaths = new Array();
-    var Recovered = new Array();
+    var DateLabels = new Array();
+    var DailyActive = new Array();
     $(document).ready(function () {
-        $.get(urlState, function (response) {
+        $.get(urlDate, function (response) {
             response.forEach(function (data) {
-                Confirm.push(data.confirm_case);
-                Labels.push(data.state);
-                Deaths.push(data.deaths);
-                Recovered.push(data.recovered);
+                const d = new Date(data.date_confirm);
+                const dtf = new Intl.DateTimeFormat('en', {
+                    year: 'numeric',
+                    month: 'short',
+                    day: '2-digit'
+                })
+                const [{
+                    value: mo
+                }, , {
+                    value: da
+                }, , {
+                    value: ye
+                }] = dtf.formatToParts(d)
+                var confirm_date = `${da} ${mo}`;
+                var confirm_cases = data.confirm_case;
+                var deaths = data.deaths;
+                var recovered = data.recovered;
+                var active = confirm_cases - (deaths + recovered);
+                DateLabels.push(confirm_date);
+                DailyActive.push(active);
             });
-            var progress = document.getElementById('animationProgress');
-            var ctx = document.getElementById('myChart');
+            var progress = document.getElementById('activeAnimationProgress');
+            var ctx = document.getElementById('activeReport').getContext('2d');
             var myChart = new Chart(ctx, {
-                type: 'horizontalBar',
+                type: 'bar',
                 data: {
-                    labels: Labels,
+                    labels: DateLabels,
                     datasets: [{
                         label: confirmed,
                         fill: true,
-                        borderColor: 'hsl(348, 100%, 61%)',
                         backgroundColor: 'hsl(348, 100%, 61%)',
-                        data: Confirm
-                    }, {
-                        label: deaths,
-                        fill: true,
-                        backgroundColor: 'hsl(0, 0%, 86%)',
-                        data: Deaths
-                    }, {
-                        label: recovered,
-                        fill: true,
-                        backgroundColor: 'hsl(171, 100%, 41%)',
-                        data: Recovered
-                    }, ]
+                        data: DailyActive
+                    }]
                 },
                 options: {
                     title: {
                         display: true,
-                        text: byStateTitle,
+                        text: daily + " " + active_tran,
                         fontColor: "white",
                         fontSize: 17,
                     },
                     legend: {
-                        display: true,
-                        labels: {
-                            fontColor: 'white',
+                        display: false,
+                    },
+                    tooltips: {
+                        callbacks: {
+                            label: function (tooltipItem) {
+                                return tooltipItem.yLabel;
+                            }
                         }
                     },
                     scales: {
                         xAxes: [{
+                            stacked: true,
                             gridLines: {
                                 display: false,
                             }
                         }],
                         yAxes: [{
+                            stacked: true,
                             ticks: {
                                 fontColor: "white",
-                                fontSize: 14,
+                                fontSize: 14
                             },
                             gridLines: {
                                 display: false,

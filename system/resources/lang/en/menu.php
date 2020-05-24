@@ -8,4 +8,5 @@ return [
     'more' => 'More',
     'report' => 'Report Issue',
     'myanmar' => 'Myanmar',
+    'graphs' => 'Graphs',
 ];

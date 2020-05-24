@@ -99,6 +99,9 @@
                 <a class="navbar-item" href="{{route('news')}}">
                     {{__('menu.news')}}
                 </a>
+                <a class="navbar-item" href="{{route('graphs')}}">
+                    {{__('menu.graphs')}}
+                </a>
 
                 <div class="navbar-item dropdown">
                     <div class="dropdown-trigger">
