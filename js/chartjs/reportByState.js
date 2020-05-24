@@ -18,10 +18,21 @@ $(document).ready(function () {
                 data: {
                     labels: Labels,
                     datasets: [{
+                        label: confirmed,
                         fill: true,
                         borderColor: 'hsl(348, 100%, 61%)',
                         backgroundColor: 'hsl(348, 100%, 61%)',
                         data: Confirm
+                    }, {
+                        label: deaths,
+                        fill: true,
+                        backgroundColor: 'hsl(0, 0%, 86%)',
+                        data: Deaths
+                    }, {
+                        label: recovered,
+                        fill: true,
+                        backgroundColor: 'hsl(171, 100%, 41%)',
+                        data: Recovered
                     }, ]
                 },
                 options: {
@@ -32,7 +43,10 @@ $(document).ready(function () {
                         fontSize: 17,
                     },
                     legend: {
-                        display: false,
+                        display: true,
+                        labels: {
+                            fontColor: 'white',
+                        }
                     },
                     scales: {
                         xAxes: [{
