@@ -41,7 +41,7 @@ $(document).ready(function () {
                 options: {
                     title: {
                         display: true,
-                        text: dailyTitle,
+                        text: daily + " " + active_tran,
                         fontColor: "white",
                         fontSize: 17,
                     },
