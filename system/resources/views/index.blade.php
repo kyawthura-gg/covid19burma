@@ -4,7 +4,7 @@
 <div class="content">
     <div class="sub-tab columns">
         <div class="column is-3">
-            <div class="total-box">
+            <div class="total-box" data-aos="fade-right" data-aos-delay="200">
                 <div class="columns pb-15">
                     <div class="right-line column">
                         <p class="box-title">{{__('home.total')}} </p>
@@ -47,16 +47,16 @@
                     &nbsp;&nbsp;&nbsp;<p class="box-title">{{__('home.active')}} 😰</p>
                 </div>
             </div>
-            <div class="total-box" style="margin-top: 20px; padding:10px">
+            <div class="total-box" style="margin-top: 20px; padding:10px" data-aos="fade-up" data-aos-delay="500">
                 <canvas id="reportDate" width="400" height="400"></canvas>
                 <progress id="animationProgressDate" max="1" value="0" style="display: none"></progress>
             </div>
         </div>
-        <div class="column is-4">
+        <div class="column is-4" data-aos="fade-up" data-aos-delay="700">
             <x-map :state="$state" />
             <div class="description" style="text-align: left;">
             </div>
-            <div class="status-div">
+            <div class="status-div" data-aos="fade-up" data-aos-delay="1000">
                 <div>
                     <label class="status-label one_10"></label>
                     <p>1 - 10</p>
@@ -75,11 +75,7 @@
                 </div>
             </div>
         </div>
-        <div class="column is-5">
-            <!-- <div class="total-box" style="padding:10px">
-                <canvas id="myChart" width="400" height="480"></canvas>
-                <progress id="animationProgress" max="1" value="0" style="display: none"></progress>
-            </div> -->
+        <div class="column is-5" data-aos="fade-up" data-aos-delay="1400">
             <div class="total-box">
                 <div class="table-container">
                     <table class="table-background-color">

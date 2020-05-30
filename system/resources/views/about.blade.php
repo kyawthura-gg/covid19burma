@@ -4,9 +4,9 @@
 <div class="container">
     <div class="center-div">
         
-            <p align="middle">About Us</p><br/>
-            <p align="justify"> 
-                We are a team of four people. Our team called "Verdant", comprises one experienced UX/UI Designer and three powerful web developers (frontend and backend). Each has different kinds of web development experiences using most modern technologies and languages.
+            <p align="middle" class="is-size-3">About Us</p><br/>
+            <p align="middle"> 
+                Inititative by <a href="mailto:kanaiyaaryal@gmail.com">Kanhaiya Aryal</a> and his friends.
             </p><br/>
         
             <p align="justify">
@@ -15,7 +15,14 @@
 
             <p align="justify">
                 We aim to use technology and make information more accessible to win the fight!
+            </p><br>
+            <p align="middle">
+                If you want to support to us, please click on "Donate".
+            </p><br>
+            <p align="middle">
+                <a href="https://www.paypal.me/kanhaiyaaryal" class="button is-info">Donate</a>
             </p>
+           
     </div>
 </div>
 @endsection
