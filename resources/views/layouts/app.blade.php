@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="{{ asset('fontawesome/css/all.min.css') }}" />
     <link rel='shortcut icon' type='image/x-icon' href='./favicon_black.ico' />
     <link rel="stylesheet" href="./css/bulma.css?v=c298c6f8233d">
-    <link rel="stylesheet" href="./css/app.css?v=cc7fs8aaaaasaaaaaazaaaaaas3aaas2daszd">
+    <link rel="stylesheet" href="./css/app.css?v=cc7f3aaas2daszd">
     <link rel="stylesheet" href="./css/aos.css" />
     <script type="text/javascript" src="{{ asset('js/jquery.js?v=c298c6f82a33d')}}"></script>
     <script type="text/javascript" src="{{ asset('js/chart.min.js?v=c298c6f823a3d')}}"></script>
@@ -91,16 +91,16 @@
 
         <div id="navbarBasicExample" class="is-black navbar-menu">
             <div class="navbar-start hover-anmiated">
-                <a class="navbar-item" href="{{route('index')}}">
+                <a class="navbar-item {{ request()->is('/') ? 'active' : '' }}" href="{{route('index')}}">
                     {{__('menu.home')}}
                 </a>
-                <a class="navbar-item" href="{{route('cluster')}}">
+                <a class="navbar-item {{ request()->is('cluster') ? 'active' : '' }}" href="{{route('cluster')}}">
                     {{__('menu.cluster')}}
                 </a>
-                <a class="navbar-item" href="{{route('news')}}">
+                <a class="navbar-item {{ request()->is('news') ? 'active' : '' }}" href="{{route('news')}}">
                     {{__('menu.news')}}
                 </a>
-                <a class="navbar-item" href="{{route('graphs')}}">
+                <a class="navbar-item {{ request()->is('graphs') ? 'active' : '' }}" href="{{route('graphs')}}">
                     {{__('menu.graphs')}}
                 </a>
 
@@ -117,12 +117,12 @@
                     </div>
                     <div class="dropdown-menu custom-dropmenu">
                         <div class="dropdown-content custom-dropcontent">
-                            <a class="dropdown-item custom-dropdown" href="{{route('contactus')}}">
+                            <a class="dropdown-item custom-dropdown {{ request()->is('contactus') ? 'active' : '' }}" href="{{route('contactus')}}">
                                 <span>
                                     Report an issue
                                 </span>
                             </a>
-                            <a class="dropdown-item custom-dropdown" href="{{route('about')}}">
+                            <a class="dropdown-item custom-dropdown {{ request()->is('about') ? 'active' : '' }}" href="{{route('about')}}">
                                 <span>
                                     {{__('menu.aboutus')}}
                                 </span>

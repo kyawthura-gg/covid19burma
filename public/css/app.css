@@ -215,6 +215,11 @@ path:hover {
     font-size: 19px;
     font-weight: 500;
 }
+.navbar-item.active,
+.custom-dropdown.active {
+    display: flex;
+    border-bottom: 2px solid #fff;
+}
 
 .center-div {
     position: fixed;
@@ -486,7 +491,7 @@ path:hover {
 }
 
 .custom-dropmenu {
-    min-width: 100px;
+    min-width: 150px;
     width: 100%;
     margin-left: 10px;
     margin-top: -8px;
